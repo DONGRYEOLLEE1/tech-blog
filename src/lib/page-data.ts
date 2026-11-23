@@ -1,6 +1,11 @@
 import type { Article, Concept } from './types';
 
 export const latestArticles = (articles: Article[]) => [...articles].sort((a,b) => b.publishedAt.localeCompare(a.publishedAt) || a.id.localeCompare(b.id));
+// The home page's lead article. `articles` must be latest first.
+// A post marked `featured` wins; otherwise the newest post that has a thumbnail, because the lead box is built around its image;
+// with neither, the newest post.
+export const leadArticle = (articles: Article[]): Article | undefined =>
+  articles.find(article => article.featured) ?? articles.find(article => article.hero) ?? articles[0];
 export function conceptIds(conceptId: string, concepts: Concept[]): Set<string> {
   const ids = new Set([conceptId]);
   let changed = true;

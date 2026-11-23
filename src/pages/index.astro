@@ -1,12 +1,12 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { getArticles, getConcepts } from '../lib/content';
-import { latestArticles, articlesForConcept } from '../lib/page-data';
+import { latestArticles, leadArticle, articlesForConcept } from '../lib/page-data';
 import { SITE } from '../lib/site';
 import type { Concept } from '../lib/types';
 const articles = latestArticles(getArticles());
 const concepts = getConcepts();
-const lead = articles.find(article => article.featured) ?? articles[0];
+const lead = leadArticle(articles);
 const recent = articles.filter(article => article.id !== lead?.id).slice(0, 8);
 const selectedTopics = ['reasoning-efficiency','korean-ocr','reranking','qlora','speculative-decoding','agent'];
 const topics = selectedTopics.map(id => concepts.find(concept => concept.id === id)).filter((concept): concept is Concept => Boolean(concept && articlesForConcept(concept.id,articles,concepts).length > 0));

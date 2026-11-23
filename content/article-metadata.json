@@ -1758,7 +1758,6 @@
         "role": "about"
       }
     ],
-    "featured": true,
     "hero": {
       "src": "/assets/research/in-browser-spine-reader/figures/thumbnail_matching_outcomes.webp",
       "alt": "False confirmations when the correct title was absent: 51.3% with the first reranker and 0.4% with the revised reranker on 3,249 synthetic spines (in-sample).",
