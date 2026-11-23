@@ -53,3 +53,12 @@ test('the published site leads with its newest post that has a thumbnail', { ski
     assert.equal(article.hero, undefined, `${article.id} is newer than the lead and has a thumbnail`);
   }
 });
+
+test('every thumbnail is an image of its own article body', { skip: !existsSync('generated/registry.json') }, () => {
+  const registry = JSON.parse(readFileSync('generated/registry.json', 'utf8'));
+  const articles = Array.isArray(registry) ? registry : registry.articles;
+  const withHero = articles.filter((article) => article.hero);
+  assert.ok(withHero.length > 0);
+  for (const article of withHero)
+    assert.ok(article.html.includes(`src="${article.hero.src}"`), `${article.id}: ${article.hero.src} is not in the article body`);
+});

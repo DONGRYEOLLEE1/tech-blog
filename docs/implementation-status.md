@@ -48,6 +48,8 @@ Astro 빌드와 배포는 Vercel에서 진행한다. `main`은 Production으로,
 
 홈 대표 글(2026-11-23, `feat/home-lead-latest`)은 더 이상 한 글에 고정하지 않는다. `featured`로 지정한 글이 있으면 그 글, 없으면 썸네일이 있는 가장 최신 글, 그것도 없으면 가장 최신 글을 쓴다(`leadArticle`, `tests/home-lead.test.mjs`). 대표 칸이 큰 그림을 전제로 한 자리여서 썸네일 없는 글은 대표가 되지 않고 "최근 글" 목록에 최신순으로 나온다. 책등 판독기 글의 `featured` 지정은 제거했다.
 
+대문 이미지(2026-11-23, `fix/hero-from-article-figure`)는 본문에 실제로 들어 있는 이미지만 쓴다. 대문 전용으로 따로 그렸던 그림 두 장(책등 판독기 글, 연관 글 그래프 구축기)을 본문 그림으로 바꾸고 파일을 지웠다. `tools/content/build.mjs`가 `hero.src`와 같은 경로의 `<img>`가 본문에 없으면 오류로 멈춘다. 규칙은 저장소의 `CLAUDE.md`에 적었다.
+
 ## 최종 통합 검증
 
 프로덕션 형태와 Vercel Preview 환경 분기를 각각 빌드해 통과했다. Preview에서는 HTML noindex와 robots 차단을 전수 확인했다. 테스트용 origin으로 118개 이전 주소 연결 페이지의 생성도 확인했으며 테스트 산출물은 제거했다. 실제 계정 배포는 수행하지 않았다.

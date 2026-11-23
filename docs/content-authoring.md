@@ -16,7 +16,7 @@
 | language | 실제 본문 기준 ko 또는 en |
 | contentType | research / paper-review / implementation / troubleshooting / note |
 | conceptRefs | 존재하는 개념 ID와 about / applies 역할 |
-| hero | 선택. src·alt·kind(photo/figure) |
+| hero | 선택. src·alt·kind(photo/figure). src는 본문에 실제로 들어 있는 이미지여야 하며, 아니면 빌드가 실패한다 |
 | featured | 홈 대표 글을 직접 고정할 때만 true. 지정한 글이 없으면 썸네일(hero)이 있는 가장 최신 글이 대표가 된다 |
 
 날짜는 front matter 또는 파일명에서 읽고 실제 게시 의미를 유지한다. 수정일은 내용 변경을 확인한 경우만 지정하며 재배포일로 덮어쓰지 않는다. published: false인 글은 공개 글·검색·추천·feed·sitemap에서 제외해야 한다.
