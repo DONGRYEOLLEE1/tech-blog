@@ -1,144 +1,180 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 1769" width="640" height="1769" font-family="'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif" role="img" aria-labelledby="t d">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 1736" width="640" height="1736" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" role="img" aria-labelledby="t d">
 <title id="t">Publish-time architecture of the related-articles pipeline</title>
 <desc id="d">Posts are split into blocks; google/gemini-embedding-2 embeds blocks and openai/gpt-6-luna extracts facts and reranks candidates, both through OpenRouter at publish time; a graph ranker, a lexical ranker and an embedding ranker propose up to 15 candidates; one JSON record per post is committed to Git; the build checks the records without API keys and renders a static site.</desc>
-<rect width="640" height="1769" rx="14" fill="#f2f2ef"/>
-<rect x="24" y="30" width="12" height="12" rx="2" fill="#2a78d6"/>
-<text x="46" y="42" font-size="17" font-weight="700" fill="#0b0b0b" data-max="616" xml:space="preserve">Publish time: on the publishing machine, with API keys</text>
-<rect x="24" y="55.5" width="93.7" height="26" rx="6" fill="#2a78d6"/>
-<text x="70.9" y="74" font-size="16" font-weight="700" fill="#ffffff" text-anchor="middle" data-max="114.7" data-min="27" xml:space="preserve">model id</text>
-<text x="127.7" y="74" font-size="17" font-weight="400" fill="#52514e" data-max="616" xml:space="preserve">this step calls that model through OpenRouter</text>
-<rect x="24" y="96" width="592" height="113" rx="10" fill="#ffffff" stroke="#d7d6cf" stroke-width="1.2"/>
-<text x="40" y="125" font-size="18" font-weight="700" fill="#0b0b0b" data-max="604" xml:space="preserve">Posts and blocks</text>
-<text x="40" y="150" font-size="17" font-weight="400" fill="#52514e" data-max="604" xml:space="preserve">113 Markdown posts, cut into blocks: one paragraph, code block,</text>
-<text x="40" y="173" font-size="17" font-weight="400" fill="#52514e" data-max="604" xml:space="preserve">table row, caption or list item, at most 480 characters, with a</text>
-<text x="40" y="196" font-size="17" font-weight="400" fill="#52514e" data-max="604" xml:space="preserve">SHA-256 of its text; 3,826 blocks in use</text>
-<path d="M164 271L159.3 262L168.7 262Z" fill="#6b6a65"/>
-<path d="M164 209L164 263.4" fill="none" stroke="#6b6a65" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="butt"/>
-<text x="176" y="235" font-size="17" font-weight="400" fill="#52514e" data-max="314" xml:space="preserve">all blocks,</text>
-<text x="176" y="257" font-size="17" font-weight="400" fill="#52514e" data-max="314" xml:space="preserve">concept list</text>
-<path d="M476 271L471.3 262L480.7 262Z" fill="#6b6a65"/>
-<path d="M476 209L476 263.4" fill="none" stroke="#6b6a65" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="butt"/>
-<text x="488" y="235" font-size="17" font-weight="400" fill="#52514e" data-max="616" xml:space="preserve">blocks not yet</text>
-<text x="488" y="257" font-size="17" font-weight="400" fill="#52514e" data-max="616" xml:space="preserve">in the cache</text>
-<rect x="24" y="271" width="280" height="149" rx="10" fill="#ffffff" stroke="#2a78d6" stroke-width="2"/>
-<text x="40" y="300" font-size="18" font-weight="700" fill="#0b0b0b" data-max="292" xml:space="preserve">Fact extraction</text>
-<rect x="40" y="311" width="164.9" height="26" rx="6" fill="#2a78d6"/>
-<text x="122.4" y="329.5" font-size="16" font-weight="700" fill="#ffffff" text-anchor="middle" data-max="201.9" data-min="43" xml:space="preserve">openai/gpt-6-luna</text>
-<text x="40" y="361" font-size="17" font-weight="400" fill="#52514e" data-max="292" xml:space="preserve">1 call per post; up to 6</text>
-<text x="40" y="384" font-size="17" font-weight="400" fill="#52514e" data-max="292" xml:space="preserve">facts: a concept, about or</text>
-<text x="40" y="407" font-size="17" font-weight="400" fill="#52514e" data-max="292" xml:space="preserve">applies, one supporting block</text>
-<rect x="336" y="271" width="280" height="149" rx="10" fill="#ffffff" stroke="#2a78d6" stroke-width="2"/>
-<text x="352" y="300" font-size="18" font-weight="700" fill="#0b0b0b" data-max="604" xml:space="preserve">Block embeddings</text>
-<rect x="352" y="311" width="245.1" height="26" rx="6" fill="#2a78d6"/>
-<text x="474.5" y="329.5" font-size="16" font-weight="700" fill="#ffffff" text-anchor="middle" data-max="594.1" data-min="355" xml:space="preserve">google/gemini-embedding-2</text>
-<text x="352" y="361" font-size="17" font-weight="400" fill="#52514e" data-max="604" xml:space="preserve">one 768-dimension vector</text>
-<text x="352" y="384" font-size="17" font-weight="400" fill="#52514e" data-max="604" xml:space="preserve">per distinct block input;</text>
-<text x="352" y="407" font-size="17" font-weight="400" fill="#52514e" data-max="604" xml:space="preserve">cached inputs are not sent</text>
-<path d="M164 464L159.3 455L168.7 455Z" fill="#6b6a65"/>
-<path d="M164 420L164 456.4" fill="none" stroke="#6b6a65" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="butt"/>
-<text x="176" y="448" font-size="17" font-weight="400" fill="#52514e" data-max="314" xml:space="preserve">23 new links</text>
-<path d="M476 464L471.8 456L480.2 456Z" fill="#6b6a65"/>
-<path d="M476 420L480.2 428L471.8 428Z" fill="#6b6a65"/>
-<path d="M476 426.8L476 457.2" fill="none" stroke="#6b6a65" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="butt"/>
-<text x="488" y="448" font-size="17" font-weight="400" fill="#52514e" data-max="616" xml:space="preserve">vectors</text>
-<rect x="24" y="464" width="280" height="136" rx="10" fill="#ffffff" stroke="#d7d6cf" stroke-width="1.2"/>
-<text x="40" y="493" font-size="18" font-weight="700" fill="#0b0b0b" data-max="292" xml:space="preserve">Links between posts</text>
-<text x="40" y="518" font-size="17" font-weight="400" fill="#52514e" data-max="292" xml:space="preserve">211 concept links in the</text>
-<text x="40" y="541" font-size="17" font-weight="400" fill="#52514e" data-max="292" xml:space="preserve">post metadata + 23 extracted</text>
-<text x="40" y="564" font-size="17" font-weight="400" fill="#52514e" data-max="292" xml:space="preserve">= 234; links in the text;</text>
-<text x="40" y="587" font-size="17" font-weight="400" fill="#52514e" data-max="292" xml:space="preserve">series order</text>
-<rect x="336" y="464" width="280" height="136" rx="10" fill="#ffffff" stroke="#d7d6cf" stroke-width="1.2"/>
-<text x="352" y="493" font-size="18" font-weight="700" fill="#0b0b0b" data-max="574" xml:space="preserve">Embedding cache</text>
-<path d="M575 480v15a11 4.5 0 0 0 22 0v-15" fill="#fff" stroke="#52514e" stroke-width="1.5"/><ellipse cx="586" cy="480" rx="11" ry="4.5" fill="#fff" stroke="#52514e" stroke-width="1.5"/><path d="M575 487.5a11 4.5 0 0 0 22 0" fill="none" stroke="#52514e" stroke-width="1.5"/>
-<text x="352" y="518" font-size="17" font-weight="400" fill="#52514e" data-max="604" xml:space="preserve">Postgres + pgvector</text>
-<text x="352" y="541" font-size="17" font-weight="400" fill="#52514e" data-max="604" xml:space="preserve">(Supabase): 3,811 vectors</text>
-<text x="352" y="564" font-size="17" font-weight="400" fill="#52514e" data-max="604" xml:space="preserve">for 3,826 blocks, keyed by</text>
-<text x="352" y="587" font-size="17" font-weight="400" fill="#52514e" data-max="604" xml:space="preserve">input hash; never in Git</text>
-<path d="M120 656L115.3 647L124.7 647Z" fill="#6b6a65"/>
-<path d="M120 600L120 648.4" fill="none" stroke="#6b6a65" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="butt"/>
-<path d="M520 656L515.3 647L524.7 647Z" fill="#6b6a65"/>
-<path d="M520 600L520 648.4" fill="none" stroke="#6b6a65" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="butt"/>
-<path d="M320 656L315.3 647L324.7 647Z" fill="#6b6a65"/>
-<path d="M320 209L320 648.4" fill="none" stroke="#6b6a65" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="butt"/>
-<text x="332" y="634" font-size="17" font-weight="400" fill="#52514e" data-max="514" xml:space="preserve">title, description, body</text>
-<rect x="24" y="656" width="192" height="90" rx="10" fill="#ffffff" stroke="#d7d6cf" stroke-width="1.2"/>
-<text x="36" y="685" font-size="17" font-weight="700" fill="#0b0b0b" data-max="204" xml:space="preserve">Graph ranker</text>
-<text x="36" y="710" font-size="17" font-weight="400" fill="#52514e" data-max="204" xml:space="preserve">shared concepts,</text>
-<text x="36" y="733" font-size="17" font-weight="400" fill="#52514e" data-max="204" xml:space="preserve">post links, series</text>
-<rect x="224" y="656" width="192" height="90" rx="10" fill="#ffffff" stroke="#d7d6cf" stroke-width="1.2"/>
-<text x="236" y="685" font-size="17" font-weight="700" fill="#0b0b0b" data-max="404" xml:space="preserve">Lexical ranker</text>
-<text x="236" y="710" font-size="17" font-weight="400" fill="#52514e" data-max="404" xml:space="preserve">IDF-weighted</text>
-<text x="236" y="733" font-size="17" font-weight="400" fill="#52514e" data-max="404" xml:space="preserve">Jaccard on words</text>
-<rect x="424" y="656" width="192" height="90" rx="10" fill="#ffffff" stroke="#d7d6cf" stroke-width="1.2"/>
-<text x="436" y="685" font-size="17" font-weight="700" fill="#0b0b0b" data-max="604" xml:space="preserve">Embedding ranker</text>
-<text x="436" y="710" font-size="17" font-weight="400" fill="#52514e" data-max="604" xml:space="preserve">mean of the 3 best</text>
-<text x="436" y="733" font-size="17" font-weight="400" fill="#52514e" data-max="604" xml:space="preserve">block cosines</text>
-<path d="M120 776L115.3 767L124.7 767Z" fill="#6b6a65"/>
-<path d="M120 746L120 768.4" fill="none" stroke="#6b6a65" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="butt"/>
-<path d="M320 776L315.3 767L324.7 767Z" fill="#6b6a65"/>
-<path d="M320 746L320 768.4" fill="none" stroke="#6b6a65" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="butt"/>
-<path d="M520 776L515.3 767L524.7 767Z" fill="#6b6a65"/>
-<path d="M520 746L520 768.4" fill="none" stroke="#6b6a65" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="butt"/>
-<rect x="24" y="776" width="592" height="90" rx="10" fill="#ffffff" stroke="#d7d6cf" stroke-width="1.2"/>
-<text x="40" y="805" font-size="18" font-weight="700" fill="#0b0b0b" data-max="604" xml:space="preserve">Up to 15 candidates per post</text>
-<text x="40" y="830" font-size="17" font-weight="400" fill="#52514e" data-max="604" xml:space="preserve">pins first, then one from each ranker in turn; duplicates and</text>
-<text x="40" y="853" font-size="17" font-weight="400" fill="#52514e" data-max="604" xml:space="preserve">excluded pairs are skipped</text>
-<path d="M164 898L159.3 889L168.7 889Z" fill="#6b6a65"/>
-<path d="M164 866L164 890.4" fill="none" stroke="#6b6a65" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="butt"/>
-<rect x="24" y="898" width="280" height="172" rx="10" fill="#ffffff" stroke="#d7d6cf" stroke-width="1.2"/>
-<text x="40" y="927" font-size="18" font-weight="700" fill="#0b0b0b" data-max="292" xml:space="preserve">Evidence blocks</text>
-<text x="40" y="952" font-size="17" font-weight="400" fill="#52514e" data-max="292" xml:space="preserve">up to 3 blocks per side of</text>
-<text x="40" y="975" font-size="17" font-weight="400" fill="#52514e" data-max="292" xml:space="preserve">each candidate pair: blocks</text>
-<text x="40" y="998" font-size="17" font-weight="400" fill="#52514e" data-max="292" xml:space="preserve">linking to the other post,</text>
-<text x="40" y="1021" font-size="17" font-weight="400" fill="#52514e" data-max="292" xml:space="preserve">fact evidence, then the</text>
-<text x="40" y="1044" font-size="17" font-weight="400" fill="#52514e" data-max="292" xml:space="preserve">nearest by embedding</text>
-<rect x="336" y="898" width="280" height="172" rx="10" fill="#ffffff" stroke="#2a78d6" stroke-width="2"/>
-<text x="352" y="927" font-size="18" font-weight="700" fill="#0b0b0b" data-max="604" xml:space="preserve">Reranking</text>
-<rect x="352" y="938" width="164.9" height="26" rx="6" fill="#2a78d6"/>
-<text x="434.4" y="956.5" font-size="16" font-weight="700" fill="#ffffff" text-anchor="middle" data-max="513.9" data-min="355" xml:space="preserve">openai/gpt-6-luna</text>
-<text x="352" y="988" font-size="17" font-weight="400" fill="#52514e" data-max="604" xml:space="preserve">1 call per post, all its</text>
-<text x="352" y="1011" font-size="17" font-weight="400" fill="#52514e" data-max="604" xml:space="preserve">candidates; 0–4 picks, each</text>
-<text x="352" y="1034" font-size="17" font-weight="400" fill="#52514e" data-max="604" xml:space="preserve">a relation type, one Korean</text>
-<text x="352" y="1057" font-size="17" font-weight="400" fill="#52514e" data-max="604" xml:space="preserve">sentence, 2 block indices</text>
-<path d="M335 984L327 988.2L327 979.8Z" fill="#6b6a65"/>
-<path d="M305 984L328.2 984" fill="none" stroke="#6b6a65" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="butt"/>
-<path d="M476 1102L471.3 1093L480.7 1093Z" fill="#6b6a65"/>
-<path d="M476 1070L476 1094.4" fill="none" stroke="#6b6a65" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="butt"/>
-<rect x="24" y="1102" width="592" height="113" rx="10" fill="#ffffff" stroke="#d7d6cf" stroke-width="1.2"/>
-<text x="40" y="1131" font-size="18" font-weight="700" fill="#0b0b0b" data-max="604" xml:space="preserve">Validation in code</text>
-<text x="40" y="1156" font-size="17" font-weight="400" fill="#52514e" data-max="604" xml:space="preserve">a pick must name a candidate, a relation type allowed for the</text>
-<text x="40" y="1179" font-size="17" font-weight="400" fill="#52514e" data-max="604" xml:space="preserve">pair and two existing blocks; code attaches quotes and hashes.</text>
-<text x="40" y="1202" font-size="17" font-weight="400" fill="#52514e" data-max="604" xml:space="preserve">A rejected answer stores nothing for that post.</text>
-<path d="M320 1259L315.3 1250L324.7 1250Z" fill="#6b6a65"/>
-<path d="M320 1215L320 1251.4" fill="none" stroke="#6b6a65" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="butt"/>
-<text x="332" y="1243" font-size="17" font-weight="400" fill="#52514e" data-max="616" xml:space="preserve">accepted picks</text>
-<rect x="24" y="1259" width="592" height="90" rx="10" fill="#ffffff" stroke="#d7d6cf" stroke-width="1.2"/>
-<text x="40" y="1288" font-size="18" font-weight="700" fill="#0b0b0b" data-max="604" xml:space="preserve">One JSON record per post, committed to Git</text>
-<text x="40" y="1313" font-size="17" font-weight="400" fill="#52514e" data-max="604" xml:space="preserve">facts, candidates with block ids, picks with quoted blocks,</text>
-<text x="40" y="1336" font-size="17" font-weight="400" fill="#52514e" data-max="604" xml:space="preserve">two input hashes, model id and settings</text>
-<path d="M24 1401L616 1401" fill="none" stroke="#0b0b0b" stroke-width="2" stroke-linecap="round" stroke-dasharray="8 6"/>
-<text x="24" y="1389" font-size="17" font-weight="700" fill="#0b0b0b" data-max="580" xml:space="preserve">API keys, vectors and model calls stay above this line</text>
-<rect x="12" y="1417" width="616" height="340" rx="12" fill="#ffffff" stroke="#c3c2b7" stroke-width="1.5"/>
-<rect x="24" y="1439" width="12" height="12" rx="2" fill="#0b0b0b"/>
-<text x="46" y="1451" font-size="17" font-weight="700" fill="#0b0b0b" data-max="616" xml:space="preserve">Site build and page view: no API key, no model, no vectors</text>
-<path d="M596 1469L591.3 1460L600.7 1460Z" fill="#6b6a65"/>
-<path d="M596 1349L596 1461.4" fill="none" stroke="#6b6a65" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="butt"/>
-<rect x="24" y="1469" width="592" height="90" rx="10" fill="#ffffff" stroke="#d7d6cf" stroke-width="1.2"/>
-<text x="40" y="1498" font-size="18" font-weight="700" fill="#0b0b0b" data-max="604" xml:space="preserve">Build-time check</text>
-<text x="40" y="1523" font-size="17" font-weight="400" fill="#52514e" data-max="604" xml:space="preserve">each record against the current text: both input hashes,</text>
-<text x="40" y="1546" font-size="17" font-weight="400" fill="#52514e" data-max="604" xml:space="preserve">quoted blocks, relation types, excluded pairs</text>
-<path d="M164 1589L159.3 1580L168.7 1580Z" fill="#6b6a65"/>
-<path d="M164 1559L164 1581.4" fill="none" stroke="#6b6a65" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="butt"/>
-<path d="M476 1589L471.3 1580L480.7 1580Z" fill="#6b6a65"/>
-<path d="M476 1559L476 1581.4" fill="none" stroke="#6b6a65" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="butt"/>
-<rect x="24" y="1589" width="280" height="90" rx="10" fill="#ffffff" stroke="#d7d6cf" stroke-width="1.2"/>
-<text x="40" y="1618" font-size="18" font-weight="700" fill="#0b0b0b" data-max="292" xml:space="preserve">Record passes</text>
-<text x="40" y="1643" font-size="17" font-weight="400" fill="#52514e" data-max="292" xml:space="preserve">the model-judged list</text>
-<text x="40" y="1666" font-size="17" font-weight="400" fill="#52514e" data-max="292" xml:space="preserve">is shown</text>
-<rect x="336" y="1589" width="280" height="90" rx="10" fill="#ffffff" stroke="#d7d6cf" stroke-width="1.2"/>
-<text x="352" y="1618" font-size="18" font-weight="700" fill="#0b0b0b" data-max="604" xml:space="preserve">Fails, missing or unjudged</text>
-<text x="352" y="1643" font-size="17" font-weight="400" fill="#52514e" data-max="604" xml:space="preserve">the rule-based list is shown,</text>
-<text x="352" y="1666" font-size="17" font-weight="400" fill="#52514e" data-max="604" xml:space="preserve">for that post only</text>
-<text x="24" y="1709" font-size="17" font-weight="400" fill="#52514e" data-max="616" xml:space="preserve">The list and its graph are static HTML and SVG drawn at build time.</text>
-<text x="24" y="1732" font-size="17" font-weight="400" fill="#52514e" data-max="616" xml:space="preserve">A page view calls no model and no API.</text>
+<clipPath id="panel"><rect width="640" height="1736" rx="14"/></clipPath>
+<g clip-path="url(#panel)">
+<rect x="0" y="0" width="640" height="1406" fill="#efece4"/>
+<rect x="0" y="0" width="640" height="106" fill="#e1dccf"/>
+<rect x="0" y="1406" width="640" height="330" fill="#e2ece8"/>
+<rect x="0" y="1406" width="640" height="44" fill="#cbddd6"/>
+<text x="20" y="31" font-size="18" font-weight="400" fill="#45443f" data-max="620" xml:space="preserve"><tspan font-weight="700" fill="#141413">Publish time</tspan>: on the publishing machine, with API keys</text>
+<rect x="21" y="48" width="24" height="18" rx="5" fill="#ffffff" stroke="#1c58ad" stroke-width="2"/>
+<text x="52" y="63" font-size="17" font-weight="700" fill="#141413" xml:space="preserve">model call</text>
+<rect x="143.3" y="43" width="93.8" height="28" rx="7" fill="#1c58ad"/>
+<text x="190.2" y="63" font-size="17" font-weight="700" fill="#ffffff" text-anchor="middle" data-max="234.2" data-min="146.3" xml:space="preserve">model id</text>
+<text x="243.2" y="63" font-size="17" font-weight="400" fill="#45443f" data-max="620" xml:space="preserve">this step calls that model through OpenRouter</text>
+<rect x="20.5" y="75.5" width="25" height="19" rx="5" fill="#f9f7f2" stroke="#c9c5b8" stroke-width="1"/>
+<text x="52" y="91" font-size="17" font-weight="700" fill="#141413" xml:space="preserve">code step</text>
+<rect x="143.8" y="75.5" width="25" height="19" rx="5" fill="#f8eccb" stroke="#d2b25f" stroke-width="1"/>
+<g transform="translate(175.3 76) scale(0.82)"><path d="M1 4.5v13a10 4 0 0 0 20 0v-13" fill="#ffffff" stroke="#141413" stroke-width="1.5" stroke-linejoin="round"/><ellipse cx="11" cy="4.5" rx="10" ry="4" fill="#ffffff" stroke="#141413" stroke-width="1.5" stroke-linejoin="round"/><path d="M1 11a10 4 0 0 0 20 0" fill="none" stroke="#141413" stroke-width="1.5"/></g>
+<g transform="translate(197.3 76) scale(0.82)"><path d="M3 0h10l6 6v16h-16z" fill="#ffffff" stroke="#141413" stroke-width="1.5" stroke-linejoin="round"/><path d="M13 0v6h6" fill="none" stroke="#141413" stroke-width="1.5" stroke-linejoin="round"/><path d="M7 12h8M7 16.5h8" fill="none" stroke="#141413" stroke-width="1.5"/></g>
+<text x="222.3" y="91" font-size="17" font-weight="700" fill="#141413" data-max="620" xml:space="preserve">data store</text>
+<text x="20" y="1394" font-size="17" font-weight="700" fill="#141413" data-max="560" xml:space="preserve">API keys, vectors and model calls stay above this line</text>
+<text x="20" y="1437" font-size="18" font-weight="400" fill="#45443f" data-max="560" xml:space="preserve"><tspan font-weight="700" fill="#141413">Site build and page view</tspan>: no API key, no model, no vectors</text>
+<text x="20" y="1692" font-size="17" font-weight="400" fill="#45443f" data-max="620" xml:space="preserve">The list and its graph are static HTML and SVG drawn at build time.</text>
+<text x="20" y="1714" font-size="17" font-weight="400" fill="#45443f" data-max="620" xml:space="preserve">A page view calls no model and no API.</text>
+<path d="M191 288L186.5 279L195.5 279Z" fill="#5c5b55"/>
+<path data-arrow="1" d="M191 230L191 280.4" fill="none" stroke="#5c5b55" stroke-width="1.5" stroke-linejoin="round"/>
+<path d="M485 288L480.5 279L489.5 279Z" fill="#5c5b55"/>
+<path data-arrow="1" d="M485 230L485 280.4" fill="none" stroke="#5c5b55" stroke-width="1.5" stroke-linejoin="round"/>
+<path d="M191 480L186.5 471L195.5 471Z" fill="#5c5b55"/>
+<path data-arrow="1" d="M191 422L191 472.4" fill="none" stroke="#5c5b55" stroke-width="1.5" stroke-linejoin="round"/>
+<path d="M485 480L480.5 471L489.5 471Z" fill="#5c5b55"/>
+<path d="M485 422L489.5 431L480.5 431Z" fill="#5c5b55"/>
+<path data-arrow="1" d="M485 429.7L485 472.4" fill="none" stroke="#5c5b55" stroke-width="1.5" stroke-linejoin="round"/>
+<path d="M146 668L141.5 659L150.5 659Z" fill="#5c5b55"/>
+<path data-arrow="1" d="M146 610L146 660.4" fill="none" stroke="#5c5b55" stroke-width="1.5" stroke-linejoin="round"/>
+<path d="M530 668L525.5 659L534.5 659Z" fill="#5c5b55"/>
+<path data-arrow="1" d="M530 610L530 660.4" fill="none" stroke="#5c5b55" stroke-width="1.5" stroke-linejoin="round"/>
+<path d="M338 668L333.5 659L342.5 659Z" fill="#5c5b55"/>
+<path data-arrow="1" d="M338 230L338 660.4" fill="none" stroke="#5c5b55" stroke-width="1.5" stroke-linejoin="round"/>
+<path d="M146 778L141.5 769L150.5 769Z" fill="#5c5b55"/>
+<path data-arrow="1" d="M146 754L146 770.4" fill="none" stroke="#5c5b55" stroke-width="1.5" stroke-linejoin="round"/>
+<path d="M338 778L333.5 769L342.5 769Z" fill="#5c5b55"/>
+<path data-arrow="1" d="M338 754L338 770.4" fill="none" stroke="#5c5b55" stroke-width="1.5" stroke-linejoin="round"/>
+<path d="M530 778L525.5 769L534.5 769Z" fill="#5c5b55"/>
+<path data-arrow="1" d="M530 754L530 770.4" fill="none" stroke="#5c5b55" stroke-width="1.5" stroke-linejoin="round"/>
+<path d="M338 888L333.5 879L342.5 879Z" fill="#5c5b55"/>
+<path data-arrow="1" d="M338 864L338 880.4" fill="none" stroke="#5c5b55" stroke-width="1.5" stroke-linejoin="round"/>
+<path d="M338 998L333.5 989L342.5 989Z" fill="#5c5b55"/>
+<path data-arrow="1" d="M338 974L338 990.4" fill="none" stroke="#5c5b55" stroke-width="1.5" stroke-linejoin="round"/>
+<path d="M338 1108L333.5 1099L342.5 1099Z" fill="#5c5b55"/>
+<path data-arrow="1" d="M338 1084L338 1100.4" fill="none" stroke="#5c5b55" stroke-width="1.5" stroke-linejoin="round"/>
+<path d="M338 1274L333.5 1265L342.5 1265Z" fill="#5c5b55"/>
+<path data-arrow="1" d="M338 1216L338 1266.4" fill="none" stroke="#5c5b55" stroke-width="1.5" stroke-linejoin="round"/>
+<path d="M592 1466L587.5 1457L596.5 1457Z" fill="#5c5b55"/>
+<path data-arrow="1" d="M592 1360L592 1458.4" fill="none" stroke="#5c5b55" stroke-width="1.5" stroke-linejoin="round"/>
+<path d="M191 1576L186.5 1567L195.5 1567Z" fill="#5c5b55"/>
+<path data-arrow="1" d="M191 1552L191 1568.4" fill="none" stroke="#5c5b55" stroke-width="1.5" stroke-linejoin="round"/>
+<path d="M485 1576L480.5 1567L489.5 1567Z" fill="#5c5b55"/>
+<path data-arrow="1" d="M485 1552L485 1568.4" fill="none" stroke="#5c5b55" stroke-width="1.5" stroke-linejoin="round"/>
+<rect x="56" y="122" width="564" height="108" rx="10" fill="#f9f7f2" stroke="#c9c5b8" stroke-width="1" data-card="1"/>
+<text x="70" y="149" font-size="18" font-weight="700" fill="#141413" data-max="608" xml:space="preserve">Posts and blocks</text>
+<text x="70" y="173" font-size="17" font-weight="400" fill="#45443f" data-max="608" xml:space="preserve">113 Markdown posts, cut into blocks: one paragraph, code block,</text>
+<text x="70" y="195" font-size="17" font-weight="400" fill="#45443f" data-max="608" xml:space="preserve">table row, caption or list item, at most 480 characters, with a</text>
+<text x="70" y="217" font-size="17" font-weight="400" fill="#45443f" data-max="608" xml:space="preserve">SHA-256 of its text; 3,826 blocks in use</text>
+<rect x="56" y="288" width="270" height="134" rx="10" fill="#ffffff" stroke="#1c58ad" stroke-width="2" data-card="1"/>
+<path d="M156.6 288H316A10 10 0 0 1 326 298V316H165.6A9 9 0 0 1 156.6 307Z" fill="#1c58ad"/>
+<text x="241.3" y="308" font-size="17" font-weight="700" fill="#ffffff" text-anchor="middle" data-max="323" data-min="159.6" xml:space="preserve">openai/gpt-6-luna</text>
+<text x="70" y="341" font-size="18" font-weight="700" fill="#141413" data-max="314" xml:space="preserve">Fact extraction</text>
+<text x="70" y="365" font-size="17" font-weight="400" fill="#45443f" data-max="314" xml:space="preserve">1 call per post; up to 6</text>
+<text x="70" y="387" font-size="17" font-weight="400" fill="#45443f" data-max="314" xml:space="preserve">facts: a concept, about or</text>
+<text x="70" y="409" font-size="17" font-weight="400" fill="#45443f" data-max="314" xml:space="preserve">applies, one supporting block</text>
+<rect x="350" y="288" width="270" height="134" rx="10" fill="#ffffff" stroke="#1c58ad" stroke-width="2" data-card="1"/>
+<path d="M365.4 288H610A10 10 0 0 1 620 298V316H374.4A9 9 0 0 1 365.4 307Z" fill="#1c58ad"/>
+<text x="492.7" y="308" font-size="17" font-weight="700" fill="#ffffff" text-anchor="middle" data-max="617" data-min="368.4" xml:space="preserve">google/gemini-embedding-2</text>
+<text x="364" y="341" font-size="18" font-weight="700" fill="#141413" data-max="608" xml:space="preserve">Block embeddings</text>
+<text x="364" y="365" font-size="17" font-weight="400" fill="#45443f" data-max="608" xml:space="preserve">one 768-dimension vector</text>
+<text x="364" y="387" font-size="17" font-weight="400" fill="#45443f" data-max="608" xml:space="preserve">per distinct block input;</text>
+<text x="364" y="409" font-size="17" font-weight="400" fill="#45443f" data-max="608" xml:space="preserve">cached inputs are not sent</text>
+<rect x="56" y="480" width="270" height="130" rx="10" fill="#f9f7f2" stroke="#c9c5b8" stroke-width="1" data-card="1"/>
+<text x="70" y="507" font-size="18" font-weight="700" fill="#141413" data-max="314" xml:space="preserve">Links between posts</text>
+<text x="70" y="531" font-size="17" font-weight="400" fill="#45443f" data-max="314" xml:space="preserve">211 concept links in the</text>
+<text x="70" y="553" font-size="17" font-weight="400" fill="#45443f" data-max="314" xml:space="preserve">post metadata + 23 extracted</text>
+<text x="70" y="575" font-size="17" font-weight="400" fill="#45443f" data-max="314" xml:space="preserve">= 234; links in the text;</text>
+<text x="70" y="597" font-size="17" font-weight="400" fill="#45443f" data-max="314" xml:space="preserve">series order</text>
+<rect x="350" y="480" width="270" height="130" rx="10" fill="#f8eccb" stroke="#d2b25f" stroke-width="1" data-card="1"/>
+<g transform="translate(584 491)"><path d="M1 4.5v13a10 4 0 0 0 20 0v-13" fill="#ffffff" stroke="#141413" stroke-width="1.5" stroke-linejoin="round"/><ellipse cx="11" cy="4.5" rx="10" ry="4" fill="#ffffff" stroke="#141413" stroke-width="1.5" stroke-linejoin="round"/><path d="M1 11a10 4 0 0 0 20 0" fill="none" stroke="#141413" stroke-width="1.5"/></g>
+<text x="364" y="507" font-size="18" font-weight="700" fill="#141413" data-max="576" xml:space="preserve">Embedding cache</text>
+<text x="364" y="531" font-size="17" font-weight="400" fill="#45443f" data-max="608" xml:space="preserve">Postgres + pgvector</text>
+<text x="364" y="553" font-size="17" font-weight="400" fill="#45443f" data-max="608" xml:space="preserve">(Supabase): 3,811 vectors</text>
+<text x="364" y="575" font-size="17" font-weight="400" fill="#45443f" data-max="608" xml:space="preserve">for 3,826 blocks, keyed by</text>
+<text x="364" y="597" font-size="17" font-weight="400" fill="#45443f" data-max="608" xml:space="preserve">input hash; never in Git</text>
+<rect x="56" y="668" width="180" height="86" rx="10" fill="#f9f7f2" stroke="#c9c5b8" stroke-width="1" data-card="1"/>
+<text x="66" y="695" font-size="17" font-weight="700" fill="#141413" data-max="228" xml:space="preserve">Graph ranker</text>
+<text x="66" y="719" font-size="17" font-weight="400" fill="#45443f" data-max="228" xml:space="preserve">shared concepts,</text>
+<text x="66" y="741" font-size="17" font-weight="400" fill="#45443f" data-max="228" xml:space="preserve">post links, series</text>
+<rect x="248" y="668" width="180" height="86" rx="10" fill="#f9f7f2" stroke="#c9c5b8" stroke-width="1" data-card="1"/>
+<text x="258" y="695" font-size="17" font-weight="700" fill="#141413" data-max="420" xml:space="preserve">Lexical ranker</text>
+<text x="258" y="719" font-size="17" font-weight="400" fill="#45443f" data-max="420" xml:space="preserve">IDF-weighted</text>
+<text x="258" y="741" font-size="17" font-weight="400" fill="#45443f" data-max="420" xml:space="preserve">Jaccard on words</text>
+<rect x="440" y="668" width="180" height="86" rx="10" fill="#f9f7f2" stroke="#c9c5b8" stroke-width="1" data-card="1"/>
+<text x="450" y="695" font-size="17" font-weight="700" fill="#141413" data-max="612" xml:space="preserve">Embedding ranker</text>
+<text x="450" y="719" font-size="17" font-weight="400" fill="#45443f" data-max="612" xml:space="preserve">mean of the 3 best</text>
+<text x="450" y="741" font-size="17" font-weight="400" fill="#45443f" data-max="612" xml:space="preserve">block cosines</text>
+<rect x="56" y="778" width="564" height="86" rx="10" fill="#f9f7f2" stroke="#c9c5b8" stroke-width="1" data-card="1"/>
+<text x="70" y="805" font-size="18" font-weight="700" fill="#141413" data-max="608" xml:space="preserve">Up to 15 candidates per post</text>
+<text x="70" y="829" font-size="17" font-weight="400" fill="#45443f" data-max="608" xml:space="preserve">pins first, then one from each ranker in turn; duplicates and</text>
+<text x="70" y="851" font-size="17" font-weight="400" fill="#45443f" data-max="608" xml:space="preserve">excluded pairs are skipped</text>
+<rect x="56" y="888" width="564" height="86" rx="10" fill="#f9f7f2" stroke="#c9c5b8" stroke-width="1" data-card="1"/>
+<text x="70" y="915" font-size="18" font-weight="700" fill="#141413" data-max="608" xml:space="preserve">Evidence blocks</text>
+<text x="70" y="939" font-size="17" font-weight="400" fill="#45443f" data-max="608" xml:space="preserve">up to 3 blocks per side of each candidate pair: blocks linking to</text>
+<text x="70" y="961" font-size="17" font-weight="400" fill="#45443f" data-max="608" xml:space="preserve">the other post, fact evidence, then the nearest by embedding</text>
+<rect x="56" y="998" width="564" height="86" rx="10" fill="#ffffff" stroke="#1c58ad" stroke-width="2" data-card="1"/>
+<path d="M450.6 998H610A10 10 0 0 1 620 1008V1026H459.6A9 9 0 0 1 450.6 1017Z" fill="#1c58ad"/>
+<text x="535.3" y="1018" font-size="17" font-weight="700" fill="#ffffff" text-anchor="middle" data-max="617" data-min="453.6" xml:space="preserve">openai/gpt-6-luna</text>
+<text x="70" y="1025" font-size="18" font-weight="700" fill="#141413" data-max="440.6" xml:space="preserve">Reranking</text>
+<text x="70" y="1049" font-size="17" font-weight="400" fill="#45443f" data-max="608" xml:space="preserve">1 call per post, all its candidates; 0–4 picks, each a relation</text>
+<text x="70" y="1071" font-size="17" font-weight="400" fill="#45443f" data-max="608" xml:space="preserve">type, one Korean sentence, 2 block indices</text>
+<rect x="56" y="1108" width="564" height="108" rx="10" fill="#f9f7f2" stroke="#c9c5b8" stroke-width="1" data-card="1"/>
+<text x="70" y="1135" font-size="18" font-weight="700" fill="#141413" data-max="608" xml:space="preserve">Validation in code</text>
+<text x="70" y="1159" font-size="17" font-weight="400" fill="#45443f" data-max="608" xml:space="preserve">a pick must name a candidate, a relation type allowed for the</text>
+<text x="70" y="1181" font-size="17" font-weight="400" fill="#45443f" data-max="608" xml:space="preserve">pair and two existing blocks; code attaches quotes and hashes.</text>
+<text x="70" y="1203" font-size="17" font-weight="400" fill="#45443f" data-max="608" xml:space="preserve">A rejected answer stores nothing for that post.</text>
+<rect x="56" y="1274" width="564" height="86" rx="10" fill="#f8eccb" stroke="#d2b25f" stroke-width="1" data-card="1"/>
+<g transform="translate(584 1285)"><path d="M3 0h10l6 6v16h-16z" fill="#ffffff" stroke="#141413" stroke-width="1.5" stroke-linejoin="round"/><path d="M13 0v6h6" fill="none" stroke="#141413" stroke-width="1.5" stroke-linejoin="round"/><path d="M7 12h8M7 16.5h8" fill="none" stroke="#141413" stroke-width="1.5"/></g>
+<text x="70" y="1301" font-size="18" font-weight="700" fill="#141413" data-max="576" xml:space="preserve">One JSON record per post, committed to Git</text>
+<text x="70" y="1325" font-size="17" font-weight="400" fill="#45443f" data-max="608" xml:space="preserve">facts, candidates with block ids, picks with quoted blocks,</text>
+<text x="70" y="1347" font-size="17" font-weight="400" fill="#45443f" data-max="608" xml:space="preserve">two input hashes, model id and settings</text>
+<rect x="56" y="1466" width="564" height="86" rx="10" fill="#f9f7f2" stroke="#b4c8c0" stroke-width="1" data-card="1"/>
+<text x="70" y="1493" font-size="18" font-weight="700" fill="#141413" data-max="608" xml:space="preserve">Build-time check</text>
+<text x="70" y="1517" font-size="17" font-weight="400" fill="#45443f" data-max="608" xml:space="preserve">each record against the current text: both input hashes,</text>
+<text x="70" y="1539" font-size="17" font-weight="400" fill="#45443f" data-max="608" xml:space="preserve">quoted blocks, relation types, excluded pairs</text>
+<rect x="56" y="1576" width="270" height="86" rx="10" fill="#d3ecdd" stroke="#6aa391" stroke-width="1" data-card="1"/>
+<circle cx="78.5" cy="1597" r="8.5" fill="#2c6659"/>
+<path d="M74.6 1597.3L77.4 1600.1L82.6 1594" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="94" y="1603" font-size="18" font-weight="700" fill="#141413" data-max="314" xml:space="preserve">Record passes</text>
+<text x="70" y="1627" font-size="17" font-weight="400" fill="#45443f" data-max="314" xml:space="preserve">the model-judged list</text>
+<text x="70" y="1649" font-size="17" font-weight="400" fill="#45443f" data-max="314" xml:space="preserve">is shown</text>
+<rect x="350" y="1576" width="270" height="86" rx="10" fill="#f7ded6" stroke="#c48c7d" stroke-width="1" data-card="1"/>
+<text x="364" y="1603" font-size="18" font-weight="700" fill="#141413" data-max="608" xml:space="preserve">Fails, missing or unjudged</text>
+<text x="364" y="1627" font-size="17" font-weight="400" fill="#45443f" data-max="608" xml:space="preserve">the rule-based list is shown,</text>
+<text x="364" y="1649" font-size="17" font-weight="400" fill="#45443f" data-max="608" xml:space="preserve">for that post only</text>
+<rect x="95.5" y="244" width="191.1" height="26" rx="13" fill="#fdfcf9" stroke="#c9c5b8" stroke-width="1" data-pill="1"/>
+<text x="191" y="263" font-size="17" font-weight="400" fill="#141413" text-anchor="middle" data-max="283.5" data-min="98.5" data-onarrow="1" xml:space="preserve">all blocks, concept list</text>
+<rect x="371.8" y="244" width="226.4" height="26" rx="13" fill="#fdfcf9" stroke="#c9c5b8" stroke-width="1" data-pill="1"/>
+<text x="485" y="263" font-size="17" font-weight="400" fill="#141413" text-anchor="middle" data-max="595.2" data-min="374.8" data-onarrow="1" xml:space="preserve">blocks not yet in the cache</text>
+<rect x="132.9" y="436" width="116.1" height="26" rx="13" fill="#fdfcf9" stroke="#c9c5b8" stroke-width="1" data-pill="1"/>
+<text x="191" y="455" font-size="17" font-weight="400" fill="#141413" text-anchor="middle" data-max="246.1" data-min="135.9" data-onarrow="1" xml:space="preserve">23 new links</text>
+<rect x="446" y="436" width="78" height="26" rx="13" fill="#fdfcf9" stroke="#c9c5b8" stroke-width="1" data-pill="1"/>
+<text x="485" y="455" font-size="17" font-weight="400" fill="#141413" text-anchor="middle" data-max="521" data-min="449" data-onarrow="1" xml:space="preserve">vectors</text>
+<rect x="242.3" y="624" width="191.4" height="26" rx="13" fill="#fdfcf9" stroke="#c9c5b8" stroke-width="1" data-pill="1"/>
+<text x="338" y="643" font-size="17" font-weight="400" fill="#141413" text-anchor="middle" data-max="430.7" data-min="245.3" data-onarrow="1" xml:space="preserve">title, description, body</text>
+<rect x="268.9" y="1230" width="138.2" height="26" rx="13" fill="#fdfcf9" stroke="#c9c5b8" stroke-width="1" data-pill="1"/>
+<text x="338" y="1249" font-size="17" font-weight="400" fill="#141413" text-anchor="middle" data-max="404.1" data-min="271.9" data-onarrow="1" xml:space="preserve">accepted picks</text>
+<circle cx="31" cy="143" r="13" fill="#141413"/>
+<text x="31" y="149" font-size="17" font-weight="700" fill="#ffffff" text-anchor="middle" data-max="43" data-min="19" xml:space="preserve">1</text>
+<circle cx="31" cy="309" r="13" fill="#141413"/>
+<text x="31" y="315" font-size="17" font-weight="700" fill="#ffffff" text-anchor="middle" data-max="43" data-min="19" xml:space="preserve">2</text>
+<circle cx="31" cy="501" r="13" fill="#141413"/>
+<text x="31" y="507" font-size="17" font-weight="700" fill="#ffffff" text-anchor="middle" data-max="43" data-min="19" xml:space="preserve">3</text>
+<circle cx="31" cy="689" r="13" fill="#141413"/>
+<text x="31" y="695" font-size="17" font-weight="700" fill="#ffffff" text-anchor="middle" data-max="43" data-min="19" xml:space="preserve">4</text>
+<circle cx="31" cy="799" r="13" fill="#141413"/>
+<text x="31" y="805" font-size="17" font-weight="700" fill="#ffffff" text-anchor="middle" data-max="43" data-min="19" xml:space="preserve">5</text>
+<circle cx="31" cy="909" r="13" fill="#141413"/>
+<text x="31" y="915" font-size="17" font-weight="700" fill="#ffffff" text-anchor="middle" data-max="43" data-min="19" xml:space="preserve">6</text>
+<circle cx="31" cy="1019" r="13" fill="#141413"/>
+<text x="31" y="1025" font-size="17" font-weight="700" fill="#ffffff" text-anchor="middle" data-max="43" data-min="19" xml:space="preserve">7</text>
+<circle cx="31" cy="1129" r="13" fill="#141413"/>
+<text x="31" y="1135" font-size="17" font-weight="700" fill="#ffffff" text-anchor="middle" data-max="43" data-min="19" xml:space="preserve">8</text>
+<circle cx="31" cy="1295" r="13" fill="#141413"/>
+<text x="31" y="1301" font-size="17" font-weight="700" fill="#ffffff" text-anchor="middle" data-max="43" data-min="19" xml:space="preserve">9</text>
+<circle cx="31" cy="1487" r="13" fill="#2c6659"/>
+<text x="31" y="1493" font-size="17" font-weight="700" fill="#ffffff" text-anchor="middle" data-max="43" data-min="19" xml:space="preserve">10</text>
+<circle cx="31" cy="1597" r="13" fill="#2c6659"/>
+<text x="31" y="1603" font-size="17" font-weight="700" fill="#ffffff" text-anchor="middle" data-max="43" data-min="19" xml:space="preserve">11</text>
+<path d="M0 1406H640" stroke="#141413" stroke-width="2" stroke-dasharray="6 5" fill="none"/>
+</g>
+<rect x="0.5" y="0.5" width="639" height="1735" rx="13.5" fill="none" stroke="#d4d1c8"/>
 </svg>
