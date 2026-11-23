@@ -1759,8 +1759,8 @@
       }
     ],
     "hero": {
-      "src": "/assets/research/in-browser-spine-reader/figures/thumbnail_matching_outcomes.webp",
-      "alt": "False confirmations when the correct title was absent: 51.3% with the first reranker and 0.4% with the revised reranker on 3,249 synthetic spines (in-sample).",
+      "src": "/assets/research/in-browser-spine-reader/figures/fig11_matching_outcomes.png",
+      "alt": "Matching outcomes with the first and the revised reranker",
       "kind": "figure"
     }
   },
@@ -1784,8 +1784,8 @@
       }
     ],
     "hero": {
-      "src": "/assets/research/related-articles-graph/figures/thumbnail_audit.webp",
-      "alt": "Share of related-article links judged a specific reason to read next: 39.8% for the rule-based list (147 of 369) and 65.0% for the model-reranked list (158 of 243, before any audit-driven correction), judged by LLM agents.",
+      "src": "/assets/research/related-articles-graph/figures/fig_per_article.png",
+      "alt": "One stacked bar over 113 articles: model list better on 64, about equal on 23, rule-based list better on 26",
       "kind": "figure"
     }
   }

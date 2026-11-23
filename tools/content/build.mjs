@@ -270,6 +270,8 @@ export async function loadPublicCorpus() {
     article.html = String(output);
     article.plainText = article.html.replace(/<[^>]+>/g,' ').replace(/&(?:[a-z]+|#\d+);/gi,' ').replace(/\s+/g,' ').trim();
     if (/<(?:script|style|iframe|object|embed)[\s>]/i.test(article.html)) throw new Error(`Unsafe active HTML remains in ${article.sourcePath}`);
+    // The thumbnail must be an image the reader also finds in the article, not one drawn only for the card.
+    if (article.hero && !new RegExp(`<img\\b[^>]*\\ssrc="${article.hero.src.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')}"`).test(article.html)) throw new Error(`Hero image is not an image of the article body: ${article.sourcePath} (${article.hero.src})`);
     if (article.html.includes('katex-error')) report.warnings.push({type:'math-render-error',sourcePath:article.sourcePath});
     for (const message of output.messages) report.warnings.push({type:'markdown-message',sourcePath:article.sourcePath,message:message.reason});
     const outputPath = article.path.startsWith('/research/') ? article.path.replace(/\/$/,'')+'/index.html' : article.path.endsWith('/') ? article.path+'index.html' : article.path.endsWith('.html') ? article.path : article.path+'.html';
