@@ -1,0 +1,433 @@
+configuration,pool,pool_size,cutoff,region,pairs
+as_shipped,useful,202,5,graph only,19
+as_shipped,useful,202,5,lexical only,2
+as_shipped,useful,202,5,embedding only,5
+as_shipped,useful,202,5,graph + lexical,8
+as_shipped,useful,202,5,graph + embedding,29
+as_shipped,useful,202,5,lexical + embedding,18
+as_shipped,useful,202,5,all three,113
+as_shipped,useful,202,5,none,8
+as_shipped,useful,202,10,graph only,11
+as_shipped,useful,202,10,lexical only,2
+as_shipped,useful,202,10,embedding only,1
+as_shipped,useful,202,10,graph + lexical,5
+as_shipped,useful,202,10,graph + embedding,27
+as_shipped,useful,202,10,lexical + embedding,14
+as_shipped,useful,202,10,all three,141
+as_shipped,useful,202,10,none,1
+as_shipped,useful,202,15,graph only,4
+as_shipped,useful,202,15,lexical only,1
+as_shipped,useful,202,15,embedding only,1
+as_shipped,useful,202,15,graph + lexical,4
+as_shipped,useful,202,15,graph + embedding,25
+as_shipped,useful,202,15,lexical + embedding,15
+as_shipped,useful,202,15,all three,152
+as_shipped,useful,202,15,none,0
+as_shipped,useful_model_list,158,5,graph only,15
+as_shipped,useful_model_list,158,5,lexical only,2
+as_shipped,useful_model_list,158,5,embedding only,5
+as_shipped,useful_model_list,158,5,graph + lexical,7
+as_shipped,useful_model_list,158,5,graph + embedding,19
+as_shipped,useful_model_list,158,5,lexical + embedding,18
+as_shipped,useful_model_list,158,5,all three,85
+as_shipped,useful_model_list,158,5,none,7
+as_shipped,useful_model_list,158,10,graph only,8
+as_shipped,useful_model_list,158,10,lexical only,2
+as_shipped,useful_model_list,158,10,embedding only,1
+as_shipped,useful_model_list,158,10,graph + lexical,5
+as_shipped,useful_model_list,158,10,graph + embedding,19
+as_shipped,useful_model_list,158,10,lexical + embedding,14
+as_shipped,useful_model_list,158,10,all three,108
+as_shipped,useful_model_list,158,10,none,1
+as_shipped,useful_model_list,158,15,graph only,3
+as_shipped,useful_model_list,158,15,lexical only,1
+as_shipped,useful_model_list,158,15,embedding only,1
+as_shipped,useful_model_list,158,15,graph + lexical,4
+as_shipped,useful_model_list,158,15,graph + embedding,17
+as_shipped,useful_model_list,158,15,lexical + embedding,15
+as_shipped,useful_model_list,158,15,all three,117
+as_shipped,useful_model_list,158,15,none,0
+as_shipped,useful_rule_list,147,5,graph only,14
+as_shipped,useful_rule_list,147,5,lexical only,0
+as_shipped,useful_rule_list,147,5,embedding only,0
+as_shipped,useful_rule_list,147,5,graph + lexical,7
+as_shipped,useful_rule_list,147,5,graph + embedding,25
+as_shipped,useful_rule_list,147,5,lexical + embedding,0
+as_shipped,useful_rule_list,147,5,all three,100
+as_shipped,useful_rule_list,147,5,none,1
+as_shipped,useful_rule_list,147,10,graph only,7
+as_shipped,useful_rule_list,147,10,lexical only,0
+as_shipped,useful_rule_list,147,10,embedding only,0
+as_shipped,useful_rule_list,147,10,graph + lexical,3
+as_shipped,useful_rule_list,147,10,graph + embedding,21
+as_shipped,useful_rule_list,147,10,lexical + embedding,0
+as_shipped,useful_rule_list,147,10,all three,116
+as_shipped,useful_rule_list,147,10,none,0
+as_shipped,useful_rule_list,147,15,graph only,3
+as_shipped,useful_rule_list,147,15,lexical only,0
+as_shipped,useful_rule_list,147,15,embedding only,0
+as_shipped,useful_rule_list,147,15,graph + lexical,3
+as_shipped,useful_rule_list,147,15,graph + embedding,18
+as_shipped,useful_rule_list,147,15,lexical + embedding,0
+as_shipped,useful_rule_list,147,15,all three,123
+as_shipped,useful_rule_list,147,15,none,0
+as_shipped,broad_field_only,192,5,graph only,77
+as_shipped,broad_field_only,192,5,lexical only,7
+as_shipped,broad_field_only,192,5,embedding only,9
+as_shipped,broad_field_only,192,5,graph + lexical,17
+as_shipped,broad_field_only,192,5,graph + embedding,19
+as_shipped,broad_field_only,192,5,lexical + embedding,5
+as_shipped,broad_field_only,192,5,all three,37
+as_shipped,broad_field_only,192,5,none,21
+as_shipped,broad_field_only,192,10,graph only,61
+as_shipped,broad_field_only,192,10,lexical only,3
+as_shipped,broad_field_only,192,10,embedding only,10
+as_shipped,broad_field_only,192,10,graph + lexical,17
+as_shipped,broad_field_only,192,10,graph + embedding,29
+as_shipped,broad_field_only,192,10,lexical + embedding,11
+as_shipped,broad_field_only,192,10,all three,57
+as_shipped,broad_field_only,192,10,none,4
+as_shipped,broad_field_only,192,15,graph only,35
+as_shipped,broad_field_only,192,15,lexical only,3
+as_shipped,broad_field_only,192,15,embedding only,8
+as_shipped,broad_field_only,192,15,graph + lexical,21
+as_shipped,broad_field_only,192,15,graph + embedding,35
+as_shipped,broad_field_only,192,15,lexical + embedding,11
+as_shipped,broad_field_only,192,15,all three,76
+as_shipped,broad_field_only,192,15,none,3
+as_shipped,broad_field_only_model_list,73,5,graph only,15
+as_shipped,broad_field_only_model_list,73,5,lexical only,7
+as_shipped,broad_field_only_model_list,73,5,embedding only,9
+as_shipped,broad_field_only_model_list,73,5,graph + lexical,2
+as_shipped,broad_field_only_model_list,73,5,graph + embedding,7
+as_shipped,broad_field_only_model_list,73,5,lexical + embedding,4
+as_shipped,broad_field_only_model_list,73,5,all three,9
+as_shipped,broad_field_only_model_list,73,5,none,20
+as_shipped,broad_field_only_model_list,73,10,graph only,13
+as_shipped,broad_field_only_model_list,73,10,lexical only,3
+as_shipped,broad_field_only_model_list,73,10,embedding only,10
+as_shipped,broad_field_only_model_list,73,10,graph + lexical,5
+as_shipped,broad_field_only_model_list,73,10,graph + embedding,8
+as_shipped,broad_field_only_model_list,73,10,lexical + embedding,11
+as_shipped,broad_field_only_model_list,73,10,all three,19
+as_shipped,broad_field_only_model_list,73,10,none,4
+as_shipped,broad_field_only_model_list,73,15,graph only,8
+as_shipped,broad_field_only_model_list,73,15,lexical only,3
+as_shipped,broad_field_only_model_list,73,15,embedding only,8
+as_shipped,broad_field_only_model_list,73,15,graph + lexical,6
+as_shipped,broad_field_only_model_list,73,15,graph + embedding,8
+as_shipped,broad_field_only_model_list,73,15,lexical + embedding,11
+as_shipped,broad_field_only_model_list,73,15,all three,26
+as_shipped,broad_field_only_model_list,73,15,none,3
+as_shipped,broad_field_only_rule_list,149,5,graph only,74
+as_shipped,broad_field_only_rule_list,149,5,lexical only,0
+as_shipped,broad_field_only_rule_list,149,5,embedding only,0
+as_shipped,broad_field_only_rule_list,149,5,graph + lexical,17
+as_shipped,broad_field_only_rule_list,149,5,graph + embedding,16
+as_shipped,broad_field_only_rule_list,149,5,lexical + embedding,1
+as_shipped,broad_field_only_rule_list,149,5,all three,36
+as_shipped,broad_field_only_rule_list,149,5,none,5
+as_shipped,broad_field_only_rule_list,149,10,graph only,54
+as_shipped,broad_field_only_rule_list,149,10,lexical only,0
+as_shipped,broad_field_only_rule_list,149,10,embedding only,0
+as_shipped,broad_field_only_rule_list,149,10,graph + lexical,15
+as_shipped,broad_field_only_rule_list,149,10,graph + embedding,26
+as_shipped,broad_field_only_rule_list,149,10,lexical + embedding,0
+as_shipped,broad_field_only_rule_list,149,10,all three,51
+as_shipped,broad_field_only_rule_list,149,10,none,3
+as_shipped,broad_field_only_rule_list,149,15,graph only,30
+as_shipped,broad_field_only_rule_list,149,15,lexical only,0
+as_shipped,broad_field_only_rule_list,149,15,embedding only,0
+as_shipped,broad_field_only_rule_list,149,15,graph + lexical,21
+as_shipped,broad_field_only_rule_list,149,15,graph + embedding,32
+as_shipped,broad_field_only_rule_list,149,15,lexical + embedding,0
+as_shipped,broad_field_only_rule_list,149,15,all three,63
+as_shipped,broad_field_only_rule_list,149,15,none,3
+as_shipped,unrelated,83,5,graph only,53
+as_shipped,unrelated,83,5,lexical only,1
+as_shipped,unrelated,83,5,embedding only,2
+as_shipped,unrelated,83,5,graph + lexical,2
+as_shipped,unrelated,83,5,graph + embedding,5
+as_shipped,unrelated,83,5,lexical + embedding,0
+as_shipped,unrelated,83,5,all three,4
+as_shipped,unrelated,83,5,none,16
+as_shipped,unrelated,83,10,graph only,47
+as_shipped,unrelated,83,10,lexical only,0
+as_shipped,unrelated,83,10,embedding only,0
+as_shipped,unrelated,83,10,graph + lexical,5
+as_shipped,unrelated,83,10,graph + embedding,8
+as_shipped,unrelated,83,10,lexical + embedding,0
+as_shipped,unrelated,83,10,all three,9
+as_shipped,unrelated,83,10,none,14
+as_shipped,unrelated,83,15,graph only,41
+as_shipped,unrelated,83,15,lexical only,0
+as_shipped,unrelated,83,15,embedding only,0
+as_shipped,unrelated,83,15,graph + lexical,5
+as_shipped,unrelated,83,15,graph + embedding,12
+as_shipped,unrelated,83,15,lexical + embedding,0
+as_shipped,unrelated,83,15,all three,11
+as_shipped,unrelated,83,15,none,14
+as_shipped,unrelated_model_list,12,5,graph only,0
+as_shipped,unrelated_model_list,12,5,lexical only,0
+as_shipped,unrelated_model_list,12,5,embedding only,0
+as_shipped,unrelated_model_list,12,5,graph + lexical,0
+as_shipped,unrelated_model_list,12,5,graph + embedding,0
+as_shipped,unrelated_model_list,12,5,lexical + embedding,0
+as_shipped,unrelated_model_list,12,5,all three,0
+as_shipped,unrelated_model_list,12,5,none,12
+as_shipped,unrelated_model_list,12,10,graph only,0
+as_shipped,unrelated_model_list,12,10,lexical only,0
+as_shipped,unrelated_model_list,12,10,embedding only,0
+as_shipped,unrelated_model_list,12,10,graph + lexical,0
+as_shipped,unrelated_model_list,12,10,graph + embedding,0
+as_shipped,unrelated_model_list,12,10,lexical + embedding,0
+as_shipped,unrelated_model_list,12,10,all three,0
+as_shipped,unrelated_model_list,12,10,none,12
+as_shipped,unrelated_model_list,12,15,graph only,0
+as_shipped,unrelated_model_list,12,15,lexical only,0
+as_shipped,unrelated_model_list,12,15,embedding only,0
+as_shipped,unrelated_model_list,12,15,graph + lexical,0
+as_shipped,unrelated_model_list,12,15,graph + embedding,0
+as_shipped,unrelated_model_list,12,15,lexical + embedding,0
+as_shipped,unrelated_model_list,12,15,all three,0
+as_shipped,unrelated_model_list,12,15,none,12
+as_shipped,unrelated_rule_list,73,5,graph only,53
+as_shipped,unrelated_rule_list,73,5,lexical only,1
+as_shipped,unrelated_rule_list,73,5,embedding only,2
+as_shipped,unrelated_rule_list,73,5,graph + lexical,2
+as_shipped,unrelated_rule_list,73,5,graph + embedding,5
+as_shipped,unrelated_rule_list,73,5,lexical + embedding,0
+as_shipped,unrelated_rule_list,73,5,all three,4
+as_shipped,unrelated_rule_list,73,5,none,6
+as_shipped,unrelated_rule_list,73,10,graph only,47
+as_shipped,unrelated_rule_list,73,10,lexical only,0
+as_shipped,unrelated_rule_list,73,10,embedding only,0
+as_shipped,unrelated_rule_list,73,10,graph + lexical,5
+as_shipped,unrelated_rule_list,73,10,graph + embedding,8
+as_shipped,unrelated_rule_list,73,10,lexical + embedding,0
+as_shipped,unrelated_rule_list,73,10,all three,9
+as_shipped,unrelated_rule_list,73,10,none,4
+as_shipped,unrelated_rule_list,73,15,graph only,41
+as_shipped,unrelated_rule_list,73,15,lexical only,0
+as_shipped,unrelated_rule_list,73,15,embedding only,0
+as_shipped,unrelated_rule_list,73,15,graph + lexical,5
+as_shipped,unrelated_rule_list,73,15,graph + embedding,12
+as_shipped,unrelated_rule_list,73,15,lexical + embedding,0
+as_shipped,unrelated_rule_list,73,15,all three,11
+as_shipped,unrelated_rule_list,73,15,none,4
+as_audited,useful,202,5,graph only,19
+as_audited,useful,202,5,lexical only,2
+as_audited,useful,202,5,embedding only,7
+as_audited,useful,202,5,graph + lexical,8
+as_audited,useful,202,5,graph + embedding,27
+as_audited,useful,202,5,lexical + embedding,18
+as_audited,useful,202,5,all three,113
+as_audited,useful,202,5,none,8
+as_audited,useful,202,10,graph only,11
+as_audited,useful,202,10,lexical only,2
+as_audited,useful,202,10,embedding only,1
+as_audited,useful,202,10,graph + lexical,5
+as_audited,useful,202,10,graph + embedding,27
+as_audited,useful,202,10,lexical + embedding,14
+as_audited,useful,202,10,all three,141
+as_audited,useful,202,10,none,1
+as_audited,useful,202,15,graph only,4
+as_audited,useful,202,15,lexical only,1
+as_audited,useful,202,15,embedding only,1
+as_audited,useful,202,15,graph + lexical,4
+as_audited,useful,202,15,graph + embedding,26
+as_audited,useful,202,15,lexical + embedding,15
+as_audited,useful,202,15,all three,151
+as_audited,useful,202,15,none,0
+as_audited,useful_model_list,158,5,graph only,15
+as_audited,useful_model_list,158,5,lexical only,2
+as_audited,useful_model_list,158,5,embedding only,7
+as_audited,useful_model_list,158,5,graph + lexical,7
+as_audited,useful_model_list,158,5,graph + embedding,17
+as_audited,useful_model_list,158,5,lexical + embedding,18
+as_audited,useful_model_list,158,5,all three,85
+as_audited,useful_model_list,158,5,none,7
+as_audited,useful_model_list,158,10,graph only,8
+as_audited,useful_model_list,158,10,lexical only,2
+as_audited,useful_model_list,158,10,embedding only,1
+as_audited,useful_model_list,158,10,graph + lexical,5
+as_audited,useful_model_list,158,10,graph + embedding,19
+as_audited,useful_model_list,158,10,lexical + embedding,14
+as_audited,useful_model_list,158,10,all three,108
+as_audited,useful_model_list,158,10,none,1
+as_audited,useful_model_list,158,15,graph only,3
+as_audited,useful_model_list,158,15,lexical only,1
+as_audited,useful_model_list,158,15,embedding only,1
+as_audited,useful_model_list,158,15,graph + lexical,4
+as_audited,useful_model_list,158,15,graph + embedding,18
+as_audited,useful_model_list,158,15,lexical + embedding,15
+as_audited,useful_model_list,158,15,all three,116
+as_audited,useful_model_list,158,15,none,0
+as_audited,useful_rule_list,147,5,graph only,14
+as_audited,useful_rule_list,147,5,lexical only,0
+as_audited,useful_rule_list,147,5,embedding only,0
+as_audited,useful_rule_list,147,5,graph + lexical,7
+as_audited,useful_rule_list,147,5,graph + embedding,25
+as_audited,useful_rule_list,147,5,lexical + embedding,0
+as_audited,useful_rule_list,147,5,all three,100
+as_audited,useful_rule_list,147,5,none,1
+as_audited,useful_rule_list,147,10,graph only,7
+as_audited,useful_rule_list,147,10,lexical only,0
+as_audited,useful_rule_list,147,10,embedding only,0
+as_audited,useful_rule_list,147,10,graph + lexical,3
+as_audited,useful_rule_list,147,10,graph + embedding,21
+as_audited,useful_rule_list,147,10,lexical + embedding,0
+as_audited,useful_rule_list,147,10,all three,116
+as_audited,useful_rule_list,147,10,none,0
+as_audited,useful_rule_list,147,15,graph only,3
+as_audited,useful_rule_list,147,15,lexical only,0
+as_audited,useful_rule_list,147,15,embedding only,0
+as_audited,useful_rule_list,147,15,graph + lexical,3
+as_audited,useful_rule_list,147,15,graph + embedding,18
+as_audited,useful_rule_list,147,15,lexical + embedding,0
+as_audited,useful_rule_list,147,15,all three,123
+as_audited,useful_rule_list,147,15,none,0
+as_audited,broad_field_only,192,5,graph only,79
+as_audited,broad_field_only,192,5,lexical only,7
+as_audited,broad_field_only,192,5,embedding only,9
+as_audited,broad_field_only,192,5,graph + lexical,17
+as_audited,broad_field_only,192,5,graph + embedding,20
+as_audited,broad_field_only,192,5,lexical + embedding,5
+as_audited,broad_field_only,192,5,all three,37
+as_audited,broad_field_only,192,5,none,18
+as_audited,broad_field_only,192,10,graph only,63
+as_audited,broad_field_only,192,10,lexical only,3
+as_audited,broad_field_only,192,10,embedding only,10
+as_audited,broad_field_only,192,10,graph + lexical,17
+as_audited,broad_field_only,192,10,graph + embedding,30
+as_audited,broad_field_only,192,10,lexical + embedding,11
+as_audited,broad_field_only,192,10,all three,57
+as_audited,broad_field_only,192,10,none,1
+as_audited,broad_field_only,192,15,graph only,36
+as_audited,broad_field_only,192,15,lexical only,3
+as_audited,broad_field_only,192,15,embedding only,8
+as_audited,broad_field_only,192,15,graph + lexical,21
+as_audited,broad_field_only,192,15,graph + embedding,37
+as_audited,broad_field_only,192,15,lexical + embedding,11
+as_audited,broad_field_only,192,15,all three,76
+as_audited,broad_field_only,192,15,none,0
+as_audited,broad_field_only_model_list,73,5,graph only,17
+as_audited,broad_field_only_model_list,73,5,lexical only,7
+as_audited,broad_field_only_model_list,73,5,embedding only,9
+as_audited,broad_field_only_model_list,73,5,graph + lexical,2
+as_audited,broad_field_only_model_list,73,5,graph + embedding,8
+as_audited,broad_field_only_model_list,73,5,lexical + embedding,4
+as_audited,broad_field_only_model_list,73,5,all three,9
+as_audited,broad_field_only_model_list,73,5,none,17
+as_audited,broad_field_only_model_list,73,10,graph only,15
+as_audited,broad_field_only_model_list,73,10,lexical only,3
+as_audited,broad_field_only_model_list,73,10,embedding only,10
+as_audited,broad_field_only_model_list,73,10,graph + lexical,5
+as_audited,broad_field_only_model_list,73,10,graph + embedding,9
+as_audited,broad_field_only_model_list,73,10,lexical + embedding,11
+as_audited,broad_field_only_model_list,73,10,all three,19
+as_audited,broad_field_only_model_list,73,10,none,1
+as_audited,broad_field_only_model_list,73,15,graph only,9
+as_audited,broad_field_only_model_list,73,15,lexical only,3
+as_audited,broad_field_only_model_list,73,15,embedding only,8
+as_audited,broad_field_only_model_list,73,15,graph + lexical,6
+as_audited,broad_field_only_model_list,73,15,graph + embedding,10
+as_audited,broad_field_only_model_list,73,15,lexical + embedding,11
+as_audited,broad_field_only_model_list,73,15,all three,26
+as_audited,broad_field_only_model_list,73,15,none,0
+as_audited,broad_field_only_rule_list,149,5,graph only,76
+as_audited,broad_field_only_rule_list,149,5,lexical only,0
+as_audited,broad_field_only_rule_list,149,5,embedding only,0
+as_audited,broad_field_only_rule_list,149,5,graph + lexical,17
+as_audited,broad_field_only_rule_list,149,5,graph + embedding,17
+as_audited,broad_field_only_rule_list,149,5,lexical + embedding,1
+as_audited,broad_field_only_rule_list,149,5,all three,36
+as_audited,broad_field_only_rule_list,149,5,none,2
+as_audited,broad_field_only_rule_list,149,10,graph only,56
+as_audited,broad_field_only_rule_list,149,10,lexical only,0
+as_audited,broad_field_only_rule_list,149,10,embedding only,0
+as_audited,broad_field_only_rule_list,149,10,graph + lexical,15
+as_audited,broad_field_only_rule_list,149,10,graph + embedding,27
+as_audited,broad_field_only_rule_list,149,10,lexical + embedding,0
+as_audited,broad_field_only_rule_list,149,10,all three,51
+as_audited,broad_field_only_rule_list,149,10,none,0
+as_audited,broad_field_only_rule_list,149,15,graph only,31
+as_audited,broad_field_only_rule_list,149,15,lexical only,0
+as_audited,broad_field_only_rule_list,149,15,embedding only,0
+as_audited,broad_field_only_rule_list,149,15,graph + lexical,21
+as_audited,broad_field_only_rule_list,149,15,graph + embedding,34
+as_audited,broad_field_only_rule_list,149,15,lexical + embedding,0
+as_audited,broad_field_only_rule_list,149,15,all three,63
+as_audited,broad_field_only_rule_list,149,15,none,0
+as_audited,unrelated,83,5,graph only,56
+as_audited,unrelated,83,5,lexical only,3
+as_audited,unrelated,83,5,embedding only,5
+as_audited,unrelated,83,5,graph + lexical,2
+as_audited,unrelated,83,5,graph + embedding,6
+as_audited,unrelated,83,5,lexical + embedding,1
+as_audited,unrelated,83,5,all three,4
+as_audited,unrelated,83,5,none,6
+as_audited,unrelated,83,10,graph only,52
+as_audited,unrelated,83,10,lexical only,1
+as_audited,unrelated,83,10,embedding only,4
+as_audited,unrelated,83,10,graph + lexical,5
+as_audited,unrelated,83,10,graph + embedding,8
+as_audited,unrelated,83,10,lexical + embedding,3
+as_audited,unrelated,83,10,all three,10
+as_audited,unrelated,83,10,none,0
+as_audited,unrelated,83,15,graph only,47
+as_audited,unrelated,83,15,lexical only,1
+as_audited,unrelated,83,15,embedding only,4
+as_audited,unrelated,83,15,graph + lexical,5
+as_audited,unrelated,83,15,graph + embedding,11
+as_audited,unrelated,83,15,lexical + embedding,3
+as_audited,unrelated,83,15,all three,12
+as_audited,unrelated,83,15,none,0
+as_audited,unrelated_model_list,12,5,graph only,2
+as_audited,unrelated_model_list,12,5,lexical only,2
+as_audited,unrelated_model_list,12,5,embedding only,3
+as_audited,unrelated_model_list,12,5,graph + lexical,0
+as_audited,unrelated_model_list,12,5,graph + embedding,0
+as_audited,unrelated_model_list,12,5,lexical + embedding,1
+as_audited,unrelated_model_list,12,5,all three,0
+as_audited,unrelated_model_list,12,5,none,4
+as_audited,unrelated_model_list,12,10,graph only,4
+as_audited,unrelated_model_list,12,10,lexical only,1
+as_audited,unrelated_model_list,12,10,embedding only,4
+as_audited,unrelated_model_list,12,10,graph + lexical,0
+as_audited,unrelated_model_list,12,10,graph + embedding,0
+as_audited,unrelated_model_list,12,10,lexical + embedding,3
+as_audited,unrelated_model_list,12,10,all three,0
+as_audited,unrelated_model_list,12,10,none,0
+as_audited,unrelated_model_list,12,15,graph only,4
+as_audited,unrelated_model_list,12,15,lexical only,1
+as_audited,unrelated_model_list,12,15,embedding only,4
+as_audited,unrelated_model_list,12,15,graph + lexical,0
+as_audited,unrelated_model_list,12,15,graph + embedding,0
+as_audited,unrelated_model_list,12,15,lexical + embedding,3
+as_audited,unrelated_model_list,12,15,all three,0
+as_audited,unrelated_model_list,12,15,none,0
+as_audited,unrelated_rule_list,73,5,graph only,56
+as_audited,unrelated_rule_list,73,5,lexical only,1
+as_audited,unrelated_rule_list,73,5,embedding only,2
+as_audited,unrelated_rule_list,73,5,graph + lexical,2
+as_audited,unrelated_rule_list,73,5,graph + embedding,6
+as_audited,unrelated_rule_list,73,5,lexical + embedding,0
+as_audited,unrelated_rule_list,73,5,all three,4
+as_audited,unrelated_rule_list,73,5,none,2
+as_audited,unrelated_rule_list,73,10,graph only,50
+as_audited,unrelated_rule_list,73,10,lexical only,0
+as_audited,unrelated_rule_list,73,10,embedding only,0
+as_audited,unrelated_rule_list,73,10,graph + lexical,5
+as_audited,unrelated_rule_list,73,10,graph + embedding,8
+as_audited,unrelated_rule_list,73,10,lexical + embedding,0
+as_audited,unrelated_rule_list,73,10,all three,10
+as_audited,unrelated_rule_list,73,10,none,0
+as_audited,unrelated_rule_list,73,15,graph only,45
+as_audited,unrelated_rule_list,73,15,lexical only,0
+as_audited,unrelated_rule_list,73,15,embedding only,0
+as_audited,unrelated_rule_list,73,15,graph + lexical,5
+as_audited,unrelated_rule_list,73,15,graph + embedding,11
+as_audited,unrelated_rule_list,73,15,lexical + embedding,0
+as_audited,unrelated_rule_list,73,15,all three,12
+as_audited,unrelated_rule_list,73,15,none,0

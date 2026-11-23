@@ -39,7 +39,7 @@
     "review": []
   },
   "entry": {
-    "inputHash": "1de26374aed8216faa18521c669748edf67d66e3625908659650ffd3641f1565",
+    "inputHash": "02c29441a8b27bbceeaf1cc641536ff4d987823a4600a6e3487ae4daf53ffbae",
     "status": "verified",
     "candidates": [
       {
@@ -82,16 +82,16 @@
         ]
       },
       {
-        "id": "peft-features-090",
+        "id": "related-articles-graph",
         "sourceBlocks": [
           "[\"cot-prompting\",5]",
-          "[\"conversation\",3]",
-          "[\"the-instruction\",5]"
+          "[\"conversation\",5]",
+          "[\"to-do-or-not-to-do\",3]"
         ],
         "targetBlocks": [
-          "[\"merging-lora-weights\",5]",
-          "[\"ref\",2]",
-          "[\"peft-v090\",1]"
+          "[\"tldr\",2]",
+          "[\"models\",7]",
+          "[\"reader-view\",4]"
         ]
       },
       {
@@ -108,6 +108,19 @@
         ]
       },
       {
+        "id": "peft-features-090",
+        "sourceBlocks": [
+          "[\"cot-prompting\",5]",
+          "[\"conversation\",3]",
+          "[\"the-instruction\",5]"
+        ],
+        "targetBlocks": [
+          "[\"merging-lora-weights\",5]",
+          "[\"ref\",2]",
+          "[\"peft-v090\",1]"
+        ]
+      },
+      {
         "id": "flan",
         "sourceBlocks": [
           "[\"the-instruction\",2]",
@@ -118,19 +131,6 @@
           "[\"role-of-instructions\",3]",
           "[\"introduction\",5]",
           "[\"results\",3]"
-        ]
-      },
-      {
-        "id": "book-spine",
-        "sourceBlocks": [
-          "[\"qa\",4]",
-          "[\"cot-prompting\",3]",
-          "[\"conversation\",2]"
-        ],
-        "targetBlocks": [
-          "[\"eval-path\",6]",
-          "[\"score-split\",7]",
-          "[\"system\",7]"
         ]
       },
       {
@@ -147,16 +147,16 @@
         ]
       },
       {
-        "id": "kodistill",
+        "id": "book-spine",
         "sourceBlocks": [
-          "[\"cot-prompting\",5]",
-          "[\"zero-shot-cot-prompting\",4]",
-          "[\"the-instruction\",2]"
+          "[\"qa\",4]",
+          "[\"cot-prompting\",3]",
+          "[\"conversation\",2]"
         ],
         "targetBlocks": [
-          "[\"1-preserve-the-bilingual-foundation\",7]",
-          "[\"3-continue-with-sft-and-verifiable-grpo\",6]",
-          "[null,2]"
+          "[\"eval-path\",6]",
+          "[\"score-split\",7]",
+          "[\"system\",7]"
         ]
       },
       {
@@ -173,16 +173,16 @@
         ]
       },
       {
-        "id": "message-history",
+        "id": "kodistill",
         "sourceBlocks": [
-          "[\"to-do-or-not-to-do\",3]",
-          "[\"conversation\",2]",
-          "[\"the-instruction\",5]"
+          "[\"cot-prompting\",5]",
+          "[\"zero-shot-cot-prompting\",4]",
+          "[\"the-instruction\",2]"
         ],
         "targetBlocks": [
-          "[\"message-history\",1]",
-          "[\"message-history\",3]",
-          "[\"message-history\",2]"
+          "[\"1-preserve-the-bilingual-foundation\",7]",
+          "[\"3-continue-with-sft-and-verifiable-grpo\",6]",
+          "[null,2]"
         ]
       },
       {
@@ -199,16 +199,16 @@
         ]
       },
       {
-        "id": "reranking",
+        "id": "message-history",
         "sourceBlocks": [
-          "[\"zero-shot-cot-prompting\",4]",
-          "[\"cot-prompting\",5]",
-          "[\"the-instruction\",2]"
+          "[\"to-do-or-not-to-do\",3]",
+          "[\"conversation\",2]",
+          "[\"the-instruction\",5]"
         ],
         "targetBlocks": [
-          "[\"using-rerank-to-improve-keyword-search\",2]",
-          "[\"결론\",1]",
-          "[\"reranking\",1]"
+          "[\"message-history\",1]",
+          "[\"message-history\",3]",
+          "[\"message-history\",2]"
         ]
       },
       {
@@ -225,16 +225,16 @@
         ]
       },
       {
-        "id": "llama",
+        "id": "reranking",
         "sourceBlocks": [
-          "[\"the-instruction\",2]",
+          "[\"zero-shot-cot-prompting\",4]",
           "[\"cot-prompting\",5]",
-          "[\"to-do-or-not-to-do\",5]"
+          "[\"the-instruction\",2]"
         ],
         "targetBlocks": [
-          "[\"instruction-finetuning\",1]",
-          "[\"appendix\",2]",
-          "[\"main-results\",2]"
+          "[\"using-rerank-to-improve-keyword-search\",2]",
+          "[\"결론\",1]",
+          "[\"reranking\",1]"
         ]
       }
     ],
@@ -242,7 +242,7 @@
       {
         "id": "chain-of-thought",
         "relation": "related_method",
-        "reason": "구조화된 프롬프트의 구성 요소를 소개하고, CoT는 중간 추론 단계를 생성해 복잡한 문제를 푸는 방식임을 설명합니다.",
+        "reason": "복잡한 추론을 중간 단계로 풀어내는 CoT prompting의 구성과 활용 방식을 더 자세히 알 수 있습니다.",
         "sourceEvidence": {
           "articleId": "prompt-engineering",
           "blockId": "[\"cot-prompting\",1]",
@@ -261,7 +261,7 @@
       {
         "id": "constitutional-ai",
         "relation": "related_method",
-        "reason": "CoT로 복잡한 추론을 유도하는 방식과, harmlessness 판단 전에 CoT로 추론을 작성하게 하는 적용 사례를 비교해 볼 수 있습니다.",
+        "reason": "CoT를 harmlessness 판단에 적용해 추론 과정이 판단의 정확도와 투명성에 어떻게 쓰이는지 살펴볼 수 있습니다.",
         "sourceEvidence": {
           "articleId": "prompt-engineering",
           "blockId": "[\"cot-prompting\",1]",
@@ -280,7 +280,7 @@
       {
         "id": "gpt-3",
         "relation": "related_method",
-        "reason": "예시 없이 쓰는 Zero-Shot과 소수의 예시를 쓰는 Few-Shot의 정의를 확인해 CoT 프롬프트의 예시 사용 방식을 이해할 수 있습니다.",
+        "reason": "예시 없이 쓰는 zero-shot과 소수 예시를 쓰는 few-shot의 구분을 확인해 프롬프트 방식의 차이를 이해할 수 있습니다.",
         "sourceEvidence": {
           "articleId": "prompt-engineering",
           "blockId": "[\"zero-shot-cot-prompting\",7]",

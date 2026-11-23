@@ -1764,5 +1764,30 @@
       "alt": "False confirmations when the correct title was absent: 51.3% with the first reranker and 0.4% with the revised reranker on 3,249 synthetic spines (in-sample).",
       "kind": "figure"
     }
+  },
+  "_posts/2026-11-23-related-articles-graph.md": {
+    "id": "related-articles-graph",
+    "description": "How this blog’s related-articles list became a small knowledge graph with one LLM reranking call per post, and what an audit of every recommendation found.",
+    "language": "en",
+    "contentType": "implementation",
+    "conceptRefs": [
+      {
+        "id": "reranking",
+        "role": "applies"
+      },
+      {
+        "id": "dense-retrieval",
+        "role": "applies"
+      },
+      {
+        "id": "keyword-search",
+        "role": "applies"
+      }
+    ],
+    "hero": {
+      "src": "/assets/research/related-articles-graph/figures/thumbnail_audit.webp",
+      "alt": "Share of related-article links judged a specific reason to read next: 39.8% for the rule-based list (147 of 369) and 65.0% for the model-reranked list (158 of 243, before any audit-driven correction), judged by LLM agents.",
+      "kind": "figure"
+    }
   }
 }

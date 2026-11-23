@@ -156,6 +156,10 @@
     {
       "source": "/research/in-browser-spine-reader",
       "destination": "/research/in-browser-spine-reader/index.html"
+    },
+    {
+      "source": "/research/related-articles-graph",
+      "destination": "/research/related-articles-graph/index.html"
     }
   ],
   "redirects": [

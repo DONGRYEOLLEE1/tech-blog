@@ -8078,6 +8078,263 @@
         }
       ],
       "pathEvidence": "explicit front matter permalink"
+    },
+    {
+      "id": "related-articles-graph",
+      "sourcePath": "_posts/2026-11-23-related-articles-graph.md",
+      "canonicalPath": "/research/related-articles-graph",
+      "outputPath": "/research/related-articles-graph/index.html",
+      "sourceDigest": "1c5b9c7b8d9954b60d10eae8b8144b4cceec6193fc5c28bdf2ff99779c91ce51",
+      "headingIds": [
+        "tldr",
+        "reader-view",
+        "ontology",
+        "models",
+        "candidates",
+        "rerank",
+        "records",
+        "record",
+        "new-post",
+        "audit",
+        "judges",
+        "results",
+        "failures",
+        "shipped",
+        "graph",
+        "graph-layout",
+        "outline",
+        "cost",
+        "limitations",
+        "references"
+      ],
+      "legacyHeadingIds": {
+        "h-tldr": "tldr",
+        "h-reader-view": "reader-view",
+        "what-a-reader-sees": "reader-view",
+        "h-what-a-reader-sees": "reader-view",
+        "h-ontology": "ontology",
+        "the-ontology": "ontology",
+        "h-the-ontology": "ontology",
+        "h-models": "models",
+        "models-and-pipeline": "models",
+        "h-models-and-pipeline": "models",
+        "h-candidates": "candidates",
+        "candidate-retrieval": "candidates",
+        "h-candidate-retrieval": "candidates",
+        "h-rerank": "rerank",
+        "evidence-blocks-and-the-reranking-call": "rerank",
+        "h-evidence-blocks-and-the-reranking-call": "rerank",
+        "h-records": "records",
+        "records-and-incremental-updates": "records",
+        "h-records-and-incremental-updates": "records",
+        "h-record": "record",
+        "one-record-per-article": "record",
+        "h-one-record-per-article": "record",
+        "h-new-post": "new-post",
+        "what-a-new-post-costs": "new-post",
+        "h-what-a-new-post-costs": "new-post",
+        "h-audit": "audit",
+        "h-judges": "judges",
+        "judges-and-procedure": "judges",
+        "h-judges-and-procedure": "judges",
+        "h-results": "results",
+        "h-failures": "failures",
+        "false-sentences-wrong-language-unrelated-picks": "failures",
+        "h-false-sentences-wrong-language-unrelated-picks": "failures",
+        "h-shipped": "shipped",
+        "corrections-and-the-published-lists": "shipped",
+        "h-corrections-and-the-published-lists": "shipped",
+        "h-graph": "graph",
+        "the-graph-and-the-outline-on-the-page": "graph",
+        "h-the-graph-and-the-outline-on-the-page": "graph",
+        "h-graph-layout": "graph-layout",
+        "drawing-the-graph": "graph-layout",
+        "h-drawing-the-graph": "graph-layout",
+        "h-outline": "outline",
+        "the-outline": "outline",
+        "h-the-outline": "outline",
+        "h-cost": "cost",
+        "h-limitations": "limitations",
+        "h-references": "references"
+      },
+      "sourceResources": [
+        {
+          "attribute": "href",
+          "value": "../assets/research/related-articles-graph/figures/shot_article_page.png",
+          "tag": "a"
+        },
+        {
+          "attribute": "src",
+          "value": "../assets/research/related-articles-graph/figures/shot_article_page.png",
+          "tag": "img"
+        },
+        {
+          "attribute": "href",
+          "value": "/paperreview/2022/01/04/YOLOv1.html",
+          "tag": "a"
+        },
+        {
+          "attribute": "href",
+          "value": "../assets/research/related-articles-graph/figures/shot_graph_panels.png",
+          "tag": "a"
+        },
+        {
+          "attribute": "src",
+          "value": "../assets/research/related-articles-graph/figures/shot_graph_panels.png",
+          "tag": "img"
+        },
+        {
+          "attribute": "href",
+          "value": "../assets/research/related-articles-graph/figures/fig_ontology.png",
+          "tag": "a"
+        },
+        {
+          "attribute": "src",
+          "value": "../assets/research/related-articles-graph/figures/fig_ontology.png",
+          "tag": "img"
+        },
+        {
+          "attribute": "href",
+          "value": "../assets/research/related-articles-graph/figures/fig_architecture.png",
+          "tag": "a"
+        },
+        {
+          "attribute": "src",
+          "value": "../assets/research/related-articles-graph/figures/fig_architecture.png",
+          "tag": "img"
+        },
+        {
+          "attribute": "href",
+          "value": "../assets/research/related-articles-graph/figures/fig_candidate_recall.png",
+          "tag": "a"
+        },
+        {
+          "attribute": "src",
+          "value": "../assets/research/related-articles-graph/figures/fig_candidate_recall.png",
+          "tag": "img"
+        },
+        {
+          "attribute": "href",
+          "value": "/research/in-browser-spine-reader",
+          "tag": "a"
+        },
+        {
+          "attribute": "href",
+          "value": "/nlp/2024/11/12/reranking.html",
+          "tag": "a"
+        },
+        {
+          "attribute": "href",
+          "value": "../assets/research/related-articles-graph/figures/fig_new_post.png",
+          "tag": "a"
+        },
+        {
+          "attribute": "src",
+          "value": "../assets/research/related-articles-graph/figures/fig_new_post.png",
+          "tag": "img"
+        },
+        {
+          "attribute": "href",
+          "value": "../assets/research/related-articles-graph/figures/fig_scenarios.png",
+          "tag": "a"
+        },
+        {
+          "attribute": "src",
+          "value": "../assets/research/related-articles-graph/figures/fig_scenarios.png",
+          "tag": "img"
+        },
+        {
+          "attribute": "href",
+          "value": "/research/kodistill-vl-2b/",
+          "tag": "a"
+        },
+        {
+          "attribute": "href",
+          "value": "../assets/research/related-articles-graph/figures/fig_audit.png",
+          "tag": "a"
+        },
+        {
+          "attribute": "src",
+          "value": "../assets/research/related-articles-graph/figures/fig_audit.png",
+          "tag": "img"
+        },
+        {
+          "attribute": "href",
+          "value": "../assets/research/related-articles-graph/figures/fig_per_article.png",
+          "tag": "a"
+        },
+        {
+          "attribute": "src",
+          "value": "../assets/research/related-articles-graph/figures/fig_per_article.png",
+          "tag": "img"
+        },
+        {
+          "attribute": "href",
+          "value": "/developing/2025/03/13/vllm-inference-not-working.html",
+          "tag": "a"
+        },
+        {
+          "attribute": "href",
+          "value": "/developing/2026/11/11/inner-llm-inference-server.html",
+          "tag": "a"
+        },
+        {
+          "attribute": "href",
+          "value": "../assets/research/related-articles-graph/figures/fig_records.png",
+          "tag": "a"
+        },
+        {
+          "attribute": "src",
+          "value": "../assets/research/related-articles-graph/figures/fig_records.png",
+          "tag": "img"
+        },
+        {
+          "attribute": "href",
+          "value": "../assets/research/related-articles-graph/figures/shot_list_popup.png",
+          "tag": "a"
+        },
+        {
+          "attribute": "src",
+          "value": "../assets/research/related-articles-graph/figures/shot_list_popup.png",
+          "tag": "img"
+        },
+        {
+          "attribute": "href",
+          "value": "../assets/research/related-articles-graph/figures/shot_outlines.png",
+          "tag": "a"
+        },
+        {
+          "attribute": "src",
+          "value": "../assets/research/related-articles-graph/figures/shot_outlines.png",
+          "tag": "img"
+        },
+        {
+          "attribute": "href",
+          "value": "https://www.w3.org/TR/skos-reference/",
+          "tag": "a"
+        },
+        {
+          "attribute": "href",
+          "value": "https://openrouter.ai/openai/gpt-6-luna",
+          "tag": "a"
+        },
+        {
+          "attribute": "href",
+          "value": "https://openrouter.ai/google/gemini-embedding-2",
+          "tag": "a"
+        },
+        {
+          "attribute": "href",
+          "value": "https://supabase.com/docs/guides/database/extensions/pgvector",
+          "tag": "a"
+        },
+        {
+          "attribute": "href",
+          "value": "https://aclanthology.org/P19-1074/",
+          "tag": "a"
+        }
+      ],
+      "pathEvidence": "explicit front matter permalink"
     }
   ],
   "warnings": [],

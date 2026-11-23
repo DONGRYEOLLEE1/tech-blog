@@ -39,7 +39,7 @@
     "review": []
   },
   "entry": {
-    "inputHash": "46537134ff2ee697f2c8a917ece6cabfbec92e15331cb9465cdff7f4b8070a4e",
+    "inputHash": "51ad4eef0d478240588cff5d13d1c1b82eb96038876f5b48e23f289b632e61ee",
     "status": "verified",
     "candidates": [
       {
@@ -160,16 +160,16 @@
         ]
       },
       {
-        "id": "flan",
+        "id": "related-articles-graph",
         "sourceBlocks": [
-          "[\"introduction\",1]",
-          "[\"정리\",1]",
-          "[\"synthetic-split-100문제--이-논문의-핵심-기여\",2]"
+          "[\"synthetic-split-100문제--이-논문의-핵심-기여\",8]",
+          "[\"trajectory-level-failure-patterns\",3]",
+          "[\"main-results\",13]"
         ],
         "targetBlocks": [
-          "[\"introduction\",5]",
-          "[\"flan--instruction-tuning-improves-zero-shot-learning\",1]",
-          "[\"role-of-instructions\",1]"
+          "[\"tldr\",6]",
+          "[\"results\",3]",
+          "[\"failures\",1]"
         ]
       },
       {
@@ -186,6 +186,19 @@
         ]
       },
       {
+        "id": "flan",
+        "sourceBlocks": [
+          "[\"introduction\",1]",
+          "[\"정리\",1]",
+          "[\"synthetic-split-100문제--이-논문의-핵심-기여\",2]"
+        ],
+        "targetBlocks": [
+          "[\"introduction\",5]",
+          "[\"flan--instruction-tuning-improves-zero-shot-learning\",1]",
+          "[\"role-of-instructions\",1]"
+        ]
+      },
+      {
         "id": "speculative-decoding-paper",
         "sourceBlocks": [
           "[\"introduction\",1]",
@@ -196,19 +209,6 @@
           "[\"introduction\",10]",
           "[\"analysis\",1]",
           "[\"t5-xxl-walltime-실측\",15]"
-        ]
-      },
-      {
-        "id": "prompt-engineering",
-        "sourceBlocks": [
-          "[\"synthetic-split-100문제--이-논문의-핵심-기여\",2]",
-          "[\"k-browsecomp-verified-300문제\",3]",
-          "[\"failure-mode-taxonomy-f0f8\",11]"
-        ],
-        "targetBlocks": [
-          "[\"cot-prompting\",5]",
-          "[\"zero-shot-cot-prompting\",4]",
-          "[\"the-instruction\",2]"
         ]
       },
       {
@@ -229,7 +229,7 @@
       {
         "id": "searchswarm",
         "relation": "evaluation_comparison",
-        "reason": "한국어 맥락의 browsing agent 벤치마크와 BrowseComp 계열을 포함한 deep research 평가가 어떤 과제를 다루는지 비교해 볼 수 있습니다.",
+        "reason": "둘 다 BrowseComp을 다루므로, 한국어 웹 탐색 벤치마크와 deep research 평가의 구성·초점을 비교해 볼 수 있습니다.",
         "sourceEvidence": {
           "articleId": "k-browsecomp",
           "blockId": "[\"introduction\",4]",

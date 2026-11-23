@@ -39,7 +39,7 @@
     "review": []
   },
   "entry": {
-    "inputHash": "009a8fb99978b3999dc516ff87d92b7379d2955f70efd772da088a7d02de36d2",
+    "inputHash": "8631cc2db105bd71b96db216515566c1b9504c728bd5742184fc80e1ac8e506f",
     "status": "verified",
     "candidates": [
       {
@@ -82,16 +82,16 @@
         ]
       },
       {
-        "id": "book-spine",
+        "id": "related-articles-graph",
         "sourceBlocks": [
           "[\"conclusion\",2]",
-          "[\"querying-the-wikipedia-dataset-using-keyword-matching\",3]",
-          "[\"conclusion\",4]"
+          "[\"querying-the-wikipedia-dataset-using-keyword-matching\",1]",
+          "[\"conclusion\",5]"
         ],
         "targetBlocks": [
-          "[\"system\",4]",
-          "[\"tldr\",4]",
-          "[\"open-set\",2]"
+          "[\"candidates\",3]",
+          "[\"rerank\",5]",
+          "[\"tldr\",6]"
         ]
       },
       {
@@ -118,6 +118,19 @@
           "[\"introduction\",9]",
           "[\"baselines\",2]",
           "[\"the-architecture-of-ziya2\",1]"
+        ]
+      },
+      {
+        "id": "book-spine",
+        "sourceBlocks": [
+          "[\"conclusion\",2]",
+          "[\"querying-the-wikipedia-dataset-using-keyword-matching\",3]",
+          "[\"conclusion\",4]"
+        ],
+        "targetBlocks": [
+          "[\"system\",4]",
+          "[\"tldr\",4]",
+          "[\"open-set\",2]"
         ]
       },
       {
@@ -223,26 +236,13 @@
           "[\"related-work\",1]",
           "[\"instruction-finetuning\",2]"
         ]
-      },
-      {
-        "id": "few-shot-learning",
-        "sourceBlocks": [
-          "[\"querying-the-wikipedia-dataset-using-keyword-matching\",4]",
-          "[\"conclusion\",5]",
-          "[\"querying-the-wikipedia-dataset-using-keyword-matching\",1]"
-        ],
-        "targetBlocks": [
-          "[null,3]",
-          "[\"few-shot-learning은-어떻게-작동할까\",1]",
-          "[\"method-1-pairwise-similarity\",1]"
-        ]
       }
     ],
     "recommendations": [
       {
         "id": "reranking",
         "relation": "application_example",
-        "reason": "키워드 검색이 의미를 반영하지 못하는 한계를 재정렬로 보완해 관련 문서를 추리는 적용 사례를 볼 수 있습니다.",
+        "reason": "키워드 검색 결과의 한계를 보완해 후보 문서를 먼저 찾고 관련도 점수로 재정렬하는 적용 사례를 볼 수 있습니다.",
         "sourceEvidence": {
           "articleId": "keyword-search",
           "blockId": "[\"conclusion\",5]",
@@ -256,6 +256,25 @@
           "anchor": "결론",
           "quote": "Reranking은 특정 쿼리에 가장 관련성이 높은 응답을 찾는 데 매우 유용한 방법입니다. 이는 dense retrieval을 개선하기 위한 키워드 검색의 보완 방식으로도 유용합니다. 이번 포스트에서는 키워드 검색을 통해 답을 포함할 가능성이 있는 20개의 문서를 먼저 검색한 뒤, 재정렬 엔드포인트를 사용하여 그 중 상위 3개를 선택함으로써 키워드 검색 결과를 크게 향상시켰습니다.",
           "hash": "d03185c1f96687e82a0a21a6b9f63dba6fe3a917452f9793de8fe2ca09b0a0da"
+        }
+      },
+      {
+        "id": "related-articles-graph",
+        "relation": "application_example",
+        "reason": "키워드 기반 후보 검색과 재채점으로 문서를 정렬하는 방식을 블로그 관련 글 추천에 적용한 사례를 확인할 수 있습니다.",
+        "sourceEvidence": {
+          "articleId": "keyword-search",
+          "blockId": "[\"conclusion\",2]",
+          "anchor": "conclusion",
+          "quote": "Keyword search는 단어들을 기준으로 결과값을 매칭하기에 문장의 의미를 활용하진 못합니다. 이는 다음과 같은 문장에 대해선 더 어려운 과제로 인식할 수 있습니다.",
+          "hash": "31a5b1df12eb14cccc7716f9f8d89a0275efb6302e89b69ea0aef2210a434ab0"
+        },
+        "targetEvidence": {
+          "articleId": "related-articles-graph",
+          "blockId": "[\"candidates\",3]",
+          "anchor": "candidates",
+          "quote": "a lexical ranker, IDF-weighted Jaccard similarity over the words of the title, description and body;",
+          "hash": "c6650e9dac729d0f112affaf70a26f06693717b65a6a73c2f49ce43668cdb169"
         }
       }
     ]

@@ -1,0 +1,19 @@
+list,recommendations,verdict,count,percent,judged_by,status
+rule_based_lists,369,specific reason to read next,147,39.8,LLM agents reading both articles,recounted from the raw judgments
+rule_based_lists,369,same broad field only,150,40.7,LLM agents reading both articles,recounted from the raw judgments
+rule_based_lists,369,unrelated,72,19.5,LLM agents reading both articles,recounted from the raw judgments
+model_picks_as_judged,243,specific reason to read next,158,65.0,LLM agents reading both articles,recounted from the raw judgments
+model_picks_as_judged,243,same broad field only,73,30.0,LLM agents reading both articles,recounted from the raw judgments
+model_picks_as_judged,243,unrelated,12,4.9,LLM agents reading both articles,recounted from the raw judgments
+model_picks_as_published,233,specific reason to read next,160,68.7,LLM agents reading both articles,"estimate: 227 of 233 verdicts recounted, for the other 6 only the totals of a later round were kept"
+model_picks_as_published,233,same broad field only,73,31.3,LLM agents reading both articles,"estimate: 227 of 233 verdicts recounted, for the other 6 only the totals of a later round were kept"
+model_picks_as_published,233,unrelated,0,0.0,LLM agents reading both articles,"estimate: 227 of 233 verdicts recounted, for the other 6 only the totals of a later round were kept"
+links_added_by_rule_as_published,26,specific reason to read next,9,34.6,LLM agents reading both articles,"recounted from the raw judgments of the rule-based lists (20 series neighbors, 6 rows on the three stub posts)"
+links_added_by_rule_as_published,26,same broad field only,12,46.2,LLM agents reading both articles,"recounted from the raw judgments of the rule-based lists (20 series neighbors, 6 rows on the three stub posts)"
+links_added_by_rule_as_published,26,unrelated,5,19.2,LLM agents reading both articles,"recounted from the raw judgments of the rule-based lists (20 series neighbors, 6 rows on the three stub posts)"
+links_added_by_rule_as_published: series neighbors,20,specific reason to read next,9,45.0,LLM agents reading both articles,recounted from the raw judgments of the rule-based lists
+links_added_by_rule_as_published: series neighbors,20,same broad field only,8,40.0,LLM agents reading both articles,recounted from the raw judgments of the rule-based lists
+links_added_by_rule_as_published: series neighbors,20,unrelated,3,15.0,LLM agents reading both articles,recounted from the raw judgments of the rule-based lists
+links_added_by_rule_as_published: rule rows on the three stub posts,6,specific reason to read next,0,0.0,LLM agents reading both articles,recounted from the raw judgments of the rule-based lists
+links_added_by_rule_as_published: rule rows on the three stub posts,6,same broad field only,4,66.7,LLM agents reading both articles,recounted from the raw judgments of the rule-based lists
+links_added_by_rule_as_published: rule rows on the three stub posts,6,unrelated,2,33.3,LLM agents reading both articles,recounted from the raw judgments of the rule-based lists

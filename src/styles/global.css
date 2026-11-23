@@ -379,6 +379,7 @@ dialog::backdrop { background: #14141377; }
 .image-dialog-toolbar button { min-height: 34px; padding: 5px 9px; border: 1px solid var(--line); font-size: 12px; }
 .image-dialog-stage { max-width: 100%; max-height: 73dvh; overflow: auto; background: var(--wash); }
 .image-dialog-stage img { width: 100%; max-height: 73dvh; margin: auto; object-fit: contain; }
+.image-dialog[data-zoom-mode="fit"][data-tall="true"] .image-dialog-stage img { width: min(100%,640px); max-height: none; object-fit: initial; }
 .image-dialog[data-zoom-mode="actual"] .image-dialog-stage img { width: auto; max-width: none; max-height: none; margin: 0; object-fit: initial; }
 .image-dialog-footer { padding: 15px 22px 20px; }
 .image-caption { margin: 0 0 10px; color: var(--muted); font-size: 13px; line-height: 1.65; }

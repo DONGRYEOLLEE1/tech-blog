@@ -39,7 +39,7 @@
     "review": []
   },
   "entry": {
-    "inputHash": "7b610c5d8fdb559f4875b7e00fa64701c1fa9de98b4ffec09deda0902b35bf42",
+    "inputHash": "c055720ace8a0531b55095ede4ad2b743364096280007efa66c383d7f91ea9bf",
     "status": "verified",
     "candidates": [
       {
@@ -95,6 +95,19 @@
         ]
       },
       {
+        "id": "related-articles-graph",
+        "sourceBlocks": [
+          "[\"analysis\",1]",
+          "[\"followups\",5]",
+          "[\"ablation\",1]"
+        ],
+        "targetBlocks": [
+          "[\"candidates\",7]",
+          "[\"results\",3]",
+          "[\"limitations\",4]"
+        ]
+      },
+      {
         "id": "chain-of-thought",
         "sourceBlocks": [
           "[\"resources\",2]",
@@ -121,19 +134,6 @@
         ]
       },
       {
-        "id": "peft-features-090",
-        "sourceBlocks": [
-          "[\"setup-training\",2]",
-          "[\"motivation\",11]",
-          "[\"tldr\",2]"
-        ],
-        "targetBlocks": [
-          "[\"merging-lora-weights\",7]",
-          "[\"dora-support\",1]",
-          "[\"ref\",1]"
-        ]
-      },
-      {
         "id": "constitutional-ai",
         "sourceBlocks": [
           "[\"conclusion\",1]",
@@ -144,6 +144,19 @@
           "[\"rl-stage-rlaif\",1]",
           "[\"supervised-stage-critique--revision\",2]",
           "[\"experiments\",2]"
+        ]
+      },
+      {
+        "id": "peft-features-090",
+        "sourceBlocks": [
+          "[\"setup-training\",2]",
+          "[\"motivation\",11]",
+          "[\"tldr\",2]"
+        ],
+        "targetBlocks": [
+          "[\"merging-lora-weights\",7]",
+          "[\"dora-support\",1]",
+          "[\"ref\",1]"
         ]
       },
       {
@@ -223,26 +236,13 @@
           "[\"supervised-fine-tuning\",2]",
           "[\"정리\",1]"
         ]
-      },
-      {
-        "id": "rtpurbo",
-        "sourceBlocks": [
-          "[\"results\",11]",
-          "[\"resources\",2]",
-          "[\"setup-training\",2]"
-        ],
-        "targetBlocks": [
-          "[\"정확도--near-lossless\",9]",
-          "[\"introduction\",1]",
-          "[\"효율--ultra-long-robustness\",1]"
-        ]
       }
     ],
     "recommendations": [
       {
         "id": "constitutional-ai",
         "relation": "related_method",
-        "reason": "둘 다 보상으로 강화학습을 수행하지만, 이 글은 정답 여부에 따른 길이 페널티를 쓰고 Constitutional AI는 AI 피드백으로 무해성을 보상합니다.",
+        "reason": "보상 신호로 강화학습을 수행한다는 공통점을 바탕으로, harmlessness 선호를 보상으로 쓰는 RLAIF 절차를 살펴볼 수 있습니다.",
         "sourceEvidence": {
           "articleId": "thinkingcap",
           "blockId": "[\"conclusion\",1]",
@@ -261,7 +261,7 @@
       {
         "id": "kodistill",
         "relation": "related_method",
-        "reason": "두 방법의 GRPO 보상을 비교해, 정답 여부와 답변 길이를 함께 반영하는 방식과 OCR 정확도·문자 오류율을 반영하는 방식을 배울 수 있습니다.",
+        "reason": "GRPO 보상 설계와 학습을 다룬 글로, OCR에서는 CER와 정확 일치도를 결합해 보상을 구성하는 방식을 비교해 볼 수 있습니다.",
         "sourceEvidence": {
           "articleId": "thinkingcap",
           "blockId": "[\"conclusion\",1]",
@@ -275,6 +275,25 @@
           "anchor": "3-continue-with-sft-and-verifiable-grpo",
           "quote": "GRPO uses an immutable reference made from this run's selected SFT model. For an OCR completion, reward is 0.8 × max(0, 1 − CER) + 0.2 × exact_match. Empty or truncated completions receive zero. Gold and predictions use NFC normalization and outer trimming; case, numbers, punctuation, and internal spaces remain meaningful. General QA replay keeps its existing task-specific verifier and original reward labels.",
           "hash": "dcbd39d2826524b50f330522e4e82c1e3058ca10c5e5508f8c4936363f741c32"
+        }
+      },
+      {
+        "id": "chain-of-thought",
+        "relation": "related_method",
+        "reason": "추론 단계를 생성하는 CoT의 목적을 이해하고, 이를 줄이면서 종료를 유도하는 학습 접근과 대비할 수 있습니다.",
+        "sourceEvidence": {
+          "articleId": "thinkingcap",
+          "blockId": "[\"tldr\",20]",
+          "anchor": "tldr",
+          "quote": "Free baselines: brevity prompts backfire, no-thinking wins OOD",
+          "hash": "f7716185586d54a0e8f5fcbbc1e4d60019a742eb9bd306be9520015455bb1b62"
+        },
+        "targetEvidence": {
+          "articleId": "chain-of-thought",
+          "blockId": "[\"chain-of-thought-prompting\",1]",
+          "anchor": "chain-of-thought-prompting",
+          "quote": "여러 단계를 거쳐야하는 수학 문제와 같은 복잡한 추론을 통해 문제를 푸는 절차를 연구진은 고려하였음. 이건 전형적인 문제를 하나하나 분해하여 정답에 접근하는 방식임. 이 논문의 목표는 LLM에 유사한 CoT를 생성할 수 있는 기능을 부여하는 것입니다. 일관된 일련의 중간 추론 단계를 생성할 수 있는 능력을 LLM에 부여하는 것입니다.",
+          "hash": "82ac1138b000944e339224661220eee68aa8b30584e7b60c99240027c33e995e"
         }
       }
     ]

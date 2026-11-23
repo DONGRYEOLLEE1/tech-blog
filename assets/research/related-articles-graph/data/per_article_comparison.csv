@@ -1,0 +1,4 @@
+verdict,articles,of,percent,sub_count,sub_count_meaning,judged_by,state_judged
+model list better,64,113,56.6,7,the model's empty list was judged better than the rule-based list,LLM agents reading both articles,model lists before any audit-driven correction
+about equal,23,113,20.4,,,LLM agents reading both articles,model lists before any audit-driven correction
+rule-based list better,26,113,23.0,19,the judge named at least one article the model list missed,LLM agents reading both articles,model lists before any audit-driven correction

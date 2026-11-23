@@ -472,6 +472,8 @@ function openImage(trigger: HTMLElement) {
   const original = $<HTMLAnchorElement>('a[data-image-original]', imageDialog); if (original) { original.href = zoomImage.src; original.target = '_blank'; original.rel = 'noopener'; }
   imageDialog.showModal(); lockScroll(); setImageMode(false); $<HTMLButtonElement>('[data-close-image]', imageDialog)?.focus();
 }
+// A tall figure fitted to the window height would be shown smaller than it is in the article, so it is fitted to the width and scrolls instead.
+zoomImage?.addEventListener('load', () => { if (imageDialog) imageDialog.dataset.tall = String(zoomImage.naturalHeight > zoomImage.naturalWidth * 1.5); });
 imageDialog?.addEventListener('cancel', event => { event.preventDefault(); closeImage(); });
 imageDialog?.addEventListener('click', event => { if (event.target === imageDialog) { const r = imageDialog.getBoundingClientRect(), e = event as MouseEvent; if (e.clientX < r.left || e.clientX > r.right || e.clientY < r.top || e.clientY > r.bottom) closeImage(); } });
 // Reading position: the top bar, the sidebar meter and the current branch of the outline.

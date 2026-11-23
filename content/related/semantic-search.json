@@ -39,7 +39,7 @@
     "review": []
   },
   "entry": {
-    "inputHash": "aff14822f02cc52a894fc10982caab8ab3f363fc23b4d0085afcc1eb4f2a18fa",
+    "inputHash": "8285c77184877f267213297676f3b56100bf8e3f12650f6153e2e6d24d884e77",
     "status": "verified",
     "candidates": [
       {
@@ -66,6 +66,19 @@
           "[\"querying-the-wikipedia-dataset-using-keyword-matching\",1]",
           "[\"conclusion\",5]",
           "[\"conclusion\",2]"
+        ]
+      },
+      {
+        "id": "related-articles-graph",
+        "sourceBlocks": [
+          "[\"what-is-not-semantic-search\",20]",
+          "[\"using-similarity-to-find-the-best-document\",1]",
+          "[\"how-to-search-using-text-embedding\",13]"
+        ],
+        "targetBlocks": [
+          "[\"candidates\",4]",
+          "[\"rerank\",5]",
+          "[\"models\",20]"
         ]
       },
       {
@@ -223,26 +236,13 @@
           "[\"2-rope가-만드는-압축-가능한-geometry--low-dim-subspace\",3]",
           "[\"introduction\",2]"
         ]
-      },
-      {
-        "id": "ziya2",
-        "sourceBlocks": [
-          "[\"are-embeddings-and-similarity-enough-no\",5]",
-          "[\"how-to-search-using-text-embedding\",1]",
-          "[\"using-similarity-to-find-the-best-document\",7]"
-        ],
-        "targetBlocks": [
-          "[\"introduction\",15]",
-          "[\"the-architecture-of-ziya2\",2]",
-          "[\"the-data-factory\",5]"
-        ]
       }
     ],
     "recommendations": [
       {
         "id": "dense-retrieval",
         "relation": "related_method",
-        "reason": "Dense Retrieval이 text embedding으로 query와 유사한 문서를 찾는 원리를 설명해 의미 기반 검색과 벡터 유사도의 연결을 배울 수 있습니다.",
+        "reason": "텍스트 임베딩에서 비슷한 조각을 비슷한 벡터로 나타내는 원리와 이를 이용해 유사 문서를 찾는 Dense Retrieval의 작동 방식을 함께 배울 수 있습니다.",
         "sourceEvidence": {
           "articleId": "semantic-search",
           "blockId": "[\"how-to-search-using-text-embedding\",1]",

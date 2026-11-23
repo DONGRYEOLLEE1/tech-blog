@@ -1,0 +1,7 @@
+rankers_with_pick_in_first_15,ranker,picks,specific,same_field_only,unrelated,state_judged,judged_by
+3,any,142,116,26,0,model picks before any audit-driven correction,LLM agents reading both articles
+2,any,67,37,27,3,model picks before any audit-driven correction,LLM agents reading both articles
+1,any,34,5,20,9,model picks before any audit-driven correction,LLM agents reading both articles
+1,graph,16,3,9,4,model picks before any audit-driven correction,LLM agents reading both articles
+1,lexical,5,1,3,1,model picks before any audit-driven correction,LLM agents reading both articles
+1,embedding,13,1,8,4,model picks before any audit-driven correction,LLM agents reading both articles
