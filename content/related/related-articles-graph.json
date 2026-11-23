@@ -1,0 +1,312 @@
+{
+  "version": 2,
+  "id": "related-articles-graph",
+  "model": "openai/gpt-6-luna",
+  "settings": {
+    "seed": 7,
+    "reasoning": {
+      "effort": "low"
+    }
+  },
+  "embeddingProfile": "f04e459161521d4b",
+  "facts": {
+    "inputHash": "8ea4f6ac9f152648218e7c927a95c9b24edbc3c847170c3275b18d1fe5afb9c7",
+    "status": "verified",
+    "facts": [
+      {
+        "id": "dense-retrieval",
+        "role": "applies",
+        "evidence": {
+          "articleId": "related-articles-graph",
+          "blockId": "[\"candidates\",4]",
+          "anchor": "candidates",
+          "quote": "a block-embedding ranker, where each block of the source is matched to its most similar block in the target and the pair's score is the mean of the three best cosines.",
+          "hash": "70f2f2bf9936fd35c829585ecc9e8602e63f1536d6ff1bf372ac278f47da7839"
+        }
+      },
+      {
+        "id": "keyword-search",
+        "role": "applies",
+        "evidence": {
+          "articleId": "related-articles-graph",
+          "blockId": "[\"candidates\",3]",
+          "anchor": "candidates",
+          "quote": "a lexical ranker, IDF-weighted Jaccard similarity over the words of the title, description and body;",
+          "hash": "c6650e9dac729d0f112affaf70a26f06693717b65a6a73c2f49ce43668cdb169"
+        }
+      },
+      {
+        "id": "reranking",
+        "role": "applies",
+        "evidence": {
+          "articleId": "related-articles-graph",
+          "blockId": "[\"rerank\",2]",
+          "anchor": "rerank",
+          "quote": "Reranking is one call per post. The request holds all candidates with their blocks (about 20,600 characters on average), and the answer is a list of 0 to 4 picks, best first. Each pick gives the target, a relation type, one Korean sentence and the index of one block on each side. An empty list is a valid answer, and 14 posts got one.",
+          "hash": "ec0644bbca985e8e87693b70711dc77349f07da6ccddbe195f02307fe0c3df9b"
+        }
+      }
+    ],
+    "review": []
+  },
+  "entry": {
+    "inputHash": "0024b283ca88979c5b3b98677d914f449b3cf5ac271d986fd5152e86db122e56",
+    "status": "verified",
+    "candidates": [
+      {
+        "id": "reranking",
+        "sourceBlocks": [
+          "[\"rerank\",3]",
+          "[\"candidates\",3]",
+          "[\"rerank\",2]"
+        ],
+        "targetBlocks": [
+          "[\"reranking\",1]",
+          "[\"결론\",1]",
+          "[\"using-rerank-to-improve-keyword-search\",29]"
+        ]
+      },
+      {
+        "id": "book-spine",
+        "sourceBlocks": [
+          "[\"rerank\",3]",
+          "[\"candidates\",3]",
+          "[\"rerank\",2]"
+        ],
+        "targetBlocks": [
+          "[\"system\",4]",
+          "[\"reranker\",13]",
+          "[\"retrieval\",2]"
+        ]
+      },
+      {
+        "id": "thinkingcap",
+        "sourceBlocks": [
+          "[\"candidates\",7]",
+          "[\"results\",3]",
+          "[\"limitations\",4]"
+        ],
+        "targetBlocks": [
+          "[\"analysis\",1]",
+          "[\"followups\",5]",
+          "[\"ablation\",1]"
+        ]
+      },
+      {
+        "id": "kodistill",
+        "sourceBlocks": [
+          "[\"new-post\",10]",
+          "[\"new-post\",11]",
+          "[\"reader-view\",5]"
+        ],
+        "targetBlocks": [
+          "[\"try-the-model\",1]",
+          "[\"the-question-aligning-korean-qa-and-transcription\",2]",
+          "[\"at-a-glance\",2]"
+        ]
+      },
+      {
+        "id": "vllm-tensor-parallel-troubleshooting",
+        "sourceBlocks": [
+          "[\"failures\",1]",
+          "[\"failures\",2]",
+          "[\"models\",9]"
+        ],
+        "targetBlocks": [
+          "[\"problem\",1]",
+          "[\"script\",1]",
+          "[\"script-1\",1]"
+        ]
+      },
+      {
+        "id": "peft-features-090",
+        "sourceBlocks": [
+          "[\"models\",18]",
+          "[\"reader-view\",1]",
+          "[\"tldr\",5]"
+        ],
+        "targetBlocks": [
+          "[\"merging-lora-weights\",14]",
+          "[\"ref\",1]",
+          "[\"peft-v090\",1]"
+        ]
+      },
+      {
+        "id": "yolo-v1",
+        "sourceBlocks": [
+          "[\"reader-view\",1]",
+          "[\"models\",20]",
+          "[\"limitations\",8]"
+        ],
+        "targetBlocks": [
+          "[\"introduction\",2]",
+          "[\"network-design\",9]",
+          "[\"unified-detection\",6]"
+        ]
+      },
+      {
+        "id": "prompt-engineering",
+        "sourceBlocks": [
+          "[\"tldr\",2]",
+          "[\"models\",7]",
+          "[\"reader-view\",4]"
+        ],
+        "targetBlocks": [
+          "[\"cot-prompting\",5]",
+          "[\"conversation\",5]",
+          "[\"to-do-or-not-to-do\",3]"
+        ]
+      },
+      {
+        "id": "dense-retrieval",
+        "sourceBlocks": [
+          "[\"candidates\",4]",
+          "[\"models\",30]",
+          "[\"rerank\",3]"
+        ],
+        "targetBlocks": [
+          "[\"querying-the-dataset-using-dense-retrieval\",1]",
+          "[\"chunking-the-articles\",1]",
+          "[\"dense-retrieval\",3]"
+        ]
+      },
+      {
+        "id": "inference-server",
+        "sourceBlocks": [
+          "[\"failures\",1]",
+          "[\"failures\",2]",
+          "[\"tldr\",5]"
+        ],
+        "targetBlocks": [
+          "[\"측정의-한계\",2]",
+          "[\"cuda-버전-필터가-정확-일치였음\",2]",
+          "[\"nccl-초기화에서-무한-대기\",2]"
+        ]
+      },
+      {
+        "id": "peft-features-0100",
+        "sourceBlocks": [
+          "[\"models\",18]",
+          "[\"new-post\",2]",
+          "[\"reader-view\",1]"
+        ],
+        "targetBlocks": [
+          "[\"memory-efficient-layer-replication-with-lora\",19]",
+          "[\"peft-v0100\",1]",
+          "[\"ref\",2]"
+        ]
+      },
+      {
+        "id": "k-browsecomp",
+        "sourceBlocks": [
+          "[\"tldr\",6]",
+          "[\"results\",3]",
+          "[\"failures\",1]"
+        ],
+        "targetBlocks": [
+          "[\"synthetic-split-100문제--이-논문의-핵심-기여\",8]",
+          "[\"trajectory-level-failure-patterns\",3]",
+          "[\"main-results\",13]"
+        ]
+      },
+      {
+        "id": "keyword-search",
+        "sourceBlocks": [
+          "[\"candidates\",3]",
+          "[\"rerank\",5]",
+          "[\"tldr\",6]"
+        ],
+        "targetBlocks": [
+          "[\"conclusion\",2]",
+          "[\"querying-the-wikipedia-dataset-using-keyword-matching\",1]",
+          "[\"conclusion\",5]"
+        ]
+      },
+      {
+        "id": "semantic-search",
+        "sourceBlocks": [
+          "[\"candidates\",4]",
+          "[\"rerank\",5]",
+          "[\"models\",20]"
+        ],
+        "targetBlocks": [
+          "[\"what-is-not-semantic-search\",20]",
+          "[\"using-similarity-to-find-the-best-document\",1]",
+          "[\"how-to-search-using-text-embedding\",13]"
+        ]
+      },
+      {
+        "id": "dflash",
+        "sourceBlocks": [
+          "[\"results\",3]",
+          "[\"tldr\",6]",
+          "[\"new-post\",2]"
+        ],
+        "targetBlocks": [
+          "[\"main-results-qwen3-thinking-off\",2]",
+          "[\"training\",5]",
+          "[\"preliminary\",2]"
+        ]
+      }
+    ],
+    "recommendations": [
+      {
+        "id": "dense-retrieval",
+        "relation": "concept_explanation",
+        "reason": "글의 블록 임베딩 유사도 매칭이 dense retrieval의 문서·단락 검색 원리와 어떻게 연결되는지 배울 수 있습니다.",
+        "sourceEvidence": {
+          "articleId": "related-articles-graph",
+          "blockId": "[\"candidates\",4]",
+          "anchor": "candidates",
+          "quote": "a block-embedding ranker, where each block of the source is matched to its most similar block in the target and the pair's score is the mean of the three best cosines.",
+          "hash": "70f2f2bf9936fd35c829585ecc9e8602e63f1536d6ff1bf372ac278f47da7839"
+        },
+        "targetEvidence": {
+          "articleId": "dense-retrieval",
+          "blockId": "[\"chunking-the-articles\",1]",
+          "anchor": "chunking-the-articles",
+          "quote": "이 프로세스는 embedding에서 query에 가장 가까운 문서를 찾는 방식으로 좋은 결과를 얻을 수 있습니다. 하지만, 문서가 매우 길 경우 복잡해질 수 있습니다. 더 세분화된 처리를 위해, 문서를 단락별로 나누겠습니다. 즉, 각 문서의 각 단락에 해당하는 embedding 벡터를 찾는다는 의미입니다. 이렇게 하면, 모델이 답을 검색할 때 query와 가장 유사한 단락과 해당 단락이 속한 문서를 실제로 출력할 수 있습니다.",
+          "hash": "1fc28278da50104de47b6958e9c35627d16beb274ed6d32f4b4af4b3e204544a"
+        }
+      },
+      {
+        "id": "book-spine",
+        "relation": "related_method",
+        "reason": "두 글에서 후보를 먼저 검색한 뒤 유사도 기준으로 재채점하는 검색 파이프라인을 비교해 볼 수 있습니다.",
+        "sourceEvidence": {
+          "articleId": "related-articles-graph",
+          "blockId": "[\"candidates\",3]",
+          "anchor": "candidates",
+          "quote": "a lexical ranker, IDF-weighted Jaccard similarity over the words of the title, description and body;",
+          "hash": "c6650e9dac729d0f112affaf70a26f06693717b65a6a73c2f49ce43668cdb169"
+        },
+        "targetEvidence": {
+          "articleId": "book-spine",
+          "blockId": "[\"system\",4]",
+          "anchor": "system",
+          "quote": "Matching normalizes the query, retrieves 50 candidates from a 50,000-book dictionary with character 2-gram and 3-gram BM25, and rescores them with string similarity plus a few rules (Section 5). Each spine ends in one of three states: confirmed (the dictionary entry is taken as the answer), review (candidates are shown and the user picks), or unmatched.",
+          "hash": "42e4da97f352cf20759e335c63c692349941e96920844bb8ef223bed57187f05"
+        }
+      },
+      {
+        "id": "reranking",
+        "relation": "concept_explanation",
+        "reason": "글의 후보 재채점 단계가 쿼리와 응답의 관련성 점수를 매기는 reranking 원리와 어떻게 맞닿는지 배울 수 있습니다.",
+        "sourceEvidence": {
+          "articleId": "related-articles-graph",
+          "blockId": "[\"rerank\",2]",
+          "anchor": "rerank",
+          "quote": "Reranking is one call per post. The request holds all candidates with their blocks (about 20,600 characters on average), and the answer is a list of 0 to 4 picks, best first. Each pick gives the target, a relation type, one Korean sentence and the index of one block on each side. An empty list is a valid answer, and 14 posts got one.",
+          "hash": "ec0644bbca985e8e87693b70711dc77349f07da6ccddbe195f02307fe0c3df9b"
+        },
+        "targetEvidence": {
+          "articleId": "reranking",
+          "blockId": "[\"reranking\",1]",
+          "anchor": "reranking",
+          "quote": "Reranking은 다음과 같이 작동합니다: 각 (쿼리, 응답) 쌍에 대해 관련성 점수를 부여합니다. 이름에서 암시하듯이, 응답이 쿼리와 관련성이 높은 경우 높은 점수를 부여하고, 그렇지 않은 경우 낮은 점수를 부여합니다. 이 장에서는 이 모듈에서 이전에 찾은 위키피디아 검색 결과를 개선하기 위해 재정렬을 사용하는 방법에 대해 배울 것입니다.",
+          "hash": "4f0224bbf25b454693f37397948cea53af80d74aa9aaa9f4de74c1ea7f5cdf1c"
+        }
+      }
+    ]
+  }
+}

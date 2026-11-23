@@ -50,20 +50,20 @@
     "review": []
   },
   "entry": {
-    "inputHash": "d88dbb75b5af15b4f2920e814dd3e6cea5e452085e490e64c8b73d0e56df92cc",
+    "inputHash": "ef32782f000040700abf0976a60ba57f2577d4836e8058c664b9d4391e9c444f",
     "status": "verified",
     "candidates": [
       {
-        "id": "dense-retrieval",
+        "id": "related-articles-graph",
         "sourceBlocks": [
+          "[\"reranking\",1]",
           "[\"결론\",1]",
-          "[\"using-rerank-to-improve-keyword-search\",1]",
-          "[\"reranking\",1]"
+          "[\"using-rerank-to-improve-keyword-search\",29]"
         ],
         "targetBlocks": [
-          "[\"dense-retrieval\",3]",
-          "[\"chunking-the-articles\",9]",
-          "[\"querying-the-dataset-using-dense-retrieval\",4]"
+          "[\"rerank\",3]",
+          "[\"candidates\",3]",
+          "[\"rerank\",2]"
         ]
       },
       {
@@ -77,6 +77,19 @@
           "[\"querying-the-wikipedia-dataset-using-keyword-matching\",1]",
           "[\"conclusion\",2]",
           "[\"conclusion\",5]"
+        ]
+      },
+      {
+        "id": "dense-retrieval",
+        "sourceBlocks": [
+          "[\"결론\",1]",
+          "[\"using-rerank-to-improve-keyword-search\",1]",
+          "[\"reranking\",1]"
+        ],
+        "targetBlocks": [
+          "[\"dense-retrieval\",3]",
+          "[\"chunking-the-articles\",9]",
+          "[\"querying-the-dataset-using-dense-retrieval\",4]"
         ]
       },
       {
@@ -234,26 +247,51 @@
           "[\"qlora-vs-standard-finetuning\",4]",
           "[\"introduction\",10]"
         ]
-      },
-      {
-        "id": "kodistill",
-        "sourceBlocks": [
-          "[\"결론\",1]",
-          "[\"using-rerank-to-improve-keyword-search\",6]",
-          "[\"reranking\",1]"
-        ],
-        "targetBlocks": [
-          "[\"at-a-glance\",1]",
-          "[null,1]",
-          "[\"korean-ocr-a-measurable-change\",3]"
-        ]
       }
     ],
     "recommendations": [
       {
+        "id": "dense-retrieval",
+        "relation": "related_method",
+        "reason": "키워드 검색 후보를 reranking하는 흐름과 Dense Retrieval을 활용한 검색을 비교하며 두 검색 방식을 이해할 수 있습니다.",
+        "sourceEvidence": {
+          "articleId": "reranking",
+          "blockId": "[\"결론\",1]",
+          "anchor": "결론",
+          "quote": "Reranking은 특정 쿼리에 가장 관련성이 높은 응답을 찾는 데 매우 유용한 방법입니다. 이는 dense retrieval을 개선하기 위한 키워드 검색의 보완 방식으로도 유용합니다. 이번 포스트에서는 키워드 검색을 통해 답을 포함할 가능성이 있는 20개의 문서를 먼저 검색한 뒤, 재정렬 엔드포인트를 사용하여 그 중 상위 3개를 선택함으로써 키워드 검색 결과를 크게 향상시켰습니다.",
+          "hash": "d03185c1f96687e82a0a21a6b9f63dba6fe3a917452f9793de8fe2ca09b0a0da"
+        },
+        "targetEvidence": {
+          "articleId": "dense-retrieval",
+          "blockId": "[\"dense-retrieval\",3]",
+          "anchor": "dense-retrieval",
+          "quote": "Keyword search를 통해 첫번째 query는 잘 작동했지만 두번째 query는 그렇지 못했습니다. 두번째 query에는 실제로 많은 document에 query에 있는 단어들이 불필요하게 많이 포함되어 있기 때문입니다. 좋은 결과를 얻어내는 방법으론 모델이 '잘 이해할 수 있는' 질문을 하는 것입니다. 바로 이 부분에서 Semantic Search가 기인합니다. Semantic Search는 단순한 키워드 매칭이 아닌 의미를 파악하여 검색합니다. 언어 모델들은 두 가지 주된 semantic search 방법론(Dense Retrieval & Re-ranking)을 활용합니다. 그 중 Dense Retrieval을 살펴봅시다.",
+          "hash": "a3ec66ba0c3617c61a34c9ad411b2c0e30abaa76308bc4087a61ee2d087e3624"
+        }
+      },
+      {
+        "id": "book-spine",
+        "relation": "application_example",
+        "reason": "키워드 검색 후보를 reranking하는 설명을 바탕으로, 책 제목 후보를 검색하고 유사도와 규칙으로 재점수화하는 사례를 볼 수 있습니다.",
+        "sourceEvidence": {
+          "articleId": "reranking",
+          "blockId": "[\"결론\",1]",
+          "anchor": "결론",
+          "quote": "Reranking은 특정 쿼리에 가장 관련성이 높은 응답을 찾는 데 매우 유용한 방법입니다. 이는 dense retrieval을 개선하기 위한 키워드 검색의 보완 방식으로도 유용합니다. 이번 포스트에서는 키워드 검색을 통해 답을 포함할 가능성이 있는 20개의 문서를 먼저 검색한 뒤, 재정렬 엔드포인트를 사용하여 그 중 상위 3개를 선택함으로써 키워드 검색 결과를 크게 향상시켰습니다.",
+          "hash": "d03185c1f96687e82a0a21a6b9f63dba6fe3a917452f9793de8fe2ca09b0a0da"
+        },
+        "targetEvidence": {
+          "articleId": "book-spine",
+          "blockId": "[\"system\",4]",
+          "anchor": "system",
+          "quote": "Matching normalizes the query, retrieves 50 candidates from a 50,000-book dictionary with character 2-gram and 3-gram BM25, and rescores them with string similarity plus a few rules (Section 5). Each spine ends in one of three states: confirmed (the dictionary entry is taken as the answer), review (candidates are shown and the user picks), or unmatched.",
+          "hash": "42e4da97f352cf20759e335c63c692349941e96920844bb8ef223bed57187f05"
+        }
+      },
+      {
         "id": "keyword-search",
-        "relation": "concept_explanation",
-        "reason": "키워드 검색 결과를 재정렬해 개선하는 흐름과 키워드 매칭의 한계를 함께 확인할 수 있습니다.",
+        "relation": "related_method",
+        "reason": "키워드 검색 결과를 reranking으로 보완하는 방식과, 단어 일치만으로 검색할 때의 한계를 함께 살펴볼 수 있습니다.",
         "sourceEvidence": {
           "articleId": "reranking",
           "blockId": "[\"결론\",1]",
@@ -267,25 +305,6 @@
           "anchor": "conclusion",
           "quote": "Keyword search는 단어들을 기준으로 결과값을 매칭하기에 문장의 의미를 활용하진 못합니다. 이는 다음과 같은 문장에 대해선 더 어려운 과제로 인식할 수 있습니다.",
           "hash": "31a5b1df12eb14cccc7716f9f8d89a0275efb6302e89b69ea0aef2210a434ab0"
-        }
-      },
-      {
-        "id": "book-spine",
-        "relation": "related_method",
-        "reason": "후보를 검색한 뒤 유사도와 규칙으로 재점수화하는 문서 매칭 과정을 비교해 볼 수 있습니다.",
-        "sourceEvidence": {
-          "articleId": "reranking",
-          "blockId": "[\"reranking\",1]",
-          "anchor": "reranking",
-          "quote": "Reranking은 다음과 같이 작동합니다: 각 (쿼리, 응답) 쌍에 대해 관련성 점수를 부여합니다. 이름에서 암시하듯이, 응답이 쿼리와 관련성이 높은 경우 높은 점수를 부여하고, 그렇지 않은 경우 낮은 점수를 부여합니다. 이 장에서는 이 모듈에서 이전에 찾은 위키피디아 검색 결과를 개선하기 위해 재정렬을 사용하는 방법에 대해 배울 것입니다.",
-          "hash": "4f0224bbf25b454693f37397948cea53af80d74aa9aaa9f4de74c1ea7f5cdf1c"
-        },
-        "targetEvidence": {
-          "articleId": "book-spine",
-          "blockId": "[\"system\",4]",
-          "anchor": "system",
-          "quote": "Matching normalizes the query, retrieves 50 candidates from a 50,000-book dictionary with character 2-gram and 3-gram BM25, and rescores them with string similarity plus a few rules (Section 5). Each spine ends in one of three states: confirmed (the dictionary entry is taken as the answer), review (candidates are shown and the user picks), or unmatched.",
-          "hash": "42e4da97f352cf20759e335c63c692349941e96920844bb8ef223bed57187f05"
         }
       }
     ]

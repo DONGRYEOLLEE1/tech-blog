@@ -1,0 +1,5 @@
+hypothetical_post,topic,llm_calls,fixed_calls_new_post,reranks_of_existing_posts_k,links_expected,expected_links_picked,links_picked,forbidden_links_picked
+On-topic Korean note,matching OCR'd book titles,8,2,6,3,3,3,0
+Off-topic Korean note,espresso extraction,2,2,0,0,0,0,0
+Keyword trap,GPU fan noise; mentions OCR and reranking once,4,2,2,0,0,0,0
+"English post, related posts all Korean",speculative decoding,13,2,11,3,3,3,0

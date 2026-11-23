@@ -28,7 +28,7 @@
     "review": []
   },
   "entry": {
-    "inputHash": "e2267b8caedafcb6686369bcd66dca8bf733eda437bac89e6995c727f1bb458a",
+    "inputHash": "9f187fce6eb16b56abbe9c808176d8ac920307ad7bdb98b30703113ccfef51cb",
     "status": "verified",
     "candidates": [
       {
@@ -201,6 +201,19 @@
         ]
       },
       {
+        "id": "related-articles-graph",
+        "sourceBlocks": [
+          "[\"problem\",1]",
+          "[\"script\",1]",
+          "[\"script-1\",1]"
+        ],
+        "targetBlocks": [
+          "[\"failures\",1]",
+          "[\"failures\",2]",
+          "[\"models\",9]"
+        ]
+      },
+      {
         "id": "gpu-driver-troubleshooting",
         "sourceBlocks": [
           "[\"solution\",2]",
@@ -212,32 +225,19 @@
           "[\"env\",2]",
           "[\"issue\",1]"
         ]
-      },
-      {
-        "id": "vera",
-        "sourceBlocks": [
-          "[\"solution\",4]",
-          "[\"what-is-disable-custom-all-reduce\",1]",
-          "[\"problem\",1]"
-        ],
-        "targetBlocks": [
-          "[\"introduction\",6]",
-          "[\"low-rank-adaptation-lora\",1]",
-          "[\"e2e-benchmark\",2]"
-        ]
       }
     ],
     "recommendations": [
       {
         "id": "inference-server",
         "relation": "related_method",
-        "reason": "다중 GPU 추론에서 NCCL_P2P_DISABLE와 --disable-custom-all-reduce를 함께 적용했을 때의 정지 증상을 비교해 볼 수 있습니다.",
+        "reason": "다중 GPU 추론에서 NCCL 초기화가 멈추는 사례와 --disable-custom-all-reduce 적용 후에도 발생한 정지 상황을 비교하며 통신 문제를 살펴볼 수 있습니다.",
         "sourceEvidence": {
           "articleId": "vllm-tensor-parallel-troubleshooting",
-          "blockId": "[\"script-1\",1]",
-          "anchor": "script-1",
-          "quote": "python -m vllm.entrypoints.openai.api_server --model $MODEL_NAME --dtype bfloat16 --port 8081 -tp 2 --enforce-eager --disable_custom_all_reduce > \"$LOGFILE\" 2>&1",
-          "hash": "56d8e1d50c4249056fa86e5d84361795499497e1c9978f2109d5682ebc33b418"
+          "blockId": "[\"what-is-disable-custom-all-reduce\",5]",
+          "anchor": "what-is-disable-custom-all-reduce",
+          "quote": "--disable-custom-all-reduce 플래그의 역할 --disable-custom-all-reduce 플래그는 vLLM이 커스텀 all-reduce 구현을 사용하지 않고, 대신 NCCL의 기본 all-reduce 구현으로 돌아가도록 강제하는 옵션입니다. 이 플래그를 사용하는 주요 이유는 다음과 같습니다: (1) 호환성 문제 해결 NVLink 미지원 환경: 두 개 이상의 GPU가 PCIe로만 연결된 경우, 커스텀 all-reduce가 제대로 동작하지 않거나 성능이 떨어질 수 있습니다. 이 경우 NCCL로 전환하면 안정성이 보장됩니다. P2P 통신 실패: GPU 간 P2P 통신이 하드웨어 또는 드라이버 문제로 지원되지 않을 때, 커스텀 all-reduce가 비활성화되도록 강제할 수 있습니다.",
+          "hash": "fb90432b86a42cdde587ef0918fbe9bd0e3a7f00ed2add1111dd735fa9aca549"
         },
         "targetEvidence": {
           "articleId": "inference-server",
@@ -250,7 +250,7 @@
       {
         "id": "vllm-weight-loading",
         "relation": "related_method",
-        "reason": "tensor parallel 설정에서 무한 로딩과 API 답변 생성 실패가 각각 어떻게 나타나는지 살펴볼 수 있습니다.",
+        "reason": "둘 다 vLLM tensor parallel 실행 중 발생한 문제를 다루므로, 무한 로딩과 모델 응답 생성 실패 사례를 함께 살펴볼 수 있습니다.",
         "sourceEvidence": {
           "articleId": "vllm-tensor-parallel-troubleshooting",
           "blockId": "[\"problem\",1]",

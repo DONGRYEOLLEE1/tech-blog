@@ -39,7 +39,7 @@
     "review": []
   },
   "entry": {
-    "inputHash": "e3f34b2934e060421576c4fb1ec8973cfa264ced5e43336499c58c736444d9df",
+    "inputHash": "96d9f02e79d430aa5dc0c62efe82f4efde4a4e30a2286d9980b32c308c5edc3b",
     "status": "verified",
     "candidates": [
       {
@@ -79,6 +79,19 @@
           "[\"결론\",1]",
           "[\"using-rerank-to-improve-keyword-search\",1]",
           "[\"reranking\",1]"
+        ]
+      },
+      {
+        "id": "related-articles-graph",
+        "sourceBlocks": [
+          "[\"querying-the-dataset-using-dense-retrieval\",1]",
+          "[\"chunking-the-articles\",1]",
+          "[\"dense-retrieval\",3]"
+        ],
+        "targetBlocks": [
+          "[\"candidates\",4]",
+          "[\"models\",30]",
+          "[\"rerank\",3]"
         ]
       },
       {
@@ -223,26 +236,13 @@
           "[\"experiments\",4]",
           "[\"context-matters\",4]"
         ]
-      },
-      {
-        "id": "python-class-inheritance",
-        "sourceBlocks": [
-          "[\"querying-the-dataset-using-dense-retrieval\",2]",
-          "[\"dense-retrieval\",3]",
-          "[\"chunking-the-articles\",1]"
-        ],
-        "targetBlocks": [
-          "[\"abstract-class\",2]",
-          "[\"예시-코드\",1]",
-          "[\"examples\",1]"
-        ]
       }
     ],
     "recommendations": [
       {
         "id": "semantic-search",
         "relation": "related_method",
-        "reason": "Dense Retrieval이 임베딩 벡터로 유사 문서를 찾는 방식과 의미 검색에서 벡터 유사도를 활용하는 개념을 함께 살펴볼 수 있습니다.",
+        "reason": "Dense Retrieval에서 쓰는 text embedding과 유사한 문장에 비슷한 벡터를 할당하는 원리를 구체적인 예로 살펴볼 수 있습니다.",
         "sourceEvidence": {
           "articleId": "dense-retrieval",
           "blockId": "[\"querying-the-dataset-using-dense-retrieval\",1]",
@@ -261,7 +261,7 @@
       {
         "id": "reranking",
         "relation": "related_method",
-        "reason": "Dense Retrieval과 Reranking이 의미 기반 검색에서 어떤 방식으로 쓰이고, Reranking이 검색 결과를 관련성 점수로 재정렬하는지 배울 수 있습니다.",
+        "reason": "Dense Retrieval과 함께 쓰이는 Reranking이 쿼리와 문서의 관련성 점수를 매겨 검색 결과를 재정렬하는 방식을 배울 수 있습니다.",
         "sourceEvidence": {
           "articleId": "dense-retrieval",
           "blockId": "[\"dense-retrieval\",3]",
@@ -275,6 +275,25 @@
           "anchor": "using-rerank-to-improve-keyword-search",
           "quote": "Reranking은 기존의 search system의 성능을 끌어올려주는 굉장한 방법론입니다. 짧게 말해서, reranking은 query와 response를 받고 그들끼리의 relevance score를 리턴합니다. 이를 통해 어떤 검색 시스템이든 활용하여 query에 대한 답을 포함할 가능성이 있는 여러 문서를 찾아낸 뒤, reranking 엔드포인트를 사용하여 이 문서들을 정렬할 수 있습니다.",
           "hash": "bd34ba188d485a61e9674aaa5ddb0ac41172d935fd54f83aa981721e4dc36b60"
+        }
+      },
+      {
+        "id": "related-articles-graph",
+        "relation": "application_example",
+        "reason": "문단별 임베딩으로 유사한 내용을 찾는 Dense Retrieval 원리가 블록 간 유사도 점수화에 적용되는 사례를 볼 수 있습니다.",
+        "sourceEvidence": {
+          "articleId": "dense-retrieval",
+          "blockId": "[\"chunking-the-articles\",1]",
+          "anchor": "chunking-the-articles",
+          "quote": "이 프로세스는 embedding에서 query에 가장 가까운 문서를 찾는 방식으로 좋은 결과를 얻을 수 있습니다. 하지만, 문서가 매우 길 경우 복잡해질 수 있습니다. 더 세분화된 처리를 위해, 문서를 단락별로 나누겠습니다. 즉, 각 문서의 각 단락에 해당하는 embedding 벡터를 찾는다는 의미입니다. 이렇게 하면, 모델이 답을 검색할 때 query와 가장 유사한 단락과 해당 단락이 속한 문서를 실제로 출력할 수 있습니다.",
+          "hash": "1fc28278da50104de47b6958e9c35627d16beb274ed6d32f4b4af4b3e204544a"
+        },
+        "targetEvidence": {
+          "articleId": "related-articles-graph",
+          "blockId": "[\"candidates\",4]",
+          "anchor": "candidates",
+          "quote": "a block-embedding ranker, where each block of the source is matched to its most similar block in the target and the pair's score is the mean of the three best cosines.",
+          "hash": "70f2f2bf9936fd35c829585ecc9e8602e63f1536d6ff1bf372ac278f47da7839"
         }
       }
     ]

@@ -1,0 +1,18 @@
+panel,category,count,of,percent
+related articles shown per article (after the build adds series neighbors and rule rows),0,11,113,9.7
+related articles shown per article (after the build adds series neighbors and rule rows),1,19,113,16.8
+related articles shown per article (after the build adds series neighbors and rule rows),2,31,113,27.4
+related articles shown per article (after the build adds series neighbors and rule rows),3,30,113,26.5
+related articles shown per article (after the build adds series neighbors and rule rows),4,22,113,19.5
+recommendations stored per article (model picks only),0,17,113,15.0
+recommendations stored per article (model picks only),1,23,113,20.4
+recommendations stored per article (model picks only),2,29,113,25.7
+recommendations stored per article (model picks only),3,24,113,21.2
+recommendations stored per article (model picks only),4,20,113,17.7
+relation type of the model picks,related_method,178,233,76.4
+relation type of the model picks,concept_explanation,21,233,9.0
+relation type of the model picks,application_example,19,233,8.2
+relation type of the model picks,evaluation_comparison,15,233,6.4
+links shown by origin,picked by the model,233,259,90.0
+links shown by origin,adjacent series part added by rule,20,259,7.7
+links shown by origin,rule-based list on the three stub posts,6,259,2.3

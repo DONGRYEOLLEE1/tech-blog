@@ -83,20 +83,20 @@
     "review": []
   },
   "entry": {
-    "inputHash": "83cf976912666f4fc35c5acec8549e3de3c8e45556d2526d197bc5c6f470c0d7",
+    "inputHash": "1c8b69551c75a388b59a98c47afba9028f3f30207ce98adb36735c9793b46f86",
     "status": "verified",
     "candidates": [
       {
-        "id": "map-evaluation",
+        "id": "related-articles-graph",
         "sourceBlocks": [
-          "[\"system\",2]",
-          "[\"conclusion\",1]",
-          "[\"metrics\",3]"
+          "[\"system\",4]",
+          "[\"reranker\",13]",
+          "[\"retrieval\",2]"
         ],
         "targetBlocks": [
-          "[\"mapmean-average-precision\",1]",
-          "[\"coco-map\",1]",
-          "[\"refernce\",1]"
+          "[\"rerank\",3]",
+          "[\"candidates\",3]",
+          "[\"rerank\",2]"
         ]
       },
       {
@@ -110,6 +110,19 @@
           "[\"setup-training\",13]",
           "[\"analysis\",3]",
           "[\"ablation\",1]"
+        ]
+      },
+      {
+        "id": "map-evaluation",
+        "sourceBlocks": [
+          "[\"system\",2]",
+          "[\"conclusion\",1]",
+          "[\"metrics\",3]"
+        ],
+        "targetBlocks": [
+          "[\"mapmean-average-precision\",1]",
+          "[\"coco-map\",1]",
+          "[\"refernce\",1]"
         ]
       },
       {
@@ -267,45 +280,13 @@
           "[\"detection\",1]",
           "[\"2-rpnregion-proposal-network\",13]"
         ]
-      },
-      {
-        "id": "vllm-tensor-parallel-troubleshooting",
-        "sourceBlocks": [
-          "[\"freeze\",6]",
-          "[\"setup\",2]",
-          "[\"tldr\",5]"
-        ],
-        "targetBlocks": [
-          "[\"error-message\",8]",
-          "[\"environment\",2]",
-          "[\"problem\",2]"
-        ]
       }
     ],
     "recommendations": [
       {
-        "id": "map-evaluation",
-        "relation": "concept_explanation",
-        "reason": "탐지 상자의 IoU 기준을 고정해 평가하는 mAP50이 어떤 지표인지 설명을 통해 이해할 수 있습니다.",
-        "sourceEvidence": {
-          "articleId": "book-spine",
-          "blockId": "[\"metrics\",3]",
-          "anchor": "metrics",
-          "quote": "mAP50 is box mAP at IoU 0.5 on the 4TU validation set.",
-          "hash": "a86030d0e647713d0b4f52cf50a0c7c07af3667841e2aa02969133adc0e8d8fb"
-        },
-        "targetEvidence": {
-          "articleId": "map-evaluation",
-          "blockId": "[\"mapmean-average-precision\",1]",
-          "anchor": "mapmean-average-precision",
-          "quote": "AP는 Faster R-CNN, SSD와 같이 객체탐지의 정확도를 측정하는데있어서 가장 인기있는 metric이다. AP는 0과 1사이의 값을 가지는 recall을 통해 average precision값을 계산한다. 꽤나 복잡한 얘기로 들릴수 있겠지만 예시와 함께 설명하고자한다. 그전에, precision, recall, IoU에 대해 알아보자.",
-          "hash": "01b98da19a8d4cd15cc9fb7a64670351f90a987efd64d39a5808b9cab4a29f63"
-        }
-      },
-      {
         "id": "reranking",
         "relation": "concept_explanation",
-        "reason": "후보 책을 문자열 유사도와 규칙으로 재채점하는 과정이 reranking의 관련성 점수 부여와 어떻게 연결되는지 배울 수 있습니다.",
+        "reason": "책 등뼈 제목 후보에 점수를 다시 매기는 과정과, 쿼리·응답 관련성에 따라 점수를 부여하는 재정렬 개념을 함께 살펴볼 수 있습니다.",
         "sourceEvidence": {
           "articleId": "book-spine",
           "blockId": "[\"system\",4]",
@@ -322,22 +303,60 @@
         }
       },
       {
-        "id": "r-cnn",
+        "id": "keyword-search",
         "relation": "concept_explanation",
-        "reason": "겹치는 탐지 상자를 제거하는 NMS가 평가 경로에 따라 탐지 결과를 바꿀 수 있는 이유를 알아볼 수 있습니다.",
+        "reason": "문자 n-gram BM25로 책 제목 후보를 찾는 방식과 키워드 검색의 한계를 함께 살펴볼 수 있습니다.",
         "sourceEvidence": {
           "articleId": "book-spine",
-          "blockId": "[\"eval-path\",6]",
-          "anchor": "eval-path",
-          "quote": "Figure 3. The same segmentation weights (YOLO26n-seg trained on 4TU) on a tilted 4TU validation shelf with 20 spines, confidence 0.4, boxes drawn axis-aligned. Left: default predict, which applies NMS at IoU 0.5 to the one-to-many head. Right: the NMS-free one-to-one head. Both use rectangular padding. The bottom of the photo is cropped for display; the model saw the whole photo.",
-          "hash": "f281c675079d1ceeb33cb420449037112282024876e33af918ee7955092829ff"
+          "blockId": "[\"system\",4]",
+          "anchor": "system",
+          "quote": "Matching normalizes the query, retrieves 50 candidates from a 50,000-book dictionary with character 2-gram and 3-gram BM25, and rescores them with string similarity plus a few rules (Section 5). Each spine ends in one of three states: confirmed (the dictionary entry is taken as the answer), review (candidates are shown and the user picks), or unmatched.",
+          "hash": "42e4da97f352cf20759e335c63c692349941e96920844bb8ef223bed57187f05"
+        },
+        "targetEvidence": {
+          "articleId": "keyword-search",
+          "blockId": "[\"conclusion\",2]",
+          "anchor": "conclusion",
+          "quote": "Keyword search는 단어들을 기준으로 결과값을 매칭하기에 문장의 의미를 활용하진 못합니다. 이는 다음과 같은 문장에 대해선 더 어려운 과제로 인식할 수 있습니다.",
+          "hash": "31a5b1df12eb14cccc7716f9f8d89a0275efb6302e89b69ea0aef2210a434ab0"
+        }
+      },
+      {
+        "id": "r-cnn",
+        "relation": "concept_explanation",
+        "reason": "등뼈를 객체로 검출하는 파이프라인을 R-CNN의 영역 제안·분류·위치 추정 절차와 비교해 이해할 수 있습니다.",
+        "sourceEvidence": {
+          "articleId": "book-spine",
+          "blockId": "[\"system\",2]",
+          "anchor": "system",
+          "quote": "A photo is first downscaled so that its long side is at most 1,600 px. A one-class oriented bounding box (OBB) detector finds the spines. Near-duplicate boxes are merged (Section 3.5), and the number of boxes scoring 0.4 or more is the book count. Each box is then cut out with a margin of 8% of its short side, rotated so that its long side is vertical, and upscaled if its short side is below 96 px.",
+          "hash": "47a6b7f2df9dece4417da0ca5bd70c47f8e2d281e5d4511a6cf0cf29c50c19b1"
         },
         "targetEvidence": {
           "articleId": "r-cnn",
-          "blockId": "[\"nmsnon-maximum-suppression\",17]",
-          "anchor": "nmsnon-maximum-suppression",
-          "quote": "NMS 알고리즘은 Confidence-score 임계값이 높을수록, IoU 임계값이 낮을수록 많은 box가 제거된다. 위 과정을 통해 겹쳐진 box를 제거하고 최소한의 최적의 B.B를 반환한다. Frankly speaking, 두 박스의 교집합을 합집합으로 나눠준 값이 IoU. 논문에서는 IoU가 0.5보다 크면 동일한 물체를 대상으로 한 박스로 판단하고 NMS를 적용한다.",
-          "hash": "63c2fb237583946957b0b084fed6f0b3af7fe84b336f3a79b47ccbc7fd80c042"
+          "blockId": "[\"abstract\",1]",
+          "anchor": "abstract",
+          "quote": "Object Detector는 Object의 coordinate를 찾고(Localization), class를 분류(Classification)하는 작업을 진행한다. R-CNN은 이를 순차적으로 진행하는 2 Stage Detector 로, 딥러닝을 적용한 최초의 Object Detector다. R-CNN모델은 Object Detection 혹은 Inference(추론)시, 아래와 같은 순서에 의해 동작한다.",
+          "hash": "4ae1fc1530ef74e24391b17d1338950c656044da3cb13cb70ce563979e1142ad"
+        }
+      },
+      {
+        "id": "map-evaluation",
+        "relation": "concept_explanation",
+        "reason": "등뼈 검출 상자를 이용하는 시스템을 읽으며 객체 탐지 성능 측정에 쓰이는 AP와 IoU 개념을 익힐 수 있습니다.",
+        "sourceEvidence": {
+          "articleId": "book-spine",
+          "blockId": "[\"system\",2]",
+          "anchor": "system",
+          "quote": "A photo is first downscaled so that its long side is at most 1,600 px. A one-class oriented bounding box (OBB) detector finds the spines. Near-duplicate boxes are merged (Section 3.5), and the number of boxes scoring 0.4 or more is the book count. Each box is then cut out with a margin of 8% of its short side, rotated so that its long side is vertical, and upscaled if its short side is below 96 px.",
+          "hash": "47a6b7f2df9dece4417da0ca5bd70c47f8e2d281e5d4511a6cf0cf29c50c19b1"
+        },
+        "targetEvidence": {
+          "articleId": "map-evaluation",
+          "blockId": "[\"mapmean-average-precision\",1]",
+          "anchor": "mapmean-average-precision",
+          "quote": "AP는 Faster R-CNN, SSD와 같이 객체탐지의 정확도를 측정하는데있어서 가장 인기있는 metric이다. AP는 0과 1사이의 값을 가지는 recall을 통해 average precision값을 계산한다. 꽤나 복잡한 얘기로 들릴수 있겠지만 예시와 함께 설명하고자한다. 그전에, precision, recall, IoU에 대해 알아보자.",
+          "hash": "01b98da19a8d4cd15cc9fb7a64670351f90a987efd64d39a5808b9cab4a29f63"
         }
       }
     ]

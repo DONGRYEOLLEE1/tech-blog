@@ -28,7 +28,7 @@
     "review": []
   },
   "entry": {
-    "inputHash": "969b6e73aa535267f4b608359c6abaa01dfb4d014a1f0743a42081f1139af3ed",
+    "inputHash": "ebeb4cb8ce08ff76b6fecb375cf6a336b33c6b467768ef2f0d978619b01c221a",
     "status": "verified",
     "candidates": [
       {
@@ -71,16 +71,16 @@
         ]
       },
       {
-        "id": "rtpurbo",
+        "id": "book-spine",
         "sourceBlocks": [
-          "[\"introduction\",5]",
-          "[\"overview\",8]",
-          "[\"related-work\",1]"
+          "[\"introduction\",4]",
+          "[\"t5-xxl-walltime-실측\",15]",
+          "[\"conclusion\",1]"
         ],
         "targetBlocks": [
-          "[\"introduction\",1]",
-          "[\"hardware-aware-top-p-decoding-kernel\",1]",
-          "[\"효율--ultra-long-robustness\",1]"
+          "[\"tldr\",5]",
+          "[\"ablation\",10]",
+          "[\"first-visit\",1]"
         ]
       },
       {
@@ -97,16 +97,16 @@
         ]
       },
       {
-        "id": "book-spine",
+        "id": "rtpurbo",
         "sourceBlocks": [
-          "[\"introduction\",4]",
-          "[\"t5-xxl-walltime-실측\",15]",
-          "[\"conclusion\",1]"
+          "[\"introduction\",5]",
+          "[\"overview\",8]",
+          "[\"related-work\",1]"
         ],
         "targetBlocks": [
-          "[\"tldr\",5]",
-          "[\"ablation\",10]",
-          "[\"first-visit\",1]"
+          "[\"introduction\",1]",
+          "[\"hardware-aware-top-p-decoding-kernel\",1]",
+          "[\"효율--ultra-long-robustness\",1]"
         ]
       },
       {
@@ -136,16 +136,16 @@
         ]
       },
       {
-        "id": "transformer",
+        "id": "faster-r-cnn",
         "sourceBlocks": [
           "[\"introduction\",10]",
-          "[\"speculative-sampling\",2]",
-          "[\"overview\",3]"
+          "[\"overview\",3]",
+          "[\"speculative-sampling\",1]"
         ],
         "targetBlocks": [
-          "[\"trnasformer-의의\",1]",
-          "[\"transformer\",1]",
-          "[\"transformer가-기존-모델과-다른점\",2]"
+          "[\"alternating-training\",1]",
+          "[\"의의\",2]",
+          "[\"preview\",3]"
         ]
       },
       {
@@ -162,16 +162,16 @@
         ]
       },
       {
-        "id": "faster-r-cnn",
+        "id": "transformer",
         "sourceBlocks": [
           "[\"introduction\",10]",
-          "[\"overview\",3]",
-          "[\"speculative-sampling\",1]"
+          "[\"speculative-sampling\",2]",
+          "[\"overview\",3]"
         ],
         "targetBlocks": [
-          "[\"alternating-training\",1]",
-          "[\"의의\",2]",
-          "[\"preview\",3]"
+          "[\"trnasformer-의의\",1]",
+          "[\"transformer\",1]",
+          "[\"transformer가-기존-모델과-다른점\",2]"
         ]
       },
       {
@@ -214,43 +214,24 @@
         ]
       },
       {
-        "id": "ia3-paper",
+        "id": "dora",
         "sourceBlocks": [
-          "[\"introduction\",10]",
-          "[\"conclusion\",1]",
-          "[\"다양한-모델에서의-empirical-α\",8]"
+          "[\"introduction\",5]",
+          "[\"analysis\",1]",
+          "[null,2]"
         ],
         "targetBlocks": [
-          "[\"introduction\",6]",
-          "[\"conclusion\",1]",
-          "[\"peft-with-ia3\",1]"
+          "[\"introduction\",1]",
+          "[\"weight-decomposition-analysis\",2]",
+          "[\"gradient-analysis-of-dora\",1]"
         ]
       }
     ],
     "recommendations": [
       {
-        "id": "inference-server",
-        "relation": "application_example",
-        "reason": "추측 토큰을 검증하는 방식이 vLLM의 MTP 설정과 작업 유형별 수락률 측정에서 어떻게 운영되는지 볼 수 있습니다.",
-        "sourceEvidence": {
-          "articleId": "speculative-decoding-paper",
-          "blockId": "[\"introduction\",6]",
-          "anchor": "introduction",
-          "quote": "이 논문은 CPU의 branch prediction으로 익숙한 speculative execution(어떤 작업이 필요한지 검증하는 것과 병렬로 그 작업을 미리 수행하는 최적화)을 확률적(stochastic) 세팅으로 일반화함. 빠른 approximation model $M_q$가 미래 토큰들을 추측 생성하고, 느린 target model $M_p$가 이 추측들을 병렬로 평가·검증함. 여기에 speculative sampling이라는 새로운 샘플링 기법을 결합해, 최종 출력 분포가 $M_p$ 단독 샘플링과 수학적으로 완전히 동일함을 보장함.",
-          "hash": "174a2cf48c5d468b077dbc01e41d87377ebaaf12a738fb5671e1b500b9511480"
-        },
-        "targetEvidence": {
-          "articleId": "inference-server",
-          "blockId": "[\"작업-유형별-수락률\",1]",
-          "anchor": "작업-유형별-수락률",
-          "quote": "speculative decoding의 이득은 draft 토큰이 얼마나 받아들여지느냐에 달려 있음. 작업 유형 7개로 프롬프트를 만들어서 유형별 수락률을 따로 쟀음. 요청 전후로 vLLM의 카운터를 읽어 차이를 계산하는 방식임. 이 측정은 예열 없이 유형당 2회, 최대 768 토큰으로 돌렸음.",
-          "hash": "c7ef21b967bd7e2d32a22acec06ccbdd9ae7be66093816f40402f08abed9bd34"
-        }
-      },
-      {
         "id": "dflash",
         "relation": "related_method",
-        "reason": "초안 생성과 병렬 검증이라는 공통 틀에서, block diffusion 초안과 AR target 검증이 어떻게 결합되는지 비교할 수 있습니다.",
+        "reason": "draft-then-verify 틀을 바탕으로 diffusion 병렬 초안과 AR target 검증을 결합하는 구체적인 확장 방법을 알 수 있습니다.",
         "sourceEvidence": {
           "articleId": "speculative-decoding-paper",
           "blockId": "[\"introduction\",6]",
@@ -264,6 +245,25 @@
           "anchor": "introduction",
           "quote": "DFlash의 아이디어는 이 둘을 결합하는 것임. draft는 diffusion으로 병렬 생성하고, 검증은 고품질 AR target model에게 맡겨 lossless를 보장함. 핵심 인사이트는 \"the target knows best\" — 큰 AR 모델의 hidden feature에는 이미 미래 토큰들에 대한 정보가 암묵적으로 담겨 있으므로, 이 feature를 조건으로 주면 아주 작은 diffusion drafter도 높은 품질의 draft를 만들 수 있다는 것임. draft model이 사실상 target model의 깊은 context feature를 활용하는 diffusion adapter로 동작하게 됨.",
           "hash": "dd3c99a0e0db007cb33fc899332a2d6036a158a2807a26f5cded6a40df9c561c"
+        }
+      },
+      {
+        "id": "inference-server",
+        "relation": "application_example",
+        "reason": "추측 토큰을 target model이 병렬 검증하는 개념이 MTP 설정과 작업 유형별 수락률 측정에서 실제 운영에 어떻게 쓰이는지 볼 수 있습니다.",
+        "sourceEvidence": {
+          "articleId": "speculative-decoding-paper",
+          "blockId": "[\"introduction\",6]",
+          "anchor": "introduction",
+          "quote": "이 논문은 CPU의 branch prediction으로 익숙한 speculative execution(어떤 작업이 필요한지 검증하는 것과 병렬로 그 작업을 미리 수행하는 최적화)을 확률적(stochastic) 세팅으로 일반화함. 빠른 approximation model $M_q$가 미래 토큰들을 추측 생성하고, 느린 target model $M_p$가 이 추측들을 병렬로 평가·검증함. 여기에 speculative sampling이라는 새로운 샘플링 기법을 결합해, 최종 출력 분포가 $M_p$ 단독 샘플링과 수학적으로 완전히 동일함을 보장함.",
+          "hash": "174a2cf48c5d468b077dbc01e41d87377ebaaf12a738fb5671e1b500b9511480"
+        },
+        "targetEvidence": {
+          "articleId": "inference-server",
+          "blockId": "[\"작업-유형별-수락률\",1]",
+          "anchor": "작업-유형별-수락률",
+          "quote": "speculative decoding의 이득은 draft 토큰이 얼마나 받아들여지느냐에 달려 있음. 작업 유형 7개로 프롬프트를 만들어서 유형별 수락률을 따로 쟀음. 요청 전후로 vLLM의 카운터를 읽어 차이를 계산하는 방식임. 이 측정은 예열 없이 유형당 2회, 최대 768 토큰으로 돌렸음.",
+          "hash": "c7ef21b967bd7e2d32a22acec06ccbdd9ae7be66093816f40402f08abed9bd34"
         }
       }
     ]

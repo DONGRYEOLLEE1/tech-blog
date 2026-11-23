@@ -50,7 +50,7 @@
     "review": []
   },
   "entry": {
-    "inputHash": "fb6388904346a056f0435999ecac207a5e415e66f7831aa018e46f9a10d81542",
+    "inputHash": "db3e77f8578bf1b4c5606b9ab568ae86ba575aa28d76fb2a3c4dbff5c4f11a47",
     "status": "verified",
     "candidates": [
       {
@@ -236,16 +236,16 @@
         ]
       },
       {
-        "id": "ia3-paper",
+        "id": "flan",
         "sourceBlocks": [
-          "[\"hyper-parameter\",5]",
-          "[\"fine-tuning-bert\",1]",
+          "[\"pre-training-bert\",1]",
+          "[\"ablation-study\",3]",
           "[\"task-1-masked-lm-mlm\",3]"
         ],
         "targetBlocks": [
-          "[\"combining-the-ingredients\",8]",
-          "[\"introduction\",6]",
-          "[\"ablation-experiments\",1]"
+          "[\"flan--instruction-tuning-improves-zero-shot-learning\",1]",
+          "[\"number-of-instruction-tuning-clusters\",1]",
+          "[\"introduction\",5]"
         ]
       }
     ],
@@ -253,26 +253,26 @@
       {
         "id": "elmo",
         "relation": "related_method",
-        "reason": "ELMo는 양방향 언어 모델로 문맥 정보를 반영하고, BERT는 양방향 Transformer Encoder에서 가려진 토큰을 예측해 사전학습합니다.",
+        "reason": "ELMo가 양방향 언어 모델로 문맥 표현을 만드는 방식과 BERT의 마스크 예측 사전학습 방식의 차이를 배울 수 있습니다.",
         "sourceEvidence": {
           "articleId": "bert",
-          "blockId": "[\"task-1-masked-lm-mlm\",2]",
-          "anchor": "task-1-masked-lm-mlm",
-          "quote": "Bi-directional한 Transformer Encoder를 쓰되, 실제 Input에 해당하는 단어들을 임의의 비율(15%)로 마스킹을 시키고 모델이 학습을 통해서 실제 가려진 값을 잘 예측하도록 학습시키는 것이 바로 BERT의 pre-training 첫번째 task인 MLM.",
-          "hash": "9792b5e6449cb15bdc0ea16dbe7ccc3e9ead912491a7080d396ba85c93f0dc26"
+          "blockId": "[\"pre-training-bert\",1]",
+          "anchor": "pre-training-bert",
+          "quote": "ELMo와 GPT는 left-to-right 또는 right-to-left 언어 모델을 사용해 pre-training을 수행한다. 하지만 BERT는 이와 다르게 2가지의 새로운 unsupervised task로 pre-training을 수행한다.",
+          "hash": "18226f064ff0a07b6aac1633c090cd6c799cabbc98d3046f964e3831dbd0f676"
         },
         "targetEvidence": {
           "articleId": "elmo",
-          "blockId": "[\"elmo\",1]",
-          "anchor": "elmo",
-          "quote": "기존 word2vec, Glove 등에 비해 context 정보를 반영하는 Pre-training 방법을 제시합니다. 여러층의 BiLSTM을 이용해 Language Model을 하며, 만들어진 hidden-state를 적절하게 조합해 새로운 word representation을 만들어냅니다.",
-          "hash": "0536e6bb9b159cb5b8c31469299a3fb57f0c2d5b648124df1af19c123e28974b"
+          "blockId": "[\"mechanism\",4]",
+          "anchor": "mechanism",
+          "quote": "ELMO는 Bi-directional LSTM을 통해 학습하기 때문에 Forward LM, Backward LM 둘다 학습합니다.",
+          "hash": "bf05c07eaf95891bd5e7860b44afa6c951e4cb401f96e92c707a0387eb20a7ea"
         }
       },
       {
         "id": "transformer",
         "relation": "related_method",
-        "reason": "BERT는 Transformer Encoder를 사용하고, 이 문서는 Transformer의 인코더 입력 임베딩과 구조를 설명합니다.",
+        "reason": "BERT의 Transformer 인코더 구조와 Transformer의 인코더 입력·출력 구성을 함께 살펴볼 수 있습니다.",
         "sourceEvidence": {
           "articleId": "bert",
           "blockId": "[\"model-architecture\",1]",
@@ -291,7 +291,7 @@
       {
         "id": "vit",
         "relation": "related_method",
-        "reason": "BERT와 ViT 모두 Transformer를 활용하며, ViT 문서는 이미지를 패치 임베딩 시퀀스로 만들어 분류하는 방식을 보여줍니다.",
+        "reason": "BERT가 텍스트 토큰을 Transformer에 넣는 방식과 ViT가 이미지 패치를 토큰처럼 입력하는 방식을 비교해 볼 수 있습니다.",
         "sourceEvidence": {
           "articleId": "bert",
           "blockId": "[\"model-architecture\",1]",

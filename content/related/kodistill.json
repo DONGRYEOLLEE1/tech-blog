@@ -72,9 +72,22 @@
     "review": []
   },
   "entry": {
-    "inputHash": "799a39e00bff74e1c47a98dc0913e1427b3705940103477a564e1abb88e16df3",
+    "inputHash": "478bb81260e8f63d47d68d8119e6318d1d99e5cff444960025978429d5a2522e",
     "status": "verified",
     "candidates": [
+      {
+        "id": "related-articles-graph",
+        "sourceBlocks": [
+          "[\"try-the-model\",1]",
+          "[\"the-question-aligning-korean-qa-and-transcription\",2]",
+          "[\"at-a-glance\",2]"
+        ],
+        "targetBlocks": [
+          "[\"new-post\",10]",
+          "[\"new-post\",11]",
+          "[\"reader-view\",5]"
+        ]
+      },
       {
         "id": "thinkingcap",
         "sourceBlocks": [
@@ -86,6 +99,19 @@
           "[\"conclusion\",1]",
           "[\"followups\",2]",
           "[\"stop\",1]"
+        ]
+      },
+      {
+        "id": "k-browsecomp",
+        "sourceBlocks": [
+          "[\"final-results\",11]",
+          "[\"at-a-glance\",5]",
+          "[null,1]"
+        ],
+        "targetBlocks": [
+          "[\"main-results\",1]",
+          "[\"setup\",2]",
+          "[\"introduction\",4]"
         ]
       },
       {
@@ -115,16 +141,16 @@
         ]
       },
       {
-        "id": "k-browsecomp",
+        "id": "dora",
         "sourceBlocks": [
-          "[\"final-results\",11]",
-          "[\"at-a-glance\",5]",
+          "[\"3-continue-with-sft-and-verifiable-grpo\",1]",
+          "[\"at-a-glance\",1]",
           "[null,1]"
         ],
         "targetBlocks": [
-          "[\"main-results\",1]",
-          "[\"setup\",2]",
-          "[\"introduction\",4]"
+          "[\"introduction\",3]",
+          "[\"imagevideo-text-understanding\",1]",
+          "[\"visual-instruction-tuning\",1]"
         ]
       },
       {
@@ -154,16 +180,16 @@
         ]
       },
       {
-        "id": "dora",
+        "id": "rtpurbo",
         "sourceBlocks": [
-          "[\"3-continue-with-sft-and-verifiable-grpo\",1]",
-          "[\"at-a-glance\",1]",
-          "[null,1]"
+          "[\"final-results\",11]",
+          "[\"1-preserve-the-bilingual-foundation\",3]",
+          "[\"at-a-glance\",2]"
         ],
         "targetBlocks": [
-          "[\"introduction\",3]",
-          "[\"imagevideo-text-understanding\",1]",
-          "[\"visual-instruction-tuning\",1]"
+          "[\"정확도--near-lossless\",6]",
+          "[\"low-cost-two-stage-training\",1]",
+          "[\"introduction\",1]"
         ]
       },
       {
@@ -193,16 +219,16 @@
         ]
       },
       {
-        "id": "rtpurbo",
+        "id": "ziya2",
         "sourceBlocks": [
-          "[\"final-results\",11]",
-          "[\"1-preserve-the-bilingual-foundation\",3]",
-          "[\"at-a-glance\",2]"
+          "[null,1]",
+          "[\"at-a-glance\",1]",
+          "[\"1-preserve-the-bilingual-foundation\",3]"
         ],
         "targetBlocks": [
-          "[\"정확도--near-lossless\",6]",
-          "[\"low-cost-two-stage-training\",1]",
-          "[\"introduction\",1]"
+          "[\"introduction\",9]",
+          "[\"continual-pre-training\",6]",
+          "[\"baselines\",3]"
         ]
       },
       {
@@ -232,19 +258,6 @@
         ]
       },
       {
-        "id": "ziya2",
-        "sourceBlocks": [
-          "[null,1]",
-          "[\"at-a-glance\",1]",
-          "[\"1-preserve-the-bilingual-foundation\",3]"
-        ],
-        "targetBlocks": [
-          "[\"introduction\",9]",
-          "[\"continual-pre-training\",6]",
-          "[\"baselines\",3]"
-        ]
-      },
-      {
         "id": "lora-finetuning",
         "sourceBlocks": [
           "[\"3-continue-with-sft-and-verifiable-grpo\",1]",
@@ -256,26 +269,13 @@
           "[\"training\",1]",
           "[\"dataset\",2]"
         ]
-      },
-      {
-        "id": "vllm-tensor-parallel-troubleshooting",
-        "sourceBlocks": [
-          "[\"how-the-comparison-was-checked\",1]",
-          "[\"3-continue-with-sft-and-verifiable-grpo\",4]",
-          "[null,2]"
-        ],
-        "targetBlocks": [
-          "[\"what-is-disable-custom-all-reduce\",1]",
-          "[\"problem\",1]",
-          "[\"error-message\",1]"
-        ]
       }
     ],
     "recommendations": [
       {
         "id": "lora",
         "relation": "concept_explanation",
-        "reason": "LoRA가 가중치를 고정하고 저랭크 분해를 학습하는 방식임을 설명해, KoDistill-VL의 LoRA 설정을 이해하는 데 도움이 됩니다.",
+        "reason": "SFT와 GRPO 단계에서 쓰는 LoRA가 가중치를 고정하고 저랭크 행렬을 학습하는 방식임을 설명합니다.",
         "sourceEvidence": {
           "articleId": "kodistill",
           "blockId": "[\"3-continue-with-sft-and-verifiable-grpo\",1]",
@@ -294,7 +294,7 @@
       {
         "id": "lora-finetuning",
         "relation": "related_method",
-        "reason": "두 사례의 파인튜닝 모두 LoRA를 사용하며, 설정과 학습 명령을 비교해 구체적인 구현 차이를 살펴볼 수 있습니다.",
+        "reason": "두 사례 모두 LoRA 어댑터를 사용한 파인튜닝 설정을 보여줘 적용 방식의 차이를 살펴볼 수 있습니다.",
         "sourceEvidence": {
           "articleId": "kodistill",
           "blockId": "[\"3-continue-with-sft-and-verifiable-grpo\",1]",

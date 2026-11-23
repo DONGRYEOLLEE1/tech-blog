@@ -10,5 +10,19 @@
   },
   "gpu-driver-troubleshooting": {
     "cuda-device-troubleshooting": "같은 A100 서버에서 드라이버를 맞춘 뒤 이어진 CUDA 인식 오류를 fabric-manager 설치로 해결한 후속 기록입니다."
+  },
+  "peft-features-090": {
+    "tgi-implementation": "이 글의 어댑터 간 병합과 달리, merge_and_unload로 LoRA 가중치를 베이스 모델에 합쳐 standalone 모델로 만들고 TGI에 올리는 과정을 볼 수 있습니다."
+  },
+  "convnext": {
+    "swin-transformer": "ConvNeXt가 설계 기준으로 삼은 Swin Transformer가 이미지 패치를 결합해 계층적 피처맵을 쌓는다는 핵심 아이디어를 확인할 수 있습니다."
+  },
+  "related-articles-graph": {
+    "book-spine": "후보를 먼저 검색한 뒤 LLM 호출로 고르는 이 글의 방식과, BM25 후보 50개를 문자열 유사도와 규칙으로 재채점하는 책등 제목 매칭을 비교해 볼 수 있습니다."
+  },
+  "book-spine": {
+    "reranking": "책등 제목 후보에 점수를 다시 매기는 과정과, 쿼리·응답 관련성에 따라 점수를 부여하는 재정렬 개념을 함께 살펴볼 수 있습니다.",
+    "r-cnn": "책등을 객체로 검출하는 파이프라인을 R-CNN의 영역 제안·분류·위치 추정 절차와 비교해 이해할 수 있습니다.",
+    "map-evaluation": "책등 검출 상자를 이용하는 시스템을 읽으며 객체 탐지 성능 측정에 쓰이는 AP와 IoU 개념을 익힐 수 있습니다."
   }
 }

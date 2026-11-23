@@ -39,7 +39,7 @@
     "review": []
   },
   "entry": {
-    "inputHash": "dd90a5a8958731b987b15c56995bab8112753277a62df362d9380c7bc543fe9a",
+    "inputHash": "eb83ed719e3d97703bfe4d83a8a473424b308e6bd4b3263c14ae86b048b46e64",
     "status": "verified",
     "candidates": [
       {
@@ -225,43 +225,24 @@
         ]
       },
       {
-        "id": "book-spine",
+        "id": "bert",
         "sourceBlocks": [
-          "[\"abstract\",1]",
-          "[\"region-proposal-selective-search\",3]",
-          "[\"nmsnon-maximum-suppression\",17]"
+          "[\"요약\",7]",
+          "[\"abstract\",4]",
+          "[\"사전학습된-alexnet을-fine-tune\",7]"
         ],
         "targetBlocks": [
-          "[\"system\",2]",
-          "[\"datasets\",12]",
-          "[\"eval-path\",6]"
+          "[\"요약\",1]",
+          "[\"inputoutput-representation\",4]",
+          "[\"pre-training-bert\",1]"
         ]
       }
     ],
     "recommendations": [
       {
-        "id": "faster-r-cnn",
-        "relation": "related_method",
-        "reason": "R-CNN은 후보 영역마다 CNN 특징을 추출하지만, Faster R-CNN은 RPN에서 뽑은 후보를 Fast R-CNN에 전달해 특징 추출과 검출을 잇는 방식을 보여줍니다.",
-        "sourceEvidence": {
-          "articleId": "r-cnn",
-          "blockId": "[\"feature-extraction-by-fine-tuned-alexnet\",1]",
-          "anchor": "feature-extraction-by-fine-tuned-alexnet",
-          "quote": "다음으로 2000개의 Region Proposal을 Fine Tune된 AlexNet에 입력해 2000(=Number of Region Proposal) x 4096(=Number of Feature Vector) 크기의 Feature vector를 추출한다. 논문의 저자는 Object Detection시, 특정 도메인에 맞는 class를 예측하기 위해서 기존의 ImageNet 데이터셋을 통해, 사전학습된 CNN모델을 도메인에 맞게 fine tune하는 방식을 제안한다. Fine tune된 모델을 사용하면 도메인에 맞게 보다 적합한 feature vector를 추출하는 것이 가능해진다.",
-          "hash": "18118d1c2c75e87b6fdfe76aa5ad1711500d35561a962f5e8a87f64fcb1ce677"
-        },
-        "targetEvidence": {
-          "articleId": "faster-r-cnn",
-          "blockId": "[\"preview\",3]",
-          "anchor": "preview",
-          "quote": "RPN에서 RP를 추출하고 이를 Fast R-CNN 네트워크에 전달하여 객체의 class와 위치를 예측한다. 이를 통해 모델의 전체 과정이 GPU상에서 동작하여 bottleneck 현상이 발생하지 않으며, end-to-end로 네트워크를 학습시키는 것이 가능해진다.",
-          "hash": "acf2b3fbc6e03337fb83d165649805cf94494ee777cf43f24e6071865bac4678"
-        }
-      },
-      {
         "id": "fast-r-cnn",
         "relation": "related_method",
-        "reason": "R-CNN의 후보 영역별 CNN 학습과 비교해 Fast R-CNN은 이미지 한 장에서 특징을 뽑고 RoI pooling과 multi-task loss로 학습하는 개선을 설명합니다.",
+        "reason": "R-CNN의 후보영역별 CNN 학습과 Fast R-CNN의 RoI pooling·다중 작업 손실을 비교해 학습과 탐지 과정의 개선점을 알 수 있습니다.",
         "sourceEvidence": {
           "articleId": "r-cnn",
           "blockId": "[\"feature-extraction-by-fine-tuned-alexnet\",1]",
@@ -278,9 +259,28 @@
         }
       },
       {
+        "id": "faster-r-cnn",
+        "relation": "related_method",
+        "reason": "R-CNN에서 CNN 특징을 추출하는 단계와 RPN으로 후보영역을 만들고 Fast R-CNN에 전달하는 과정을 비교해 파이프라인 변화를 배울 수 있습니다.",
+        "sourceEvidence": {
+          "articleId": "r-cnn",
+          "blockId": "[\"feature-extraction-by-fine-tuned-alexnet\",1]",
+          "anchor": "feature-extraction-by-fine-tuned-alexnet",
+          "quote": "다음으로 2000개의 Region Proposal을 Fine Tune된 AlexNet에 입력해 2000(=Number of Region Proposal) x 4096(=Number of Feature Vector) 크기의 Feature vector를 추출한다. 논문의 저자는 Object Detection시, 특정 도메인에 맞는 class를 예측하기 위해서 기존의 ImageNet 데이터셋을 통해, 사전학습된 CNN모델을 도메인에 맞게 fine tune하는 방식을 제안한다. Fine tune된 모델을 사용하면 도메인에 맞게 보다 적합한 feature vector를 추출하는 것이 가능해진다.",
+          "hash": "18118d1c2c75e87b6fdfe76aa5ad1711500d35561a962f5e8a87f64fcb1ce677"
+        },
+        "targetEvidence": {
+          "articleId": "faster-r-cnn",
+          "blockId": "[\"preview\",3]",
+          "anchor": "preview",
+          "quote": "RPN에서 RP를 추출하고 이를 Fast R-CNN 네트워크에 전달하여 객체의 class와 위치를 예측한다. 이를 통해 모델의 전체 과정이 GPU상에서 동작하여 bottleneck 현상이 발생하지 않으며, end-to-end로 네트워크를 학습시키는 것이 가능해진다.",
+          "hash": "acf2b3fbc6e03337fb83d165649805cf94494ee777cf43f24e6071865bac4678"
+        }
+      },
+      {
         "id": "object-detection-basics",
         "relation": "related_method",
-        "reason": "R-CNN의 Selective Search 후보 영역 추출과 워핑 과정을 설명하며, 후보 영역이 어떻게 만들어지는지 이해하는 데 도움이 됩니다.",
+        "reason": "R-CNN이 Selective Search로 후보영역을 만들고 이미지를 변형하는 과정과 후보영역 개념 설명을 함께 살펴볼 수 있습니다.",
         "sourceEvidence": {
           "articleId": "r-cnn",
           "blockId": "[\"region-proposal-selective-search\",1]",
@@ -297,22 +297,22 @@
         }
       },
       {
-        "id": "book-spine",
-        "relation": "application_example",
-        "reason": "R-CNN에서 다루는 박스 탐지와 중복 제거가 책등 판독 시스템에서 탐지 박스를 합치고 책 수를 세는 데 적용된 사례를 볼 수 있습니다.",
+        "id": "map-evaluation",
+        "relation": "evaluation_comparison",
+        "reason": "R-CNN 학습에서 IoU로 양성·음성 후보를 나누는 방식과 PASCAL VOC의 예측 판정 기준을 비교해 평가에 쓰이는 IoU의 역할을 이해할 수 있습니다.",
         "sourceEvidence": {
           "articleId": "r-cnn",
-          "blockId": "[\"nmsnon-maximum-suppression\",17]",
-          "anchor": "nmsnon-maximum-suppression",
-          "quote": "NMS 알고리즘은 Confidence-score 임계값이 높을수록, IoU 임계값이 낮을수록 많은 box가 제거된다. 위 과정을 통해 겹쳐진 box를 제거하고 최소한의 최적의 B.B를 반환한다. Frankly speaking, 두 박스의 교집합을 합집합으로 나눠준 값이 IoU. 논문에서는 IoU가 0.5보다 크면 동일한 물체를 대상으로 한 박스로 판단하고 NMS를 적용한다.",
-          "hash": "63c2fb237583946957b0b084fed6f0b3af7fe84b336f3a79b47ccbc7fd80c042"
+          "blockId": "[\"사전학습된-alexnet을-fine-tune\",3]",
+          "anchor": "사전학습된-alexnet을-fine-tune",
+          "quote": "먼저 PASCAL VOC 데이터셋에 Selective Search 알고리즘을 적용한 후 후보영역을 추출하고, 후보영역과 Ground Truth Box 와의 IoU값을 구한다. IoU값이 0.5이상인 경우, Positive sample=Object로, 0.5 미만인 경우에는 Negative Sample=Background로 저장한다. 그리고 Positive sample = 32, Negative sample = 96, Mini batch = 128을 구성하여 사전학습된 AlexNet에 입력해 학습을 진행한다. 위 과정을 통해 fine-tune된 AlexNet을 사용해 R-CNN 모델은 추론시, Feature Vector를 추출한다.",
+          "hash": "2988491a74985dc5dd2a22f7463628825ff2e44dc46838809c40bed478964372"
         },
         "targetEvidence": {
-          "articleId": "book-spine",
-          "blockId": "[\"system\",2]",
-          "anchor": "system",
-          "quote": "A photo is first downscaled so that its long side is at most 1,600 px. A one-class oriented bounding box (OBB) detector finds the spines. Near-duplicate boxes are merged (Section 3.5), and the number of boxes scoring 0.4 or more is the book count. Each box is then cut out with a margin of 8% of its short side, rotated so that its long side is vertical, and upscaled if its short side is below 96 px.",
-          "hash": "47a6b7f2df9dece4417da0ca5bd70c47f8e2d281e5d4511a6cf0cf29c50c19b1"
+          "articleId": "map-evaluation",
+          "blockId": "[\"interpolated-ap\",1]",
+          "anchor": "interpolated-ap",
+          "quote": "PASCAL VOC는 객체탐지 분야에서 굉장히 유명한 데이터셋이다. PASCAL VOC challenge를 위해, 만약 IoU 값이 0.5보다 크다면, 예측값은 positive일 것이다. 또한 만약 같은 객체에서 다중의 탐지가 감지된다면 첫 번째 객체에 대해선 양수로, 나머지는 음수로 계산될 것이다.",
+          "hash": "096a743491740a561b71c0e0aad31571dc130bd882ecd66503dfe38d469bc988"
         }
       }
     ]
