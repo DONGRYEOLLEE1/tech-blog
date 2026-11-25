@@ -28,7 +28,7 @@
     "review": []
   },
   "entry": {
-    "inputHash": "20e235abffa6976b503f5b914e380379e779f6bfe2cc2f5f8165305cc03d9489",
+    "inputHash": "147d91412fd51dda628499f46c67901473e3c2c44f3a9f82d680ba68280b472e",
     "status": "abstained",
     "candidates": [
       {
@@ -175,16 +175,16 @@
         ]
       },
       {
-        "id": "developing-daily-01",
+        "id": "keyword-search",
         "sourceBlocks": [
           "[\"1-기본-사용법\",1]",
           "[\"enum을-사용하는-이유\",2]",
-          "[\"2-상태를-나타나는-예제\",1]"
+          "[\"특징\",4]"
         ],
         "targetBlocks": [
-          "[\"docker\",4]",
-          "[\"ref\",2]",
-          "[\"tgi\",5]"
+          "[\"querying-the-wikipedia-dataset-using-keyword-matching\",1]",
+          "[\"conclusion\",5]",
+          "[\"querying-the-wikipedia-dataset-using-keyword-matching\",4]"
         ]
       },
       {
@@ -201,6 +201,19 @@
         ]
       },
       {
+        "id": "bard-api-troubleshooting",
+        "sourceBlocks": [
+          "[\"1-기본-사용법\",1]",
+          "[\"3-fastapi에서-파라미터값-강제하기\",1]",
+          "[\"enum을-사용하는-이유\",2]"
+        ],
+        "targetBlocks": [
+          "[\"2️⃣\",1]",
+          "[\"1️⃣\",1]",
+          "[\"3️⃣\",1]"
+        ]
+      },
+      {
         "id": "prompt-engineering",
         "sourceBlocks": [
           "[\"3-fastapi에서-파라미터값-강제하기\",1]",
@@ -211,19 +224,6 @@
           "[\"conversation\",1]",
           "[\"the-instruction\",1]",
           "[\"avoid-impreciseness\",1]"
-        ]
-      },
-      {
-        "id": "keyword-search",
-        "sourceBlocks": [
-          "[\"1-기본-사용법\",1]",
-          "[\"enum을-사용하는-이유\",2]",
-          "[\"특징\",4]"
-        ],
-        "targetBlocks": [
-          "[\"querying-the-wikipedia-dataset-using-keyword-matching\",1]",
-          "[\"conclusion\",5]",
-          "[\"querying-the-wikipedia-dataset-using-keyword-matching\",4]"
         ]
       }
     ],

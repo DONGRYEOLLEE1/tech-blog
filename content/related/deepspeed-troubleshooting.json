@@ -61,7 +61,7 @@
     "review": []
   },
   "entry": {
-    "inputHash": "d9336d51a7c49bc3b198ee192d3b85672578414c80813bc74b7f383069805f43",
+    "inputHash": "4c4aad6dde2d98ce60dd9a429f8e4e43b575f8f9aba9e42343efcc3adeb73cce",
     "status": "verified",
     "candidates": [
       {
@@ -247,62 +247,24 @@
         ]
       },
       {
-        "id": "vllm-tensor-parallel-troubleshooting",
+        "id": "gpu-driver-troubleshooting",
         "sourceBlocks": [
-          "[\"3️⃣\",2]",
+          "[\"3️⃣\",8]",
           "[\"env\",3]",
           "[\"2️⃣\",2]"
         ],
         "targetBlocks": [
-          "[\"solution\",4]",
-          "[\"error-message\",1]",
-          "[\"problem\",1]"
+          "[\"해결\",2]",
+          "[\"env\",2]",
+          "[\"issue\",1]"
         ]
       }
     ],
     "recommendations": [
       {
-        "id": "polyglot-training-troubleshooting",
-        "relation": "evaluation_comparison",
-        "reason": "두 문서 모두 DeepSpeed 0.9.2를 사용한 파인튜닝을 다뤄 같은 환경에서 발생한 문제와 설정을 비교해 볼 수 있습니다.",
-        "sourceEvidence": {
-          "articleId": "deepspeed-troubleshooting",
-          "blockId": "[\"env\",10]",
-          "anchor": "env",
-          "quote": "deepspeed 0.9.2",
-          "hash": "04ea682a2d3a9de9f2c8ce37c3ef055ee80d4acdd62f761eb64174fca7d0a51f"
-        },
-        "targetEvidence": {
-          "articleId": "polyglot-training-troubleshooting",
-          "blockId": "[\"envs\",5]",
-          "anchor": "envs",
-          "quote": "deepspeed 0.9.2",
-          "hash": "04ea682a2d3a9de9f2c8ce37c3ef055ee80d4acdd62f761eb64174fca7d0a51f"
-        }
-      },
-      {
-        "id": "polyglot-lora-troubleshooting",
-        "relation": "related_method",
-        "reason": "DeepSpeed 파인튜닝 오류와 Polyglot-ko LoRA 파인튜닝 사례를 함께 살펴보며 파인튜닝 관련 문제를 비교할 수 있습니다.",
-        "sourceEvidence": {
-          "articleId": "deepspeed-troubleshooting",
-          "blockId": "[null,1]",
-          "anchor": null,
-          "quote": "DeepSpeed를 통한 FT 구동중, 직면한 여러가지 오류에 대해 기술해놓습니다.",
-          "hash": "7030c96b21394e2fe0c666a7311dd196b7efc79f812f9cf2c54884004b825ecf"
-        },
-        "targetEvidence": {
-          "articleId": "polyglot-lora-troubleshooting",
-          "blockId": "[\"mission\",1]",
-          "anchor": "mission",
-          "quote": "Polyglot-ko 모델을 LoRA로 Fine-tuning",
-          "hash": "588d87d066a4379dade4dec3ee63e8b9ed34374b7cd98b63547452de2993c053"
-        }
-      },
-      {
         "id": "lora-finetuning",
-        "relation": "application_example",
-        "reason": "DeepSpeed 파인튜닝 오류를 다룬 글과 함께 LoRA 학습 명령 및 설정을 확인할 수 있습니다.",
+        "relation": "related_method",
+        "reason": "DeepSpeed 파인튜닝 오류를 다룬 글과 LoRA 파인튜닝 설정을 함께 읽으며 파인튜닝 절차를 살펴볼 수 있습니다.",
         "sourceEvidence": {
           "articleId": "deepspeed-troubleshooting",
           "blockId": "[null,1]",

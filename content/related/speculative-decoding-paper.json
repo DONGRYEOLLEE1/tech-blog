@@ -28,7 +28,7 @@
     "review": []
   },
   "entry": {
-    "inputHash": "ebeb4cb8ce08ff76b6fecb375cf6a336b33c6b467768ef2f0d978619b01c221a",
+    "inputHash": "788ee53b911e1be06329337beae73d39c5bd79321052611c3b7e0f7f3df39013",
     "status": "verified",
     "candidates": [
       {
@@ -58,6 +58,19 @@
         ]
       },
       {
+        "id": "agent-latency-harness",
+        "sourceBlocks": [
+          "[\"t5-xxl-walltime-실측\",15]",
+          "[\"introduction\",5]",
+          "[null,2]"
+        ],
+        "targetBlocks": [
+          "[\"tldr\",3]",
+          "[\"cache\",1]",
+          "[\"closing\",3]"
+        ]
+      },
+      {
         "id": "thinkingcap",
         "sourceBlocks": [
           "[null,1]",
@@ -68,19 +81,6 @@
           "[\"resources\",2]",
           "[\"tldr\",19]",
           "[null,1]"
-        ]
-      },
-      {
-        "id": "book-spine",
-        "sourceBlocks": [
-          "[\"introduction\",4]",
-          "[\"t5-xxl-walltime-실측\",15]",
-          "[\"conclusion\",1]"
-        ],
-        "targetBlocks": [
-          "[\"tldr\",5]",
-          "[\"ablation\",10]",
-          "[\"first-visit\",1]"
         ]
       },
       {
@@ -97,16 +97,16 @@
         ]
       },
       {
-        "id": "rtpurbo",
+        "id": "book-spine",
         "sourceBlocks": [
-          "[\"introduction\",5]",
-          "[\"overview\",8]",
-          "[\"related-work\",1]"
+          "[\"introduction\",4]",
+          "[\"t5-xxl-walltime-실측\",15]",
+          "[\"conclusion\",1]"
         ],
         "targetBlocks": [
-          "[\"introduction\",1]",
-          "[\"hardware-aware-top-p-decoding-kernel\",1]",
-          "[\"효율--ultra-long-robustness\",1]"
+          "[\"tldr\",5]",
+          "[\"ablation\",10]",
+          "[\"first-visit\",1]"
         ]
       },
       {
@@ -123,6 +123,19 @@
         ]
       },
       {
+        "id": "rtpurbo",
+        "sourceBlocks": [
+          "[\"introduction\",5]",
+          "[\"overview\",8]",
+          "[\"related-work\",1]"
+        ],
+        "targetBlocks": [
+          "[\"introduction\",1]",
+          "[\"hardware-aware-top-p-decoding-kernel\",1]",
+          "[\"효율--ultra-long-robustness\",1]"
+        ]
+      },
+      {
         "id": "convnext",
         "sourceBlocks": [
           "[\"introduction\",10]",
@@ -133,19 +146,6 @@
           "[\"instruction\",1]",
           "[\"micro-design\",5]",
           "[\"의의\",1]"
-        ]
-      },
-      {
-        "id": "faster-r-cnn",
-        "sourceBlocks": [
-          "[\"introduction\",10]",
-          "[\"overview\",3]",
-          "[\"speculative-sampling\",1]"
-        ],
-        "targetBlocks": [
-          "[\"alternating-training\",1]",
-          "[\"의의\",2]",
-          "[\"preview\",3]"
         ]
       },
       {
@@ -162,16 +162,16 @@
         ]
       },
       {
-        "id": "transformer",
+        "id": "faster-r-cnn",
         "sourceBlocks": [
           "[\"introduction\",10]",
-          "[\"speculative-sampling\",2]",
-          "[\"overview\",3]"
+          "[\"overview\",3]",
+          "[\"speculative-sampling\",1]"
         ],
         "targetBlocks": [
-          "[\"trnasformer-의의\",1]",
-          "[\"transformer\",1]",
-          "[\"transformer가-기존-모델과-다른점\",2]"
+          "[\"alternating-training\",1]",
+          "[\"의의\",2]",
+          "[\"preview\",3]"
         ]
       },
       {
@@ -188,16 +188,16 @@
         ]
       },
       {
-        "id": "chain-of-thought",
+        "id": "transformer",
         "sourceBlocks": [
           "[\"introduction\",10]",
-          "[null,2]",
-          "[\"t5-xxl-walltime-실측\",15]"
+          "[\"speculative-sampling\",2]",
+          "[\"overview\",3]"
         ],
         "targetBlocks": [
-          "[\"introduction\",3]",
-          "[\"chain-of-thought-prompting\",5]",
-          "[\"experimental-setup\",1]"
+          "[\"trnasformer-의의\",1]",
+          "[\"transformer\",1]",
+          "[\"transformer가-기존-모델과-다른점\",2]"
         ]
       },
       {
@@ -214,16 +214,16 @@
         ]
       },
       {
-        "id": "dora",
+        "id": "chain-of-thought",
         "sourceBlocks": [
-          "[\"introduction\",5]",
-          "[\"analysis\",1]",
-          "[null,2]"
+          "[\"introduction\",10]",
+          "[null,2]",
+          "[\"t5-xxl-walltime-실측\",15]"
         ],
         "targetBlocks": [
-          "[\"introduction\",1]",
-          "[\"weight-decomposition-analysis\",2]",
-          "[\"gradient-analysis-of-dora\",1]"
+          "[\"introduction\",3]",
+          "[\"chain-of-thought-prompting\",5]",
+          "[\"experimental-setup\",1]"
         ]
       }
     ],
@@ -231,7 +231,7 @@
       {
         "id": "dflash",
         "relation": "related_method",
-        "reason": "draft-then-verify 틀을 바탕으로 diffusion 병렬 초안과 AR target 검증을 결합하는 구체적인 확장 방법을 알 수 있습니다.",
+        "reason": "둘 다 draft 토큰을 만들고 target model이 병렬 검증하는 구조를 설명하며, DFlash는 block diffusion으로 초안 생성을 바꾸는 방법을 보여줍니다.",
         "sourceEvidence": {
           "articleId": "speculative-decoding-paper",
           "blockId": "[\"introduction\",6]",
@@ -250,7 +250,7 @@
       {
         "id": "inference-server",
         "relation": "application_example",
-        "reason": "추측 토큰을 target model이 병렬 검증하는 개념이 MTP 설정과 작업 유형별 수락률 측정에서 실제 운영에 어떻게 쓰이는지 볼 수 있습니다.",
+        "reason": "추측 토큰을 target model이 검증하는 원리를 읽은 뒤, vLLM에서 MTP를 설정해 speculative decoding을 운영하는 사례를 볼 수 있습니다.",
         "sourceEvidence": {
           "articleId": "speculative-decoding-paper",
           "blockId": "[\"introduction\",6]",
@@ -260,10 +260,10 @@
         },
         "targetEvidence": {
           "articleId": "inference-server",
-          "blockId": "[\"작업-유형별-수락률\",1]",
-          "anchor": "작업-유형별-수락률",
-          "quote": "speculative decoding의 이득은 draft 토큰이 얼마나 받아들여지느냐에 달려 있음. 작업 유형 7개로 프롬프트를 만들어서 유형별 수락률을 따로 쟀음. 요청 전후로 vLLM의 카운터를 읽어 차이를 계산하는 방식임. 이 측정은 예열 없이 유형당 2회, 최대 768 토큰으로 돌렸음.",
-          "hash": "c7ef21b967bd7e2d32a22acec06ccbdd9ae7be66093816f40402f08abed9bd34"
+          "blockId": "[\"모델-구성은-파일-하나로\",2]",
+          "anchor": "모델-구성은-파일-하나로",
+          "quote": "# profiles/rtx6000-2x-flash-next-27b.yaml (발췌, 8월 말 기준) gpu_type_ids: - NVIDIA RTX PRO 6000 Blackwell Server Edition - NVIDIA RTX PRO 6000 Blackwell Workstation Edition image: vllm/vllm-openai:qwen38-flash-next slots: FLASH: served_model_name: qwen3.8-flash-next hf_repo_id: RadixArk/Qwen3.8-Flash-Next-NVFP4 port: 8881 gpus: [0, 1] gpu_util: 0.76 max_model_len: 131072 speculative: method: mtp num_speculative_tokens: 3 Q27: served_model_name: qwen3.8-27b hf_repo_id:",
+          "hash": "d04bee954dda0c736271ded101f6fc56269b074ad33ac6aec1c36ce3c23547ba"
         }
       }
     ]
