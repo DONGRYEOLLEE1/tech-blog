@@ -1,10 +1,10 @@
 {
   "status": "passed",
-  "articles": 114,
-  "sourceMarkdownFiles": 114,
-  "htmlFiles": 189,
-  "checkedLinks": 7346,
-  "checkedAssets": 1357,
+  "articles": 115,
+  "sourceMarkdownFiles": 115,
+  "htmlFiles": 190,
+  "checkedLinks": 7474,
+  "checkedAssets": 1382,
   "errors": [],
   "warnings": [],
   "externalResources": "not fetched by this check"
