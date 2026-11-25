@@ -39,7 +39,7 @@
     "review": []
   },
   "entry": {
-    "inputHash": "02c29441a8b27bbceeaf1cc641536ff4d987823a4600a6e3487ae4daf53ffbae",
+    "inputHash": "f2edc96c14e3ac2c2d6f4adf14dc1416a212d816d4b325b1e5e20a7b5bf25af4",
     "status": "verified",
     "candidates": [
       {
@@ -160,19 +160,6 @@
         ]
       },
       {
-        "id": "constitutional-ai",
-        "sourceBlocks": [
-          "[\"cot-prompting\",1]",
-          "[\"zero-shot-cot-prompting\",4]",
-          "[\"to-do-or-not-to-do\",5]"
-        ],
-        "targetBlocks": [
-          "[\"rl-stage-rlaif\",2]",
-          "[\"supervised-stage-critique--revision\",2]",
-          "[\"introduction\",7]"
-        ]
-      },
-      {
         "id": "kodistill",
         "sourceBlocks": [
           "[\"cot-prompting\",5]",
@@ -183,6 +170,19 @@
           "[\"1-preserve-the-bilingual-foundation\",7]",
           "[\"3-continue-with-sft-and-verifiable-grpo\",6]",
           "[null,2]"
+        ]
+      },
+      {
+        "id": "constitutional-ai",
+        "sourceBlocks": [
+          "[\"cot-prompting\",1]",
+          "[\"zero-shot-cot-prompting\",4]",
+          "[\"to-do-or-not-to-do\",5]"
+        ],
+        "targetBlocks": [
+          "[\"rl-stage-rlaif\",2]",
+          "[\"supervised-stage-critique--revision\",2]",
+          "[\"introduction\",7]"
         ]
       },
       {
@@ -225,16 +225,16 @@
         ]
       },
       {
-        "id": "reranking",
+        "id": "llama",
         "sourceBlocks": [
-          "[\"zero-shot-cot-prompting\",4]",
+          "[\"the-instruction\",2]",
           "[\"cot-prompting\",5]",
-          "[\"the-instruction\",2]"
+          "[\"to-do-or-not-to-do\",5]"
         ],
         "targetBlocks": [
-          "[\"using-rerank-to-improve-keyword-search\",2]",
-          "[\"결론\",1]",
-          "[\"reranking\",1]"
+          "[\"instruction-finetuning\",1]",
+          "[\"appendix\",2]",
+          "[\"main-results\",2]"
         ]
       }
     ],
@@ -242,7 +242,7 @@
       {
         "id": "chain-of-thought",
         "relation": "related_method",
-        "reason": "복잡한 추론을 중간 단계로 풀어내는 CoT prompting의 구성과 활용 방식을 더 자세히 알 수 있습니다.",
+        "reason": "프롬프트에 추론 단계를 구성하는 CoT의 원리와 복잡한 추론 문제를 단계별로 푸는 방식을 살펴볼 수 있습니다.",
         "sourceEvidence": {
           "articleId": "prompt-engineering",
           "blockId": "[\"cot-prompting\",1]",
@@ -256,44 +256,6 @@
           "anchor": "chain-of-thought-prompting",
           "quote": "여러 단계를 거쳐야하는 수학 문제와 같은 복잡한 추론을 통해 문제를 푸는 절차를 연구진은 고려하였음. 이건 전형적인 문제를 하나하나 분해하여 정답에 접근하는 방식임. 이 논문의 목표는 LLM에 유사한 CoT를 생성할 수 있는 기능을 부여하는 것입니다. 일관된 일련의 중간 추론 단계를 생성할 수 있는 능력을 LLM에 부여하는 것입니다.",
           "hash": "82ac1138b000944e339224661220eee68aa8b30584e7b60c99240027c33e995e"
-        }
-      },
-      {
-        "id": "constitutional-ai",
-        "relation": "related_method",
-        "reason": "CoT를 harmlessness 판단에 적용해 추론 과정이 판단의 정확도와 투명성에 어떻게 쓰이는지 살펴볼 수 있습니다.",
-        "sourceEvidence": {
-          "articleId": "prompt-engineering",
-          "blockId": "[\"cot-prompting\",1]",
-          "anchor": "cot-prompting",
-          "quote": "Chain-of-Thought Prompting Elicits Reasoning in Large Language Models에서 소개된 CoT prompting은 복잡한 추론 기능을 추론 과정을 통해 가능케한다. Few-shot prompting과 결합하여 더 복잡한 task에서 좋은 결과를 낼 수 있다.",
-          "hash": "f18657936992b3acf84e3e27e696c0d09b690079a4858f18c4b4ede9c8bb42cb"
-        },
-        "targetEvidence": {
-          "articleId": "constitutional-ai",
-          "blockId": "[\"rl-stage-rlaif\",2]",
-          "anchor": "rl-stage-rlaif",
-          "quote": "여기에 **chain-of-thought(CoT)**를 더함. feedback 모델이 객관식 답을 고르기 전 \"단계적으로 생각해 보자\"며 추론을 쓰게 하면 판단 정확도와 투명성이 함께 올라감. (CoT가 확률을 0이나 1로 극단화하는 문제는 40~60%로 clamp해 완화)",
-          "hash": "7d4bd0bfa2d39eec80184aa7f140ff7ca98cd26879052885242135bdd9ca8f64"
-        }
-      },
-      {
-        "id": "gpt-3",
-        "relation": "related_method",
-        "reason": "예시 없이 쓰는 zero-shot과 소수 예시를 쓰는 few-shot의 구분을 확인해 프롬프트 방식의 차이를 이해할 수 있습니다.",
-        "sourceEvidence": {
-          "articleId": "prompt-engineering",
-          "blockId": "[\"zero-shot-cot-prompting\",7]",
-          "anchor": "zero-shot-cot-prompting",
-          "quote": "많은 예시 필요없이 이 prompt를 통해 효과적인 방법을 낼 수 있음.",
-          "hash": "3a56de8ce82b4b523985bcba2992d46c2f3434d3061e8e33a50f3d2e788e0657"
-        },
-        "targetEvidence": {
-          "articleId": "gpt-3",
-          "blockId": "[null,10]",
-          "anchor": null,
-          "quote": "zero-shot learning : 특정 instruction에 대해 어떠한 예시도 없이 진행",
-          "hash": "3649d23b0a84c2d76feaa3685de37e503fb6cd836b50c58a53fdd0cbd24def03"
         }
       }
     ]

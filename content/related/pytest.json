@@ -28,7 +28,7 @@
     "review": []
   },
   "entry": {
-    "inputHash": "78cff4edbdcb27b5fe2d938804883ff34988ed4aa0bcebbb7ad75c8175bb64ed",
+    "inputHash": "1ec5e484a25af501ada6180bfdd7d9a5e8411a25804d46c0d8ad2532fa00ada6",
     "status": "verified",
     "candidates": [
       {
@@ -201,16 +201,16 @@
         ]
       },
       {
-        "id": "python-enum",
+        "id": "agent-latency-harness",
         "sourceBlocks": [
-          "[\"주요-특징\",12]",
+          "[\"주요-특징\",9]",
           "[null,1]",
-          "[\"주요-특징\",14]"
+          "[\"주요-특징\",8]"
         ],
         "targetBlocks": [
-          "[\"enum\",1]",
-          "[\"특징\",1]",
-          "[\"1-기본-사용법\",1]"
+          "[\"closing\",6]",
+          "[\"limitations\",7]",
+          "[\"result-all\",1]"
         ]
       },
       {
@@ -231,7 +231,7 @@
       {
         "id": "python-assert",
         "relation": "related_method",
-        "reason": "pytest 예제에서 assert로 조건을 검사하는 방식을 보고, assert가 값을 보증하고 조건을 확인하는 용도를 배울 수 있습니다.",
+        "reason": "pytest 테스트의 조건 확인에 쓰이는 assert가 값을 보증하고 조건을 검사하는 방법을 보여줍니다.",
         "sourceEvidence": {
           "articleId": "pytest",
           "blockId": "[\"주요-특징\",6]",

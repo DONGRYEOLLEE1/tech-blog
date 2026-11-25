@@ -39,7 +39,7 @@
     "review": []
   },
   "entry": {
-    "inputHash": "c055720ace8a0531b55095ede4ad2b743364096280007efa66c383d7f91ea9bf",
+    "inputHash": "333e196d278a57b2d3a4f71315969e723349826bd69890f31753f5e01b50ac3f",
     "status": "verified",
     "candidates": [
       {
@@ -108,6 +108,19 @@
         ]
       },
       {
+        "id": "agent-latency-harness",
+        "sourceBlocks": [
+          "[\"conclusion\",1]",
+          "[\"ablation\",1]",
+          "[\"results\",12]"
+        ],
+        "targetBlocks": [
+          "[\"pipeline\",5]",
+          "[\"router-effort\",1]",
+          "[\"scoring\",9]"
+        ]
+      },
+      {
         "id": "chain-of-thought",
         "sourceBlocks": [
           "[\"resources\",2]",
@@ -134,19 +147,6 @@
         ]
       },
       {
-        "id": "constitutional-ai",
-        "sourceBlocks": [
-          "[\"conclusion\",1]",
-          "[\"tldr\",15]",
-          "[\"stop\",1]"
-        ],
-        "targetBlocks": [
-          "[\"rl-stage-rlaif\",1]",
-          "[\"supervised-stage-critique--revision\",2]",
-          "[\"experiments\",2]"
-        ]
-      },
-      {
         "id": "peft-features-090",
         "sourceBlocks": [
           "[\"setup-training\",2]",
@@ -157,6 +157,19 @@
           "[\"merging-lora-weights\",7]",
           "[\"dora-support\",1]",
           "[\"ref\",1]"
+        ]
+      },
+      {
+        "id": "constitutional-ai",
+        "sourceBlocks": [
+          "[\"conclusion\",1]",
+          "[\"tldr\",15]",
+          "[\"stop\",1]"
+        ],
+        "targetBlocks": [
+          "[\"rl-stage-rlaif\",1]",
+          "[\"supervised-stage-critique--revision\",2]",
+          "[\"experiments\",2]"
         ]
       },
       {
@@ -223,45 +236,13 @@
           "[\"e2e-benchmark\",1]",
           "[\"impace-of-training-time-and-memory-usage\",1]"
         ]
-      },
-      {
-        "id": "searchswarm",
-        "sourceBlocks": [
-          "[\"results\",4]",
-          "[\"followups\",8]",
-          "[\"resources\",2]"
-        ],
-        "targetBlocks": [
-          "[\"experiments\",8]",
-          "[\"supervised-fine-tuning\",2]",
-          "[\"정리\",1]"
-        ]
       }
     ],
     "recommendations": [
       {
-        "id": "constitutional-ai",
-        "relation": "related_method",
-        "reason": "보상 신호로 강화학습을 수행한다는 공통점을 바탕으로, harmlessness 선호를 보상으로 쓰는 RLAIF 절차를 살펴볼 수 있습니다.",
-        "sourceEvidence": {
-          "articleId": "thinkingcap",
-          "blockId": "[\"conclusion\",1]",
-          "anchor": "conclusion",
-          "quote": "We set out to make a 2B reasoner think less, and found that the base model's real problem was not thinking too much but never stopping. A correctness-gated length penalty, placed only in the reward and optimized with stock GRPO, largely fixes that in distribution, within 200 LoRA updates on one consumer GPU: it cuts thinking by three quarters and doubles strict accuracy. None of the refinements we tried improved on it.",
-          "hash": "019e4430f782fdb8a5f62184597d2d3666cbbf44db79974d8352a390b559e488"
-        },
-        "targetEvidence": {
-          "articleId": "constitutional-ai",
-          "blockId": "[\"rl-stage-rlaif\",1]",
-          "anchor": "rl-stage-rlaif",
-          "quote": "RL 단계의 골자는 RLHF의 인간 선호 라벨을 AI 선호 라벨로 대체하는 것. SL-CAI 모델로 각 프롬프트에 응답을 2개 생성한 뒤, feedback 모델에게 constitution 원칙과 함께 \"둘 중 어느 쪽이 덜 해로운가?\"를 객관식으로 물음. 그 답의 로그확률을 정규화해 soft preference label을 만들고, 이 AI harmlessness 라벨을 기존 인간 helpfulness 라벨과 섞어 hybrid PM을 학습함. 마지막으로 그 PM을 보상으로 SL-CAI를 강화학습하면 RL-CAI 모델이 됨. constitution은 모델 행동을 규율하는 자연어 원칙 집합(논문은 16개)으로, SL에선 루프마다·RL에선 비교마다 무작위로 샘플링해 다양성과 robustness를 높임.",
-          "hash": "e0585ad836dfba48ce5e7ee8c44ebf9fe5108cd9211334dabacc8c19330d39ff"
-        }
-      },
-      {
         "id": "kodistill",
         "relation": "related_method",
-        "reason": "GRPO 보상 설계와 학습을 다룬 글로, OCR에서는 CER와 정확 일치도를 결합해 보상을 구성하는 방식을 비교해 볼 수 있습니다.",
+        "reason": "두 연구가 GRPO를 활용한 학습을 다루며, 한쪽은 보상에 길이 페널티를 두고 다른 쪽은 OCR 정확도 기반 보상을 구성합니다.",
         "sourceEvidence": {
           "articleId": "thinkingcap",
           "blockId": "[\"conclusion\",1]",
@@ -278,22 +259,22 @@
         }
       },
       {
-        "id": "chain-of-thought",
-        "relation": "related_method",
-        "reason": "추론 단계를 생성하는 CoT의 목적을 이해하고, 이를 줄이면서 종료를 유도하는 학습 접근과 대비할 수 있습니다.",
+        "id": "constitutional-ai",
+        "relation": "concept_explanation",
+        "reason": "짧은 추론을 위해 GRPO 보상을 설계한 사례를 본 뒤, 다른 보상을 이용한 강화학습 파이프라인을 살펴볼 수 있습니다.",
         "sourceEvidence": {
           "articleId": "thinkingcap",
-          "blockId": "[\"tldr\",20]",
-          "anchor": "tldr",
-          "quote": "Free baselines: brevity prompts backfire, no-thinking wins OOD",
-          "hash": "f7716185586d54a0e8f5fcbbc1e4d60019a742eb9bd306be9520015455bb1b62"
+          "blockId": "[\"conclusion\",1]",
+          "anchor": "conclusion",
+          "quote": "We set out to make a 2B reasoner think less, and found that the base model's real problem was not thinking too much but never stopping. A correctness-gated length penalty, placed only in the reward and optimized with stock GRPO, largely fixes that in distribution, within 200 LoRA updates on one consumer GPU: it cuts thinking by three quarters and doubles strict accuracy. None of the refinements we tried improved on it.",
+          "hash": "019e4430f782fdb8a5f62184597d2d3666cbbf44db79974d8352a390b559e488"
         },
         "targetEvidence": {
-          "articleId": "chain-of-thought",
-          "blockId": "[\"chain-of-thought-prompting\",1]",
-          "anchor": "chain-of-thought-prompting",
-          "quote": "여러 단계를 거쳐야하는 수학 문제와 같은 복잡한 추론을 통해 문제를 푸는 절차를 연구진은 고려하였음. 이건 전형적인 문제를 하나하나 분해하여 정답에 접근하는 방식임. 이 논문의 목표는 LLM에 유사한 CoT를 생성할 수 있는 기능을 부여하는 것입니다. 일관된 일련의 중간 추론 단계를 생성할 수 있는 능력을 LLM에 부여하는 것입니다.",
-          "hash": "82ac1138b000944e339224661220eee68aa8b30584e7b60c99240027c33e995e"
+          "articleId": "constitutional-ai",
+          "blockId": "[\"rl-stage-rlaif\",1]",
+          "anchor": "rl-stage-rlaif",
+          "quote": "RL 단계의 골자는 RLHF의 인간 선호 라벨을 AI 선호 라벨로 대체하는 것. SL-CAI 모델로 각 프롬프트에 응답을 2개 생성한 뒤, feedback 모델에게 constitution 원칙과 함께 \"둘 중 어느 쪽이 덜 해로운가?\"를 객관식으로 물음. 그 답의 로그확률을 정규화해 soft preference label을 만들고, 이 AI harmlessness 라벨을 기존 인간 helpfulness 라벨과 섞어 hybrid PM을 학습함. 마지막으로 그 PM을 보상으로 SL-CAI를 강화학습하면 RL-CAI 모델이 됨. constitution은 모델 행동을 규율하는 자연어 원칙 집합(논문은 16개)으로, SL에선 루프마다·RL에선 비교마다 무작위로 샘플링해 다양성과 robustness를 높임.",
+          "hash": "e0585ad836dfba48ce5e7ee8c44ebf9fe5108cd9211334dabacc8c19330d39ff"
         }
       }
     ]

@@ -1,0 +1,291 @@
+{
+  "version": 2,
+  "id": "agent-latency-harness",
+  "model": "openai/gpt-6-luna",
+  "settings": {
+    "seed": 7,
+    "reasoning": {
+      "effort": "low"
+    }
+  },
+  "embeddingProfile": "f04e459161521d4b",
+  "facts": {
+    "inputHash": "d50c95d73bff55c1cad89a7daa5cee95b73533ff49b8d330bd1a759d8870a6a5",
+    "status": "verified",
+    "facts": [
+      {
+        "id": "agent-evaluation",
+        "role": "about",
+        "evidence": {
+          "articleId": "agent-latency-harness",
+          "blockId": "[null,3]",
+          "anchor": null,
+          "quote": "이 글은 근거 확인은 그대로 둔 채 요청 경로를 다시 짠 과정과, 그 결과를 합성 데이터 벤치마크로 잰 기록임. 측정은 2026년 9월 23~24일에 했고, 모델은 gpt-6-luna를 Responses API로 불렀음. 에이전트 루프는 OpenAI Agents SDK(JavaScript)로 돌렸고, 아래에서는 SDK라고 줄여 씀.",
+          "hash": "a35f5d7fba74ba47199f055275d368413bb8fb188e812ae291c376209c238d32"
+        }
+      },
+      {
+        "id": "tool-use",
+        "role": "applies",
+        "evidence": {
+          "articleId": "agent-latency-harness",
+          "blockId": "[\"prefetch\",1]",
+          "anchor": "prefetch",
+          "quote": "분류 결과에 기간이나 검색어가 있으면 서버가 모델을 부르지 않고 일정과 가계부를 미리 읽고 페이지 검색도 미리 돌려 둠. 조회끼리는 병렬로 돌고, 하나가 실패하면 본 에이전트가 직접 읽게 둠.",
+          "hash": "23de7ae411c19330eeb33afb7d77e3efa131d5e999b21569e5bd8419b0f5aad0"
+        }
+      },
+      {
+        "id": "multi-agent",
+        "role": "applies",
+        "evidence": {
+          "articleId": "agent-latency-harness",
+          "blockId": "[\"draft\",1]",
+          "anchor": "draft",
+          "quote": "자료를 읽고 쓴 답은 최종 검증을 거침. 검증 에이전트는 답과 이번 실행에서 실제로 읽은 근거를 받아, 답이 근거로 뒷받침되는지와 어느 근거의 몇 번째 줄을 인용했는지를 구조화 출력으로 냄. 서버는 이 판정을 그대로 믿지 않고, 인용한 근거와 줄이 실제로 있는지, 읽어야 할 기록을 읽었는지를 코드로 다시 확인함. 문서 편집 제안은 저장하기 전에 따로 검증하고, 떨어지면 사유가 도구 결과로 본 에이전트에게 돌아감.",
+          "hash": "8d376722cf7ded7ca01ea101d248c75c6e7c06b875d43dd440cb5c8e347fdc10"
+        }
+      },
+      {
+        "id": "reasoning-efficiency",
+        "role": "applies",
+        "evidence": {
+          "articleId": "agent-latency-harness",
+          "blockId": "[\"pipeline\",5]",
+          "anchor": "pipeline",
+          "quote": "| 본 에이전트 | | xhigh | | 사용자가 고름. 기본 medium |",
+          "hash": "3ea7e8151cf77bd660a11f8ce9b2253c01a4e0766ba07028f47adb8b7b14911d"
+        }
+      }
+    ],
+    "review": []
+  },
+  "entry": {
+    "inputHash": "d031879575aef2917bbbd3ecda8ee76dc3af61e5850d4cd8cbc4bc5bbb754158",
+    "status": "verified",
+    "candidates": [
+      {
+        "id": "k-browsecomp",
+        "sourceBlocks": [
+          "[null,3]",
+          "[\"prefetch\",1]",
+          "[\"limitations\",7]"
+        ],
+        "targetBlocks": [
+          "[\"introduction\",4]",
+          "[\"정리\",1]",
+          "[\"synthetic-split-100문제--이-논문의-핵심-기여\",8]"
+        ]
+      },
+      {
+        "id": "inference-server",
+        "sourceBlocks": [
+          "[\"tldr\",3]",
+          "[\"limitations\",1]",
+          "[\"closing\",4]"
+        ],
+        "targetBlocks": [
+          "[\"처리량과-지연\",7]",
+          "[\"측정의-한계\",1]",
+          "[\"벤치마크\",4]"
+        ]
+      },
+      {
+        "id": "searchswarm",
+        "sourceBlocks": [
+          "[null,3]",
+          "[\"draft\",1]",
+          "[\"references\",3]"
+        ],
+        "targetBlocks": [
+          "[\"introduction\",2]",
+          "[\"experiments\",1]",
+          "[\"harness의-효과\",1]"
+        ]
+      },
+      {
+        "id": "speculative-decoding-paper",
+        "sourceBlocks": [
+          "[\"tldr\",3]",
+          "[\"cache\",1]",
+          "[\"closing\",3]"
+        ],
+        "targetBlocks": [
+          "[\"t5-xxl-walltime-실측\",15]",
+          "[\"introduction\",5]",
+          "[null,2]"
+        ]
+      },
+      {
+        "id": "bfcl-reasoning-option",
+        "sourceBlocks": [
+          "[null,3]",
+          "[\"prefetch\",1]",
+          "[\"references\",3]"
+        ],
+        "targetBlocks": [
+          "[\"error\",1]",
+          "[\"error\",3]",
+          "[\"refernce\",2]"
+        ]
+      },
+      {
+        "id": "thinkingcap",
+        "sourceBlocks": [
+          "[\"pipeline\",5]",
+          "[\"router-effort\",1]",
+          "[\"scoring\",9]"
+        ],
+        "targetBlocks": [
+          "[\"conclusion\",1]",
+          "[\"ablation\",1]",
+          "[\"results\",12]"
+        ]
+      },
+      {
+        "id": "dflash",
+        "sourceBlocks": [
+          "[\"tldr\",2]",
+          "[\"references\",3]",
+          "[\"cache\",1]"
+        ],
+        "targetBlocks": [
+          "[\"main-results-qwen3-thinking-off\",9]",
+          "[\"serving-framework-sglang\",1]",
+          "[\"introduction\",10]"
+        ]
+      },
+      {
+        "id": "rnn",
+        "sourceBlocks": [
+          "[\"effort\",1]",
+          "[\"router-effort\",1]",
+          "[\"before\",5]"
+        ],
+        "targetBlocks": [
+          "[\"irnn\",12]",
+          "[\"구조\",11]",
+          "[\"abstract\",10]"
+        ]
+      },
+      {
+        "id": "langgraph-structured-streaming",
+        "sourceBlocks": [
+          "[\"prefetch\",1]",
+          "[\"draft\",6]",
+          "[\"before\",5]"
+        ],
+        "targetBlocks": [
+          "[\"baseline\",2]",
+          "[\"environment\",2]",
+          "[\"problem\",2]"
+        ]
+      },
+      {
+        "id": "constitutional-ai",
+        "sourceBlocks": [
+          "[\"effort\",1]",
+          "[\"limitations\",7]",
+          "[\"tldr\",8]"
+        ],
+        "targetBlocks": [
+          "[\"rl-stage-rlaif\",3]",
+          "[\"supervised-stage-critique--revision\",2]",
+          "[\"experiments\",3]"
+        ]
+      },
+      {
+        "id": "finetuning-notes",
+        "sourceBlocks": [
+          "[\"cache\",1]",
+          "[\"tldr\",3]",
+          "[\"principles\",3]"
+        ],
+        "targetBlocks": [
+          "[\"increasing-speed-a-llm-serving-inference\",6]",
+          "[\"4bit-or-8bit-quantization\",7]",
+          "[\"tensor-parallel\",2]"
+        ]
+      },
+      {
+        "id": "transformer",
+        "sourceBlocks": [
+          "[\"before\",5]",
+          "[\"cache\",1]",
+          "[\"tldr\",8]"
+        ],
+        "targetBlocks": [
+          "[\"출현배경\",1]",
+          "[\"input-embedding\",2]",
+          "[\"self-attention\",5]"
+        ]
+      },
+      {
+        "id": "related-articles-graph",
+        "sourceBlocks": [
+          "[\"router-effort\",1]",
+          "[\"limitations\",1]",
+          "[\"effort\",1]"
+        ],
+        "targetBlocks": [
+          "[\"candidates\",7]",
+          "[\"new-post\",6]",
+          "[\"limitations\",4]"
+        ]
+      },
+      {
+        "id": "few-shot-learning",
+        "sourceBlocks": [
+          "[\"tldr\",8]",
+          "[\"cache\",1]",
+          "[\"principles\",3]"
+        ],
+        "targetBlocks": [
+          "[null,3]",
+          "[\"few-shot-learning이-뭘까\",1]",
+          "[\"nlp\",1]"
+        ]
+      }
+    ],
+    "recommendations": [
+      {
+        "id": "inference-server",
+        "relation": "evaluation_comparison",
+        "reason": "초안 스트리밍과 서버 선조회가 첫 글자 지연이나 입력 토큰에 미치는 영향을 각각 측정한 결과를 비교해 볼 수 있습니다.",
+        "sourceEvidence": {
+          "articleId": "agent-latency-harness",
+          "blockId": "[\"tldr\",3]",
+          "anchor": "tldr",
+          "quote": "설정을 하나씩 꺼 보니(지연 판정에 쓰는 다섯 시나리오 38턴, 결함 수정 전 코드), 초안 스트리밍을 끄면 첫 확정 글자가 4.5초에서 6.3초로 42% 늦어졌고, 서버 선조회를 끄면 입력 토큰이 16% 늘었음.",
+          "hash": "d91459a0a76905dc389e6e36df006c5d5b3225119d98b32e6e202dc7bb87821e"
+        },
+        "targetEvidence": {
+          "articleId": "inference-server",
+          "blockId": "[\"처리량과-지연\",7]",
+          "anchor": "처리량과-지연",
+          "quote": "긴 입력이 짧은 입력보다 빠른 게 처음에는 이상했는데, 수락률을 보면 설명이 됨. 긴 문서를 앞에 두고 쓰는 출력은 입력에 있는 표현을 다시 쓰는 경우가 많아서 draft가 잘 맞는 것으로 보이고(70% 안팎), 한 문장 질문에 대한 자유 서술은 덜 맞음(52~57%).",
+          "hash": "0fdfc3cd9dbd00505e8c9826fa41bf8e47e13c07ee57ce1a541b559e4bc77f9e"
+        }
+      },
+      {
+        "id": "searchswarm",
+        "relation": "related_method",
+        "reason": "요청을 분해해 하위 에이전트에 위임하고 결과를 통합하는 파이프라인을 살펴보며, 에이전트 요청 경로 설계와 비교할 수 있습니다.",
+        "sourceEvidence": {
+          "articleId": "agent-latency-harness",
+          "blockId": "[null,3]",
+          "anchor": null,
+          "quote": "이 글은 근거 확인은 그대로 둔 채 요청 경로를 다시 짠 과정과, 그 결과를 합성 데이터 벤치마크로 잰 기록임. 측정은 2026년 9월 23~24일에 했고, 모델은 gpt-6-luna를 Responses API로 불렀음. 에이전트 루프는 OpenAI Agents SDK(JavaScript)로 돌렸고, 아래에서는 SDK라고 줄여 씀.",
+          "hash": "a35f5d7fba74ba47199f055275d368413bb8fb188e812ae291c376209c238d32"
+        },
+        "targetEvidence": {
+          "articleId": "searchswarm",
+          "blockId": "[\"introduction\",2]",
+          "anchor": "introduction",
+          "quote": "이에 대한 더 active한 대안이 main-distributes, sub-executes 패러다임. main agent가 task를 미리 분해하고 bounded subtask를 subagent에 위임한 뒤, subagent의 요약된 실행 결과만 회수함. 이를 잘 수행하려면 delegation intelligence가 필요함: (1) 복잡한 task를 분해하고, (2) 언제 무엇을 위임할지 판단하며, (3) 돌아온 결과를 진행 중인 workflow에 통합하는 능력. 문제는 이런 능력을 학습할 데이터가 자연 텍스트에 거의 없고, 오픈소스 진영에서 이런 데이터를 어떻게 합성하고 학습시킬지가 거의 탐구되지 않았다는 점.",
+          "hash": "a0ce85141510b2bee166d955dd9bd7dc28828be7debeab1f555463275df2e449"
+        }
+      }
+    ]
+  }
+}

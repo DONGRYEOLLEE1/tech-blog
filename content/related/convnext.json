@@ -39,7 +39,7 @@
     "review": []
   },
   "entry": {
-    "inputHash": "49f2eb695fbeaf97ac80246f8279b1276e67a4f3846598faacde5d20abb008bc",
+    "inputHash": "17bdd126e356b8b9d50cc4b6c6bcec156d1fea89870f5c445c5dbbb4254c8519",
     "status": "verified",
     "candidates": [
       {
@@ -197,16 +197,16 @@
         ]
       },
       {
-        "id": "ziya2",
+        "id": "lora",
         "sourceBlocks": [
-          "[\"training-techniques\",1]",
-          "[\"micro-design\",5]",
-          "[\"instruction\",1]"
+          "[\"instruction\",1]",
+          "[\"modernizing-a-convnet-a-roadmap\",1]",
+          "[\"micro-design\",9]"
         ],
         "targetBlocks": [
-          "[\"continual-pre-training\",5]",
-          "[\"the-architecture-of-ziya2\",2]",
-          "[\"introduction\",9]"
+          "[\"introduction\",1]",
+          "[\"problem-statement\",1]",
+          "[\"adapter-layers-intorduce-inference-latency\",1]"
         ]
       },
       {
@@ -227,13 +227,13 @@
       {
         "id": "swin-transformer",
         "relation": "related_method",
-        "reason": "ConvNeXt와 Swin-T는 ConvNet과 계층적 비전 트랜스포머의 설계 차이를 다루며, Swin은 이미지 패치를 결합해 계층적 특징 맵을 만듭니다.",
+        "reason": "ConvNeXt와 Swin-T의 다운샘플링 배치를 비교하고, 계층적 피처맵 구성 방식도 살펴볼 수 있습니다.",
         "sourceEvidence": {
           "articleId": "convnext",
-          "blockId": "[\"instruction\",6]",
-          "anchor": "instruction",
-          "quote": "지난 10년간 점진적으로 향상되어진 ConvNet들과는 달리 Vision Transformers의 적용은 큰 변화였습니다. 최근 연구에 의하면 system-level의 비교(e.g. Swin-T vs ResNet)는 2개를 비교할때 종종 비교되어지곤 합니다. ConvNets과 계층적 vision transformer들은 동시에 다르거나 비슷하게 될 수도 있습니다. 이 두 모델은 비슷한 inductive bias를 가지나, 매우 다른 학습 절차나 micro-level의 아키텍쳐 디자인을 가집니다. 본 연구진은 ConvNets과 트랜스포머의 아키텍쳐를 조사하였으며 network의 성능에 대해서도 명확히하는 연구를 진행하였습니다. 우리의 연구는 pure ConvNet의 한계를 테스트할 뿐만 아니라 pre-ViT와 post-ViT 사이의 간극을 연결해주는 의도를 가지고 연구를 진행하였습니다.",
-          "hash": "b9cccb95c60345eb0975c0dfd2d379bf2b76a95e2c6c33aa39d27d2979f2a829"
+          "blockId": "[\"micro-design\",13]",
+          "anchor": "micro-design",
+          "quote": "ResNet에선 공간적인 다운샘플링은 각 stage에서 residual block의 앞단에 붙여졌고, Swin-T에선 분리된 다운샘플링 레이어는 2개의 stage사이에 추가되어졌음",
+          "hash": "909faac55480d1980ac92b61f85f404c9d69c5778bd8449a928cfb19f0f9f583"
         },
         "targetEvidence": {
           "articleId": "swin-transformer",
@@ -246,13 +246,13 @@
       {
         "id": "vit",
         "relation": "related_method",
-        "reason": "ConvNeXt는 순수 ConvNet과 트랜스포머의 설계 차이를 살펴보고, ViT는 이미지를 패치 임베딩 시퀀스로 바꿔 분류하는 방식을 설명합니다.",
+        "reason": "ConvNeXt가 순수 ConvNet으로 Transformer 계열을 따라잡았다는 맥락과, ViT의 이미지 패치 입력 방식을 함께 이해할 수 있습니다.",
         "sourceEvidence": {
           "articleId": "convnext",
-          "blockId": "[\"instruction\",6]",
-          "anchor": "instruction",
-          "quote": "지난 10년간 점진적으로 향상되어진 ConvNet들과는 달리 Vision Transformers의 적용은 큰 변화였습니다. 최근 연구에 의하면 system-level의 비교(e.g. Swin-T vs ResNet)는 2개를 비교할때 종종 비교되어지곤 합니다. ConvNets과 계층적 vision transformer들은 동시에 다르거나 비슷하게 될 수도 있습니다. 이 두 모델은 비슷한 inductive bias를 가지나, 매우 다른 학습 절차나 micro-level의 아키텍쳐 디자인을 가집니다. 본 연구진은 ConvNets과 트랜스포머의 아키텍쳐를 조사하였으며 network의 성능에 대해서도 명확히하는 연구를 진행하였습니다. 우리의 연구는 pure ConvNet의 한계를 테스트할 뿐만 아니라 pre-ViT와 post-ViT 사이의 간극을 연결해주는 의도를 가지고 연구를 진행하였습니다.",
-          "hash": "b9cccb95c60345eb0975c0dfd2d379bf2b76a95e2c6c33aa39d27d2979f2a829"
+          "blockId": "[\"의의\",1]",
+          "anchor": "의의",
+          "quote": "ConvNet의 재부흥. Attention 모듈을 사용하지 않은 순수하게 Conv-layer를 사용하여 최근 Transformer 계열 모델을 따라잡은 것",
+          "hash": "7024622a0f1f12ff9187da54180f953fc67335e190d88bbc82ebd54a51d0d2d0"
         },
         "targetEvidence": {
           "articleId": "vit",
@@ -265,7 +265,7 @@
       {
         "id": "resnext",
         "relation": "related_method",
-        "reason": "ConvNeXt는 ConvNet의 설계 요소를 분석하고, ResNeXt는 grouped convolution을 포함한 split-transform-merge 모듈을 제안합니다.",
+        "reason": "ConvNeXt의 그룹 합성곱 기반 설계와 ResNeXt의 split-transform-merge 및 집계 변환 방식을 비교해 볼 수 있습니다.",
         "sourceEvidence": {
           "articleId": "convnext",
           "blockId": "[\"resnext-ify\",1]",

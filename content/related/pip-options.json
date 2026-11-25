@@ -16,8 +16,8 @@
     "review": []
   },
   "entry": {
-    "inputHash": "960d9f7ffdc25acf491a4894614c24e03db8809437ccc6aeddc16e5ad7d7ad91",
-    "status": "verified",
+    "inputHash": "748cb10ecebba53dbbbf6b1ed486a7ac321adcffaf88403b8ca243e2f464952d",
+    "status": "abstained",
     "candidates": [
       {
         "id": "python-venv-troubleshooting",
@@ -163,56 +163,17 @@
         ]
       },
       {
-        "id": "training-arguments",
+        "id": "qlora-troubleshooting",
         "sourceBlocks": [
           "[\"pip-options\",1]"
         ],
         "targetBlocks": [
-          "[\"하이퍼파라미터\",2]",
-          "[\"usage\",1]",
-          "[null,1]"
+          "[\"4bit-quantization\",30]",
+          "[\"해결\",1]",
+          "[\"현상\",1]"
         ]
       }
     ],
-    "recommendations": [
-      {
-        "id": "python-venv-troubleshooting",
-        "relation": "application_example",
-        "reason": "pip 설치 옵션을 다루는 내용을 바탕으로 가상환경을 만들고 활성화하는 명령을 확인할 수 있습니다.",
-        "sourceEvidence": {
-          "articleId": "pip-options",
-          "blockId": "[\"pip-options\",1]",
-          "anchor": "pip-options",
-          "quote": "모든 pip 설치 옵션, pip install - Usage",
-          "hash": "873aad2b41b774966b059227e56f3f8f31b682d2f862c3cdde29d8eb06cbb320"
-        },
-        "targetEvidence": {
-          "articleId": "python-venv-troubleshooting",
-          "blockId": "[\"해결\",1]",
-          "anchor": "해결",
-          "quote": "$ sudo apt install python3.10-venv $ python3 -m venv test $ source test/bin/activate >>> (test) user@server:~$",
-          "hash": "efe1e5bb6760deebf78d1ca5bf370e0a5841e39d19df46cc211db417b023634b"
-        }
-      },
-      {
-        "id": "distributed-gpu-training",
-        "relation": "application_example",
-        "reason": "pip 설치 명령을 FairScale 패키지 설치에 적용하는 예를 볼 수 있습니다.",
-        "sourceEvidence": {
-          "articleId": "pip-options",
-          "blockId": "[\"pip-options\",1]",
-          "anchor": "pip-options",
-          "quote": "모든 pip 설치 옵션, pip install - Usage",
-          "hash": "873aad2b41b774966b059227e56f3f8f31b682d2f862c3cdde29d8eb06cbb320"
-        },
-        "targetEvidence": {
-          "articleId": "distributed-gpu-training",
-          "blockId": "[\"설치-1\",2]",
-          "anchor": "설치-1",
-          "quote": "pip install fairscale",
-          "hash": "e51ed90a6aa0edff1928b7bf4b7346dc3f6691580220f162f372dcd013c85fe7"
-        }
-      }
-    ]
+    "recommendations": []
   }
 }
