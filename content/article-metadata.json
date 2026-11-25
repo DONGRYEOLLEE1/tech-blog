@@ -1788,5 +1788,34 @@
       "alt": "One stacked bar over 113 articles: model list better on 64, about equal on 23, rule-based list better on 26",
       "kind": "figure"
     }
+  },
+  "_posts/2026-11-25-agent-latency-harness.md": {
+    "id": "agent-latency-harness",
+    "description": "도구 호출로 워크스페이스를 읽고 쓰는 에이전트의 요청 경로를 다시 짜서 첫 글자까지의 시간을 줄이고, 합성 데이터 벤치마크와 ablation으로 기본값을 정한 기록입니다.",
+    "language": "ko",
+    "contentType": "research",
+    "conceptRefs": [
+      {
+        "id": "agent-evaluation",
+        "role": "about"
+      },
+      {
+        "id": "tool-use",
+        "role": "applies"
+      },
+      {
+        "id": "multi-agent",
+        "role": "applies"
+      },
+      {
+        "id": "reasoning-efficiency",
+        "role": "applies"
+      }
+    ],
+    "hero": {
+      "src": "/assets/research/agent-latency-harness/figures/fig01_gate.png",
+      "alt": "같은 과제 12개의 개편 전후 비교. 개편 전에는 답 전체가 중앙값 14.9초에 한 번에 도착했고, 개편 뒤에는 첫 확정 글자가 3.5초, 끝이 6.4초임",
+      "kind": "figure"
+    }
   }
 }
