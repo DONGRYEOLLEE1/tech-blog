@@ -1817,5 +1817,38 @@
       "alt": "같은 과제 12개의 개편 전후 비교. 개편 전에는 답 전체가 중앙값 14.9초에 한 번에 도착했고, 개편 뒤에는 첫 확정 글자가 3.5초, 끝이 6.4초임",
       "kind": "figure"
     }
+  },
+  "_posts/2026-11-26-agent-memory-recall.md": {
+    "id": "agent-memory-recall",
+    "description": "에이전트의 장기 기억을 늘 넣던 방식에서 범위를 먼저 거르는 글자·임베딩 하이브리드 회상으로 바꾸고, 실행 전에 고정한 가설과 합성 벤치마크로 회상 품질, 공격면, 임베딩과 LLM 비교를 잰 기록입니다.",
+    "language": "ko",
+    "contentType": "research",
+    "conceptRefs": [
+      {
+        "id": "agent-memory",
+        "role": "about"
+      },
+      {
+        "id": "semantic-search",
+        "role": "applies"
+      },
+      {
+        "id": "keyword-search",
+        "role": "applies"
+      },
+      {
+        "id": "dense-retrieval",
+        "role": "applies"
+      },
+      {
+        "id": "agent-evaluation",
+        "role": "applies"
+      }
+    ],
+    "hero": {
+      "src": "/assets/research/agent-memory-recall/figures/fig17_recall_ceiling.png",
+      "alt": "정답 주입 상태별 두 판정 모두 통과 비율. 정답이 모두 주입된 39질의에서 luna 24, haiku 16. 일부만 주입된 18질의에서 0과 1. 하나도 주입되지 않은 25질의에서 둘 다 0. 정답 기억이 없는 R8 22질의에서 18과 16",
+      "kind": "figure"
+    }
   }
 }

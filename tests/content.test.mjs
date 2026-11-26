@@ -90,7 +90,7 @@ test('active HTML is removed while mathematical formulas and research tables rem
 
 test('code is escaped, highlighted once, and carries both light and dark token colors',()=>{
   const codeArticles=registry.articles.filter(a=>a.html.includes('class="shiki'));
-  assert.equal(codeArticles.length,64);
+  assert.equal(codeArticles.length,65);
   assert.ok(codeArticles.some(a=>a.html.includes('--shiki-dark')));
   for(const article of codeArticles)assert.ok(article.html.includes('tabindex="0"'));
 });

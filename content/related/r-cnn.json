@@ -39,7 +39,7 @@
     "review": []
   },
   "entry": {
-    "inputHash": "aa46a280e911616e76c929df07815b37da7c8db8251ef70ea6d6b86d44fb898b",
+    "inputHash": "dd90a5a8958731b987b15c56995bab8112753277a62df362d9380c7bc543fe9a",
     "status": "verified",
     "candidates": [
       {
@@ -225,16 +225,16 @@
         ]
       },
       {
-        "id": "rnn",
+        "id": "book-spine",
         "sourceBlocks": [
-          "[\"abstract\",2]",
-          "[\"요약\",7]",
-          "[\"단점\",4]"
+          "[\"abstract\",1]",
+          "[\"region-proposal-selective-search\",3]",
+          "[\"nmsnon-maximum-suppression\",17]"
         ],
         "targetBlocks": [
-          "[\"abstract\",1]",
-          "[\"구조\",6]",
-          "[\"요-약\",1]"
+          "[\"system\",2]",
+          "[\"datasets\",12]",
+          "[\"eval-path\",6]"
         ]
       }
     ],
@@ -242,13 +242,13 @@
       {
         "id": "faster-r-cnn",
         "relation": "related_method",
-        "reason": "R-CNN의 순차적 2단계 검출과 Faster R-CNN의 RPN 기반 후보 영역 추출 과정을 비교해 파이프라인의 변화를 배울 수 있습니다.",
+        "reason": "R-CNN에서 후보 영역마다 CNN 특징을 추출하는 방식과 비교해, Faster R-CNN이 RPN으로 후보 영역을 만들고 Fast R-CNN에 전달하는 흐름을 배울 수 있습니다.",
         "sourceEvidence": {
           "articleId": "r-cnn",
-          "blockId": "[\"abstract\",1]",
-          "anchor": "abstract",
-          "quote": "Object Detector는 Object의 coordinate를 찾고(Localization), class를 분류(Classification)하는 작업을 진행한다. R-CNN은 이를 순차적으로 진행하는 2 Stage Detector 로, 딥러닝을 적용한 최초의 Object Detector다. R-CNN모델은 Object Detection 혹은 Inference(추론)시, 아래와 같은 순서에 의해 동작한다.",
-          "hash": "4ae1fc1530ef74e24391b17d1338950c656044da3cb13cb70ce563979e1142ad"
+          "blockId": "[\"feature-extraction-by-fine-tuned-alexnet\",1]",
+          "anchor": "feature-extraction-by-fine-tuned-alexnet",
+          "quote": "다음으로 2000개의 Region Proposal을 Fine Tune된 AlexNet에 입력해 2000(=Number of Region Proposal) x 4096(=Number of Feature Vector) 크기의 Feature vector를 추출한다. 논문의 저자는 Object Detection시, 특정 도메인에 맞는 class를 예측하기 위해서 기존의 ImageNet 데이터셋을 통해, 사전학습된 CNN모델을 도메인에 맞게 fine tune하는 방식을 제안한다. Fine tune된 모델을 사용하면 도메인에 맞게 보다 적합한 feature vector를 추출하는 것이 가능해진다.",
+          "hash": "18118d1c2c75e87b6fdfe76aa5ad1711500d35561a962f5e8a87f64fcb1ce677"
         },
         "targetEvidence": {
           "articleId": "faster-r-cnn",
@@ -261,7 +261,7 @@
       {
         "id": "fast-r-cnn",
         "relation": "related_method",
-        "reason": "R-CNN이 후보 영역마다 CNN 특징을 추출하는 방식과 Fast R-CNN의 RoI pooling 및 단일 이미지 입력 방식을 비교할 수 있습니다.",
+        "reason": "후보 영역마다 CNN을 적용하는 R-CNN과 달리, Fast R-CNN은 이미지 한 장에서 특징을 추출하고 RoI pooling과 다중 작업 손실로 함께 학습하는 개선점을 설명합니다.",
         "sourceEvidence": {
           "articleId": "r-cnn",
           "blockId": "[\"feature-extraction-by-fine-tuned-alexnet\",1]",
@@ -280,7 +280,7 @@
       {
         "id": "object-detection-basics",
         "relation": "related_method",
-        "reason": "R-CNN에서 Selective Search로 후보 영역을 만드는 과정과 픽셀 유사도를 활용하는 원리를 함께 살펴볼 수 있습니다.",
+        "reason": "R-CNN이 Selective Search로 후보 영역을 추출하는 과정을 살펴보고, 이를 설명하는 픽셀 그룹화와 박스 생성 원리를 함께 이해할 수 있습니다.",
         "sourceEvidence": {
           "articleId": "r-cnn",
           "blockId": "[\"region-proposal-selective-search\",1]",
@@ -294,6 +294,25 @@
           "anchor": "region-proposal-물체가-있을-법한-위치-찾기",
           "quote": "Selective Search R-CNN은 Selective Search라는 툴 베이스 알고리즘을 적용해 2000개의 물체가 있을법한 박스를 찾는다. Selective Search는 주변 픽셀 간의 유사도를 기준으로 Segmentation을 만들고, 이를 기준으로 물체가 있을법한 박스를 추론한다. 하지만 R-CNN 이후 Region Proposal 과정 역시 Neural Network가 수행하도록 발전하였다.",
           "hash": "fda1c1e1a1ce2fae986bcad5fa2d0fde27d546842fd1683b2f4bae354c3056e1"
+        }
+      },
+      {
+        "id": "book-spine",
+        "relation": "application_example",
+        "reason": "R-CNN의 후보 영역·박스 처리 개념이 책등 탐지 시스템에서 회전 박스를 찾고 중복 박스를 합치는 과정에 어떻게 쓰이는지 볼 수 있습니다.",
+        "sourceEvidence": {
+          "articleId": "r-cnn",
+          "blockId": "[\"abstract\",1]",
+          "anchor": "abstract",
+          "quote": "Object Detector는 Object의 coordinate를 찾고(Localization), class를 분류(Classification)하는 작업을 진행한다. R-CNN은 이를 순차적으로 진행하는 2 Stage Detector 로, 딥러닝을 적용한 최초의 Object Detector다. R-CNN모델은 Object Detection 혹은 Inference(추론)시, 아래와 같은 순서에 의해 동작한다.",
+          "hash": "4ae1fc1530ef74e24391b17d1338950c656044da3cb13cb70ce563979e1142ad"
+        },
+        "targetEvidence": {
+          "articleId": "book-spine",
+          "blockId": "[\"system\",2]",
+          "anchor": "system",
+          "quote": "A photo is first downscaled so that its long side is at most 1,600 px. A one-class oriented bounding box (OBB) detector finds the spines. Near-duplicate boxes are merged (Section 3.5), and the number of boxes scoring 0.4 or more is the book count. Each box is then cut out with a margin of 8% of its short side, rotated so that its long side is vertical, and upscaled if its short side is below 96 px.",
+          "hash": "47a6b7f2df9dece4417da0ca5bd70c47f8e2d281e5d4511a6cf0cf29c50c19b1"
         }
       }
     ]

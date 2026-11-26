@@ -39,7 +39,7 @@
     "review": []
   },
   "entry": {
-    "inputHash": "632b7a99e375d425a23c82ecc82120a42387642d6faad1b7a10740422311dae4",
+    "inputHash": "ece28a0eca67737e57474e6c38b02338a9c765921efdd83f3f2f05b413b97d18",
     "status": "verified",
     "candidates": [
       {
@@ -173,6 +173,19 @@
         ]
       },
       {
+        "id": "agent-memory-recall",
+        "sourceBlocks": [
+          "[\"error\",1]",
+          "[\"reproduction\",1]",
+          "[\"environment\",2]"
+        ],
+        "targetBlocks": [
+          "[\"questions\",1]",
+          "[\"tldr\",13]",
+          "[null,5]"
+        ]
+      },
+      {
         "id": "model-input-length",
         "sourceBlocks": [
           "[\"error\",6]",
@@ -210,45 +223,32 @@
           "[\"모델-구성은-파일-하나로\",6]",
           "[\"cuda-버전-필터가-정확-일치였음\",1]"
         ]
-      },
-      {
-        "id": "lm-evaluation-harness-oom",
-        "sourceBlocks": [
-          "[\"solution\",3]",
-          "[\"error\",4]",
-          "[\"reproduction\",1]"
-        ],
-        "targetBlocks": [
-          "[\"solution\",1]",
-          "[\"error\",2]",
-          "[\"env\",2]"
-        ]
       }
     ],
     "recommendations": [
       {
-        "id": "langgraph-structured-streaming",
+        "id": "model-input-length",
         "relation": "related_method",
-        "reason": "두 사례 모두 tool-use 흐름에서 API 요청 인자와 구조화된 응답을 다루지만, 구체적인 문제와 해결법은 다릅니다.",
+        "reason": "BFCL 오류는 지원되지 않는 reasoning.encrypted_content 옵션을 포함해 발생하며, 모델 입력 길이 문서는 모델이 감당할 수 있는 설정을 넘길 때의 오류를 설명합니다.",
         "sourceEvidence": {
           "articleId": "bfcl-reasoning-option",
-          "blockId": "[\"solution\",4]",
-          "anchor": "solution",
-          "quote": "kwargs = { \"input\": message, \"model\": self.model_name.replace(\"-FC\", \"\"), \"store\": False, } # Only add reasoning parameters for OpenAI reasoning models if \"o3\" in self.model_name or \"o4-mini\" in self.model_name: kwargs[\"include\"] = [\"reasoning.encrypted_content\"] kwargs[\"reasoning\"] = {\"summary\": \"auto\"} else: kwargs[\"temperature\"] = self.temperature ...",
-          "hash": "762268e96781ad62cad9d56f53ee9c1af87d7332349d17e112d027d191ac18c7"
+          "blockId": "[\"error\",6]",
+          "anchor": "error",
+          "quote": "\"/usr/lib/python3.10/concurrent/futures/_base.py\", line 403, in __get_result raise self._exception openai.BadRequestError: Error code: 400 - {'error': {'message': 'Encrypted content is not supported with this model.', 'type': 'invalid_request_error', 'param': 'include', 'code': None}}",
+          "hash": "cb1e35af465871af97efd11e5bd9a53fc35110a051c405c3208d6161d068140c"
         },
         "targetEvidence": {
-          "articleId": "langgraph-structured-streaming",
-          "blockId": "[\"baseline\",2]",
-          "anchor": "baseline",
-          "quote": "# app.py route_llm_with_tools = route_llm.with_structured_output(ResponseFormatter) route_prompt = ChatPromptTemplate.from_messages([ (\"system\", route_template), (\"human\", \"다음 질문을 목적에 맞게 분류하세요.",
-          "hash": "5eb3f472cac72cfc81a7af04d3fdbc77d4ed87b35bc5cb81100b82d677ffff41"
+          "articleId": "model-input-length",
+          "blockId": "[\"model-input-sequence-length\",2]",
+          "anchor": "model-input-sequence-length",
+          "quote": "물론 tokenizer의 padding = \"max_length\", truncation = True, max_length = 2048와 같은 옵션을 줘서 문장 길이를 맞춰줄 수도 있지만 backbone 모델의 input sequence length가 맞추려는 길이보다 짧을 경우 다음과 같은 에러 발생",
+          "hash": "5629ab0bfa58ae498e8ac300c4e5f06c74f54d2f72ac258a4ba8a7d58a57f468"
         }
       },
       {
         "id": "agent-latency-harness",
-        "relation": "concept_explanation",
-        "reason": "BFCL로 에이전트 성능을 측정하는 맥락에서, 합성 데이터 벤치마크의 구성과 평가 방식을 살펴볼 수 있습니다.",
+        "relation": "related_method",
+        "reason": "BFCL 실행에서 Responses API 요청을 다루는 오류가 발생하며, 이 글은 Responses API를 사용하는 에이전트 요청 경로의 구성과 측정을 다룹니다.",
         "sourceEvidence": {
           "articleId": "bfcl-reasoning-option",
           "blockId": "[\"error\",1]",
