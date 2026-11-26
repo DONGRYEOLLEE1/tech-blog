@@ -50,7 +50,7 @@
     "review": []
   },
   "entry": {
-    "inputHash": "ef32782f000040700abf0976a60ba57f2577d4836e8058c664b9d4391e9c444f",
+    "inputHash": "7a4db91758676ee313c4ef9c79da86b1ac389e4eb3f5b7f4fdc09b75546fd2de",
     "status": "verified",
     "candidates": [
       {
@@ -116,6 +116,19 @@
           "[\"what-is-not-semantic-search\",8]",
           "[\"using-similarity-to-find-the-best-document\",7]",
           "[\"how-to-search-using-text-embedding\",3]"
+        ]
+      },
+      {
+        "id": "agent-memory-recall",
+        "sourceBlocks": [
+          "[\"결론\",1]",
+          "[\"using-rerank-to-improve-keyword-search\",2]",
+          "[\"reranking\",1]"
+        ],
+        "targetBlocks": [
+          "[null,2]",
+          "[\"references\",2]",
+          "[\"tldr\",8]"
         ]
       },
       {
@@ -234,26 +247,13 @@
           "[\"peft-v090\",1]",
           "[\"ref\",2]"
         ]
-      },
-      {
-        "id": "qlora",
-        "sourceBlocks": [
-          "[\"결론\",1]",
-          "[\"using-rerank-to-improve-keyword-search\",2]",
-          "[\"reranking\",1]"
-        ],
-        "targetBlocks": [
-          "[\"background\",1]",
-          "[\"qlora-vs-standard-finetuning\",4]",
-          "[\"introduction\",10]"
-        ]
       }
     ],
     "recommendations": [
       {
         "id": "dense-retrieval",
         "relation": "related_method",
-        "reason": "키워드 검색 후보를 reranking하는 흐름과 Dense Retrieval을 활용한 검색을 비교하며 두 검색 방식을 이해할 수 있습니다.",
+        "reason": "키워드 검색으로 후보 문서를 찾은 뒤 재정렬하는 흐름과, 의미 기반 검색의 한 방법인 Dense Retrieval을 함께 살펴봅니다.",
         "sourceEvidence": {
           "articleId": "reranking",
           "blockId": "[\"결론\",1]",
@@ -271,14 +271,14 @@
       },
       {
         "id": "book-spine",
-        "relation": "application_example",
-        "reason": "키워드 검색 후보를 reranking하는 설명을 바탕으로, 책 제목 후보를 검색하고 유사도와 규칙으로 재점수화하는 사례를 볼 수 있습니다.",
+        "relation": "related_method",
+        "reason": "검색 후보를 만든 뒤 재점수화하는 재정렬 흐름을 실제 도서 제목 매칭에서 어떻게 구현하고 보완했는지 배울 수 있습니다.",
         "sourceEvidence": {
           "articleId": "reranking",
-          "blockId": "[\"결론\",1]",
-          "anchor": "결론",
-          "quote": "Reranking은 특정 쿼리에 가장 관련성이 높은 응답을 찾는 데 매우 유용한 방법입니다. 이는 dense retrieval을 개선하기 위한 키워드 검색의 보완 방식으로도 유용합니다. 이번 포스트에서는 키워드 검색을 통해 답을 포함할 가능성이 있는 20개의 문서를 먼저 검색한 뒤, 재정렬 엔드포인트를 사용하여 그 중 상위 3개를 선택함으로써 키워드 검색 결과를 크게 향상시켰습니다.",
-          "hash": "d03185c1f96687e82a0a21a6b9f63dba6fe3a917452f9793de8fe2ca09b0a0da"
+          "blockId": "[\"reranking\",1]",
+          "anchor": "reranking",
+          "quote": "Reranking은 다음과 같이 작동합니다: 각 (쿼리, 응답) 쌍에 대해 관련성 점수를 부여합니다. 이름에서 암시하듯이, 응답이 쿼리와 관련성이 높은 경우 높은 점수를 부여하고, 그렇지 않은 경우 낮은 점수를 부여합니다. 이 장에서는 이 모듈에서 이전에 찾은 위키피디아 검색 결과를 개선하기 위해 재정렬을 사용하는 방법에 대해 배울 것입니다.",
+          "hash": "4f0224bbf25b454693f37397948cea53af80d74aa9aaa9f4de74c1ea7f5cdf1c"
         },
         "targetEvidence": {
           "articleId": "book-spine",
@@ -290,8 +290,8 @@
       },
       {
         "id": "keyword-search",
-        "relation": "related_method",
-        "reason": "키워드 검색 결과를 reranking으로 보완하는 방식과, 단어 일치만으로 검색할 때의 한계를 함께 살펴볼 수 있습니다.",
+        "relation": "concept_explanation",
+        "reason": "키워드 검색 결과를 재정렬로 개선하는 사례를 읽고, 단어 일치 방식의 한계와 재랭커의 역할을 이해할 수 있습니다.",
         "sourceEvidence": {
           "articleId": "reranking",
           "blockId": "[\"결론\",1]",
@@ -301,10 +301,10 @@
         },
         "targetEvidence": {
           "articleId": "keyword-search",
-          "blockId": "[\"conclusion\",2]",
+          "blockId": "[\"conclusion\",5]",
           "anchor": "conclusion",
-          "quote": "Keyword search는 단어들을 기준으로 결과값을 매칭하기에 문장의 의미를 활용하진 못합니다. 이는 다음과 같은 문장에 대해선 더 어려운 과제로 인식할 수 있습니다.",
-          "hash": "31a5b1df12eb14cccc7716f9f8d89a0275efb6302e89b69ea0aef2210a434ab0"
+          "quote": "문장과 문장사이의 실제 의미에 대해 이해하고 단어가 아닌 그 의미에 따라 일치시킬 수 있는 semantic search, 서로 가장 관련성이 높은 문장과 문서 쌍을 표시할 수 있는 re-ranker와 같은 알고리즘을 통해 가장 적합한 문서를 도출할 수 있습니다.",
+          "hash": "d4dcdd114033613c51647915386b7b00322b4605e0790febe9fb7c5fbda99099"
         }
       }
     ]

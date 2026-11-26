@@ -39,7 +39,7 @@
     "review": []
   },
   "entry": {
-    "inputHash": "96d9f02e79d430aa5dc0c62efe82f4efde4a4e30a2286d9980b32c308c5edc3b",
+    "inputHash": "f1e0710d84443aac3a58271a71f26d5ad0cf4707d067616d5a0054f30b05080e",
     "status": "verified",
     "candidates": [
       {
@@ -82,16 +82,16 @@
         ]
       },
       {
-        "id": "related-articles-graph",
+        "id": "agent-memory-recall",
         "sourceBlocks": [
+          "[\"dense-retrieval\",3]",
           "[\"querying-the-dataset-using-dense-retrieval\",1]",
-          "[\"chunking-the-articles\",1]",
-          "[\"dense-retrieval\",3]"
+          "[\"chunking-the-articles\",11]"
         ],
         "targetBlocks": [
-          "[\"candidates\",4]",
-          "[\"models\",30]",
-          "[\"rerank\",3]"
+          "[null,2]",
+          "[\"embedding-table\",1]",
+          "[\"tldr\",7]"
         ]
       },
       {
@@ -118,6 +118,19 @@
           "[\"1-head-specialization--일부-head만-retrieval을-담당\",1]",
           "[\"low-cost-two-stage-training\",1]",
           "[\"2-rope가-만드는-압축-가능한-geometry--low-dim-subspace\",1]"
+        ]
+      },
+      {
+        "id": "related-articles-graph",
+        "sourceBlocks": [
+          "[\"querying-the-dataset-using-dense-retrieval\",1]",
+          "[\"chunking-the-articles\",1]",
+          "[\"dense-retrieval\",3]"
+        ],
+        "targetBlocks": [
+          "[\"candidates\",4]",
+          "[\"models\",30]",
+          "[\"rerank\",3]"
         ]
       },
       {
@@ -199,16 +212,16 @@
         ]
       },
       {
-        "id": "few-shot-learning",
+        "id": "elmo",
         "sourceBlocks": [
-          "[\"querying-the-dataset-using-dense-retrieval\",1]",
           "[\"dense-retrieval\",3]",
-          "[\"chunking-the-articles\",1]"
+          "[\"querying-the-dataset-using-dense-retrieval\",1]",
+          "[\"chunking-the-articles\",11]"
         ],
         "targetBlocks": [
-          "[\"few-shot-learning은-어떻게-작동할까\",1]",
-          "[\"few-shot-learning이-뭘까\",1]",
-          "[null,2]"
+          "[\"elmo\",1]",
+          "[\"experiments\",4]",
+          "[\"context-matters\",4]"
         ]
       },
       {
@@ -223,26 +236,13 @@
           "[\"introduction\",1]",
           "[\"qlora-vs-standard-finetuning\",4]"
         ]
-      },
-      {
-        "id": "elmo",
-        "sourceBlocks": [
-          "[\"dense-retrieval\",3]",
-          "[\"querying-the-dataset-using-dense-retrieval\",1]",
-          "[\"chunking-the-articles\",11]"
-        ],
-        "targetBlocks": [
-          "[\"elmo\",1]",
-          "[\"experiments\",4]",
-          "[\"context-matters\",4]"
-        ]
       }
     ],
     "recommendations": [
       {
         "id": "semantic-search",
         "relation": "related_method",
-        "reason": "Dense Retrieval에서 쓰는 text embedding과 유사한 문장에 비슷한 벡터를 할당하는 원리를 구체적인 예로 살펴볼 수 있습니다.",
+        "reason": "Dense Retrieval이 텍스트 임베딩과 유사 벡터를 이용해 문서를 찾는 원리를 설명해, 의미 기반 검색의 작동 방식을 이해하는 데 도움이 됩니다.",
         "sourceEvidence": {
           "articleId": "dense-retrieval",
           "blockId": "[\"querying-the-dataset-using-dense-retrieval\",1]",
@@ -261,7 +261,7 @@
       {
         "id": "reranking",
         "relation": "related_method",
-        "reason": "Dense Retrieval과 함께 쓰이는 Reranking이 쿼리와 문서의 관련성 점수를 매겨 검색 결과를 재정렬하는 방식을 배울 수 있습니다.",
+        "reason": "Dense Retrieval이 유사한 문서를 찾는 방식과 달리, Reranking은 검색된 응답에 관련성 점수를 매겨 정렬하는 보완 단계를 설명합니다.",
         "sourceEvidence": {
           "articleId": "dense-retrieval",
           "blockId": "[\"dense-retrieval\",3]",
@@ -278,9 +278,28 @@
         }
       },
       {
+        "id": "agent-memory-recall",
+        "relation": "application_example",
+        "reason": "텍스트 임베딩으로 유사 문서를 찾는 개념이 에이전트 기억에서 글자와 말뜻을 함께 활용하는 회상으로 적용되는 사례를 볼 수 있습니다.",
+        "sourceEvidence": {
+          "articleId": "dense-retrieval",
+          "blockId": "[\"querying-the-dataset-using-dense-retrieval\",1]",
+          "anchor": "querying-the-dataset-using-dense-retrieval",
+          "quote": "Dense Retrieval은 query와 유사한 문서를 찾기위해 text embedding을 사용합니다. Embedding은 숫자로 된 긴 리스트 데이터인 vector를 텍스트의 각각(token)에 할당합니다. Embedding에서의 주요 속성 중 하나는 비슷한 텍스트 조각이 비슷한 벡터로 이동한다는 것입니다.",
+          "hash": "f7396af47501ae2109752e37f93113ae64f0e1f15b7a584115a015b911de96bf"
+        },
+        "targetEvidence": {
+          "articleId": "agent-memory-recall",
+          "blockId": "[null,2]",
+          "anchor": null,
+          "quote": "이 글은 같은 에이전트의 장기 기억을 다룬다. 에이전트는 사람이 말한 취향, 사실, 부탁을 기억으로 저장하고 다음 대화에서 꺼내 쓴다. 꺼내는 쪽, 곧 회상이 이번 작업의 대상이다. 이전 회상은 글자가 겹쳐야만 기억을 찾았고, 그 대신 관련도와 무관한 기억 1,200자를 모든 답에 붙였다. 이것을 범위 조건을 먼저 건 뒤 글자와 말뜻(임베딩)을 함께 보는 회상으로 바꿨다.",
+          "hash": "33fcf94a4aa7b2d04191e1fca13677569bd78ffba8e0432a0721ebc6596b4a73"
+        }
+      },
+      {
         "id": "related-articles-graph",
         "relation": "application_example",
-        "reason": "문단별 임베딩으로 유사한 내용을 찾는 Dense Retrieval 원리가 블록 간 유사도 점수화에 적용되는 사례를 볼 수 있습니다.",
+        "reason": "임베딩으로 유사한 텍스트를 찾는 개념을 블록 단위 임베딩과 코사인 유사도로 관련 글 후보를 찾는 파이프라인에 적용합니다.",
         "sourceEvidence": {
           "articleId": "dense-retrieval",
           "blockId": "[\"chunking-the-articles\",1]",

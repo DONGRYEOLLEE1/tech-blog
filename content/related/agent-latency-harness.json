@@ -61,9 +61,22 @@
     "review": []
   },
   "entry": {
-    "inputHash": "d031879575aef2917bbbd3ecda8ee76dc3af61e5850d4cd8cbc4bc5bbb754158",
+    "inputHash": "7f2b5e36db5c1ad858aa9c752c10b061a465f4f1673cf666d3f0a6f23d846c81",
     "status": "verified",
     "candidates": [
+      {
+        "id": "agent-memory-recall",
+        "sourceBlocks": [
+          "[null,3]",
+          "[\"data\",3]",
+          "[\"principles\",2]"
+        ],
+        "targetBlocks": [
+          "[null,1]",
+          "[\"questions\",1]",
+          "[\"data\",3]"
+        ]
+      },
       {
         "id": "k-browsecomp",
         "sourceBlocks": [
@@ -232,51 +245,57 @@
           "[\"new-post\",6]",
           "[\"limitations\",4]"
         ]
-      },
-      {
-        "id": "few-shot-learning",
-        "sourceBlocks": [
-          "[\"tldr\",8]",
-          "[\"cache\",1]",
-          "[\"principles\",3]"
-        ],
-        "targetBlocks": [
-          "[null,3]",
-          "[\"few-shot-learning이-뭘까\",1]",
-          "[\"nlp\",1]"
-        ]
       }
     ],
     "recommendations": [
       {
-        "id": "inference-server",
+        "id": "agent-memory-recall",
         "relation": "evaluation_comparison",
-        "reason": "초안 스트리밍과 서버 선조회가 첫 글자 지연이나 입력 토큰에 미치는 영향을 각각 측정한 결과를 비교해 볼 수 있습니다.",
+        "reason": "두 글의 합성 기억 과제에서 누설 여부를 살피지만, 회상 품질을 직접 재는 지표가 요청 경로 벤치마크에 없다는 차이를 배울 수 있습니다.",
         "sourceEvidence": {
           "articleId": "agent-latency-harness",
-          "blockId": "[\"tldr\",3]",
-          "anchor": "tldr",
-          "quote": "설정을 하나씩 꺼 보니(지연 판정에 쓰는 다섯 시나리오 38턴, 결함 수정 전 코드), 초안 스트리밍을 끄면 첫 확정 글자가 4.5초에서 6.3초로 42% 늦어졌고, 서버 선조회를 끄면 입력 토큰이 16% 늘었음.",
-          "hash": "d91459a0a76905dc389e6e36df006c5d5b3225119d98b32e6e202dc7bb87821e"
+          "blockId": "[\"data\",3]",
+          "anchor": "data",
+          "quote": "기억을 쓰는 과제에는 기억 8개를 심음. 그 가운데 하나는 한 사람만 볼 수 있는 기억이고, 다른 사람이 받은 답에 이 내용이 나오면 누설로 판정함",
+          "hash": "d468ade76df3b89526f66e81f6ad204a2b82357522ede37517d72e0741d6f51b"
         },
         "targetEvidence": {
-          "articleId": "inference-server",
-          "blockId": "[\"처리량과-지연\",7]",
-          "anchor": "처리량과-지연",
-          "quote": "긴 입력이 짧은 입력보다 빠른 게 처음에는 이상했는데, 수락률을 보면 설명이 됨. 긴 문서를 앞에 두고 쓰는 출력은 입력에 있는 표현을 다시 쓰는 경우가 많아서 draft가 잘 맞는 것으로 보이고(70% 안팎), 한 문장 질문에 대한 자유 서술은 덜 맞음(52~57%).",
-          "hash": "0fdfc3cd9dbd00505e8c9826fa41bf8e47e13c07ee57ce1a541b559e4bc77f9e"
+          "articleId": "agent-memory-recall",
+          "blockId": "[\"questions\",1]",
+          "anchor": "questions",
+          "quote": "1편의 벤치마크에는 기억 품질 지표가 없었다. 지연, 통과 여부, 누설만 봤다. 이번에는 회상 자체를 재는 벤치마크를 따로 만들었다. 연구 질문은 여덟 개다.",
+          "hash": "067916c2c33dbfdb4048c4c023edde5d62d4b374ef72d8165f5ca61be6a5de90"
+        }
+      },
+      {
+        "id": "k-browsecomp",
+        "relation": "related_method",
+        "reason": "요청 경로의 서버 선조회와 웹 탐색 에이전트의 도구 사용을 비교해, 에이전트 작업에서 검색·도구 처리가 맡는 역할을 살펴볼 수 있습니다.",
+        "sourceEvidence": {
+          "articleId": "agent-latency-harness",
+          "blockId": "[\"prefetch\",1]",
+          "anchor": "prefetch",
+          "quote": "분류 결과에 기간이나 검색어가 있으면 서버가 모델을 부르지 않고 일정과 가계부를 미리 읽고 페이지 검색도 미리 돌려 둠. 조회끼리는 병렬로 돌고, 하나가 실패하면 본 에이전트가 직접 읽게 둠.",
+          "hash": "23de7ae411c19330eeb33afb7d77e3efa131d5e999b21569e5bd8419b0f5aad0"
+        },
+        "targetEvidence": {
+          "articleId": "k-browsecomp",
+          "blockId": "[\"introduction\",4]",
+          "anchor": "introduction",
+          "quote": "Browsing agent는 instruction following·tool calling·multi-turn interaction을 동시에 요구하는 compositional task라, 한국어 agentic 능력을 종합적으로 측정하는 testbed가 됨.",
+          "hash": "0d7ba0566800e2c82c330937c0bb67a8a9ad059e072fccb34065468c9c5e7a3f"
         }
       },
       {
         "id": "searchswarm",
         "relation": "related_method",
-        "reason": "요청을 분해해 하위 에이전트에 위임하고 결과를 통합하는 파이프라인을 살펴보며, 에이전트 요청 경로 설계와 비교할 수 있습니다.",
+        "reason": "한쪽은 요청 경로에서 조회를 병렬화하고 다른 쪽은 하위 에이전트에 작업을 위임해, 에이전트 파이프라인의 작업 분배 방식을 비교합니다.",
         "sourceEvidence": {
           "articleId": "agent-latency-harness",
-          "blockId": "[null,3]",
-          "anchor": null,
-          "quote": "이 글은 근거 확인은 그대로 둔 채 요청 경로를 다시 짠 과정과, 그 결과를 합성 데이터 벤치마크로 잰 기록임. 측정은 2026년 9월 23~24일에 했고, 모델은 gpt-6-luna를 Responses API로 불렀음. 에이전트 루프는 OpenAI Agents SDK(JavaScript)로 돌렸고, 아래에서는 SDK라고 줄여 씀.",
-          "hash": "a35f5d7fba74ba47199f055275d368413bb8fb188e812ae291c376209c238d32"
+          "blockId": "[\"draft\",1]",
+          "anchor": "draft",
+          "quote": "자료를 읽고 쓴 답은 최종 검증을 거침. 검증 에이전트는 답과 이번 실행에서 실제로 읽은 근거를 받아, 답이 근거로 뒷받침되는지와 어느 근거의 몇 번째 줄을 인용했는지를 구조화 출력으로 냄. 서버는 이 판정을 그대로 믿지 않고, 인용한 근거와 줄이 실제로 있는지, 읽어야 할 기록을 읽었는지를 코드로 다시 확인함. 문서 편집 제안은 저장하기 전에 따로 검증하고, 떨어지면 사유가 도구 결과로 본 에이전트에게 돌아감.",
+          "hash": "8d376722cf7ded7ca01ea101d248c75c6e7c06b875d43dd440cb5c8e347fdc10"
         },
         "targetEvidence": {
           "articleId": "searchswarm",

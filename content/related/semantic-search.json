@@ -39,7 +39,7 @@
     "review": []
   },
   "entry": {
-    "inputHash": "8285c77184877f267213297676f3b56100bf8e3f12650f6153e2e6d24d884e77",
+    "inputHash": "6313892d7dad4a5ec3c691385292db48d1a611436ae18e250e32acdf081d7981",
     "status": "verified",
     "candidates": [
       {
@@ -69,16 +69,16 @@
         ]
       },
       {
-        "id": "related-articles-graph",
+        "id": "agent-memory-recall",
         "sourceBlocks": [
           "[\"what-is-not-semantic-search\",20]",
-          "[\"using-similarity-to-find-the-best-document\",1]",
-          "[\"how-to-search-using-text-embedding\",13]"
+          "[\"are-embeddings-and-similarity-enough-no\",1]",
+          "[\"how-to-search-using-text-embedding\",1]"
         ],
         "targetBlocks": [
-          "[\"candidates\",4]",
-          "[\"rerank\",5]",
-          "[\"models\",20]"
+          "[null,2]",
+          "[\"tldr\",7]",
+          "[\"leaks\",1]"
         ]
       },
       {
@@ -92,6 +92,19 @@
           "[\"결론\",1]",
           "[\"using-rerank-to-improve-keyword-search\",29]",
           "[\"reranking\",1]"
+        ]
+      },
+      {
+        "id": "related-articles-graph",
+        "sourceBlocks": [
+          "[\"what-is-not-semantic-search\",20]",
+          "[\"using-similarity-to-find-the-best-document\",1]",
+          "[\"how-to-search-using-text-embedding\",13]"
+        ],
+        "targetBlocks": [
+          "[\"candidates\",4]",
+          "[\"rerank\",5]",
+          "[\"models\",20]"
         ]
       },
       {
@@ -223,26 +236,13 @@
           "[\"hard-negative-mining\",7]",
           "[\"region-proposal-selective-search\",3]"
         ]
-      },
-      {
-        "id": "rtpurbo",
-        "sourceBlocks": [
-          "[\"using-similarity-to-find-the-best-document\",6]",
-          "[\"how-to-search-using-text-embedding\",1]",
-          "[\"are-embeddings-and-similarity-enough-no\",1]"
-        ],
-        "targetBlocks": [
-          "[\"1-head-specialization--일부-head만-retrieval을-담당\",1]",
-          "[\"2-rope가-만드는-압축-가능한-geometry--low-dim-subspace\",3]",
-          "[\"introduction\",2]"
-        ]
       }
     ],
     "recommendations": [
       {
         "id": "dense-retrieval",
         "relation": "related_method",
-        "reason": "텍스트 임베딩에서 비슷한 조각을 비슷한 벡터로 나타내는 원리와 이를 이용해 유사 문서를 찾는 Dense Retrieval의 작동 방식을 함께 배울 수 있습니다.",
+        "reason": "Dense Retrieval이 text embedding으로 query와 의미가 비슷한 문서를 찾는 과정을 보며 semantic search의 구현 방식을 배울 수 있습니다.",
         "sourceEvidence": {
           "articleId": "semantic-search",
           "blockId": "[\"how-to-search-using-text-embedding\",1]",
@@ -256,6 +256,25 @@
           "anchor": "querying-the-dataset-using-dense-retrieval",
           "quote": "Dense Retrieval은 query와 유사한 문서를 찾기위해 text embedding을 사용합니다. Embedding은 숫자로 된 긴 리스트 데이터인 vector를 텍스트의 각각(token)에 할당합니다. Embedding에서의 주요 속성 중 하나는 비슷한 텍스트 조각이 비슷한 벡터로 이동한다는 것입니다.",
           "hash": "f7396af47501ae2109752e37f93113ae64f0e1f15b7a584115a015b911de96bf"
+        }
+      },
+      {
+        "id": "agent-memory-recall",
+        "relation": "application_example",
+        "reason": "임베딩으로 비슷한 의미의 문장을 찾는 원리가 에이전트 기억을 회상하는 하이브리드 검색에 적용된 사례를 볼 수 있습니다.",
+        "sourceEvidence": {
+          "articleId": "semantic-search",
+          "blockId": "[\"how-to-search-using-text-embedding\",1]",
+          "anchor": "how-to-search-using-text-embedding",
+          "quote": "임베딩은 각 문장에 숫자 목록인 벡터를 할당하는 방식입니다. Embedding의 가장 중요한 요소는 바로 텍스트 조각에 더 비슷한 vetor를 할당하는 것입니다. 예를들어 \"Hello, how are you?\" 문장과 \"Hi, what's up?\" 문장을 매우 유사한 수의 리스트 데이터가 할당될 것인데 반해, \"Tomorrow is Friday\" 문장과는 이전 문장과 다르게 꽤 다른 수의 리스트 데이터가 할당될 것입니다.",
+          "hash": "01d74c7cd003fae5b5348d8f7d0d1c57c1086fbe52d87c425f1661db9de991b8"
+        },
+        "targetEvidence": {
+          "articleId": "agent-memory-recall",
+          "blockId": "[null,2]",
+          "anchor": null,
+          "quote": "이 글은 같은 에이전트의 장기 기억을 다룬다. 에이전트는 사람이 말한 취향, 사실, 부탁을 기억으로 저장하고 다음 대화에서 꺼내 쓴다. 꺼내는 쪽, 곧 회상이 이번 작업의 대상이다. 이전 회상은 글자가 겹쳐야만 기억을 찾았고, 그 대신 관련도와 무관한 기억 1,200자를 모든 답에 붙였다. 이것을 범위 조건을 먼저 건 뒤 글자와 말뜻(임베딩)을 함께 보는 회상으로 바꿨다.",
+          "hash": "33fcf94a4aa7b2d04191e1fca13677569bd78ffba8e0432a0721ebc6596b4a73"
         }
       }
     ]

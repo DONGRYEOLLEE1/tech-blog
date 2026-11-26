@@ -61,7 +61,7 @@
     "review": []
   },
   "entry": {
-    "inputHash": "c8f9aa4a288afd2f17646a423eacac6e8fc3fb67f28e2a953165097b3a82a8cc",
+    "inputHash": "703199dbfd758b9b0b17ba188024693ccea8b7b1b69e8752639d3dbe9ce1917b",
     "status": "verified",
     "candidates": [
       {
@@ -114,6 +114,19 @@
           "[\"introduction\",6]",
           "[\"overview\",5]",
           "[null,2]"
+        ]
+      },
+      {
+        "id": "agent-memory-recall",
+        "sourceBlocks": [
+          "[null,1]",
+          "[\"측정의-한계\",2]",
+          "[\"kv-cache-오프로딩은-안-하기로-함\",4]"
+        ],
+        "targetBlocks": [
+          "[null,1]",
+          "[\"pgvector\",4]",
+          "[\"appendix-limitations\",2]"
         ]
       },
       {
@@ -182,19 +195,6 @@
         ]
       },
       {
-        "id": "constitutional-ai",
-        "sourceBlocks": [
-          "[\"작업-유형별-수락률\",3]",
-          "[\"위치별-수락률\",1]",
-          "[\"측정의-한계\",2]"
-        ],
-        "targetBlocks": [
-          "[\"rl-stage-rlaif\",3]",
-          "[\"supervised-stage-critique--revision\",2]",
-          "[\"method\",1]"
-        ]
-      },
-      {
         "id": "lm-evaluation-harness-oom",
         "sourceBlocks": [
           "[\"전체-구성\",1]",
@@ -208,16 +208,16 @@
         ]
       },
       {
-        "id": "k-browsecomp",
+        "id": "constitutional-ai",
         "sourceBlocks": [
-          "[\"벤치마크\",4]",
-          "[\"작업-유형별-수락률\",2]",
-          "[\"위치별-수락률\",1]"
+          "[\"작업-유형별-수락률\",3]",
+          "[\"위치별-수락률\",1]",
+          "[\"측정의-한계\",2]"
         ],
         "targetBlocks": [
-          "[\"k-browsecomp-verified-300문제\",3]",
-          "[\"setup\",2]",
-          "[\"synthetic-split-100문제--이-논문의-핵심-기여\",8]"
+          "[\"rl-stage-rlaif\",3]",
+          "[\"supervised-stage-critique--revision\",2]",
+          "[\"method\",1]"
         ]
       },
       {
@@ -234,16 +234,16 @@
         ]
       },
       {
-        "id": "prompt-tuning",
+        "id": "k-browsecomp",
         "sourceBlocks": [
-          "[\"참고\",6]",
-          "[\"모델이-큼\",1]",
-          "[\"모델-구성은-파일-하나로\",4]"
+          "[\"벤치마크\",4]",
+          "[\"작업-유형별-수락률\",2]",
+          "[\"위치별-수락률\",1]"
         ],
         "targetBlocks": [
-          "[\"introduction\",7]",
-          "[\"prompt-ensembling\",1]",
-          "[\"interpretability\",5]"
+          "[\"k-browsecomp-verified-300문제\",3]",
+          "[\"setup\",2]",
+          "[\"synthetic-split-100문제--이-논문의-핵심-기여\",8]"
         ]
       },
       {
@@ -264,13 +264,13 @@
       {
         "id": "speculative-decoding-paper",
         "relation": "concept_explanation",
-        "reason": "MTP 기반 speculative decoding의 운영 설정을 보며, 초안 생성과 병렬 검증으로 출력 분포를 보존하는 기본 원리를 배울 수 있습니다.",
+        "reason": "MTP로 draft 토큰을 예측하고 target이 검증하는 구성의 바탕이 되는 speculative decoding의 작동 원리와 출력 분포 보장을 배울 수 있습니다.",
         "sourceEvidence": {
           "articleId": "inference-server",
-          "blockId": "[\"모델-구성은-파일-하나로\",2]",
-          "anchor": "모델-구성은-파일-하나로",
-          "quote": "# profiles/rtx6000-2x-flash-next-27b.yaml (발췌, 8월 말 기준) gpu_type_ids: - NVIDIA RTX PRO 6000 Blackwell Server Edition - NVIDIA RTX PRO 6000 Blackwell Workstation Edition image: vllm/vllm-openai:qwen38-flash-next slots: FLASH: served_model_name: qwen3.8-flash-next hf_repo_id: RadixArk/Qwen3.8-Flash-Next-NVFP4 port: 8881 gpus: [0, 1] gpu_util: 0.76 max_model_len: 131072 speculative: method: mtp num_speculative_tokens: 3 Q27: served_model_name: qwen3.8-27b hf_repo_id:",
-          "hash": "d04bee954dda0c736271ded101f6fc56269b074ad33ac6aec1c36ce3c23547ba"
+          "blockId": "[\"위치별-수락률\",3]",
+          "anchor": "위치별-수락률",
+          "quote": "speculative decoding 자체는 예전에 원조 논문과 DFlash를 리뷰하면서 정리한 적이 있음. MTP는 별도 draft 모델 없이 체크포인트에 내장된 헤드가 다음 토큰 여러 개를 한 번에 예측하는 방식이라, draft 모델을 따로 받아 올릴 필요가 없다는 게 운영 입장에서 편했음.",
+          "hash": "1d6accd7f45e8ae1cedb8a00a50d18bbbc46ea0c3fcbf2acd0719efb39111bcb"
         },
         "targetEvidence": {
           "articleId": "speculative-decoding-paper",
@@ -278,44 +278,6 @@
           "anchor": "introduction",
           "quote": "이 논문은 CPU의 branch prediction으로 익숙한 speculative execution(어떤 작업이 필요한지 검증하는 것과 병렬로 그 작업을 미리 수행하는 최적화)을 확률적(stochastic) 세팅으로 일반화함. 빠른 approximation model $M_q$가 미래 토큰들을 추측 생성하고, 느린 target model $M_p$가 이 추측들을 병렬로 평가·검증함. 여기에 speculative sampling이라는 새로운 샘플링 기법을 결합해, 최종 출력 분포가 $M_p$ 단독 샘플링과 수학적으로 완전히 동일함을 보장함.",
           "hash": "174a2cf48c5d468b077dbc01e41d87377ebaaf12a738fb5671e1b500b9511480"
-        }
-      },
-      {
-        "id": "dflash",
-        "relation": "related_method",
-        "reason": "MTP 설정과 별도로 diffusion 초안 생성·target 검증을 쓰는 DFlash 구조를 살펴보며 추론 가속 방식의 차이를 알 수 있습니다.",
-        "sourceEvidence": {
-          "articleId": "inference-server",
-          "blockId": "[\"모델-구성은-파일-하나로\",2]",
-          "anchor": "모델-구성은-파일-하나로",
-          "quote": "# profiles/rtx6000-2x-flash-next-27b.yaml (발췌, 8월 말 기준) gpu_type_ids: - NVIDIA RTX PRO 6000 Blackwell Server Edition - NVIDIA RTX PRO 6000 Blackwell Workstation Edition image: vllm/vllm-openai:qwen38-flash-next slots: FLASH: served_model_name: qwen3.8-flash-next hf_repo_id: RadixArk/Qwen3.8-Flash-Next-NVFP4 port: 8881 gpus: [0, 1] gpu_util: 0.76 max_model_len: 131072 speculative: method: mtp num_speculative_tokens: 3 Q27: served_model_name: qwen3.8-27b hf_repo_id:",
-          "hash": "d04bee954dda0c736271ded101f6fc56269b074ad33ac6aec1c36ce3c23547ba"
-        },
-        "targetEvidence": {
-          "articleId": "dflash",
-          "blockId": "[\"inference\",1]",
-          "anchor": "inference",
-          "quote": "위 그림이 DFlash의 전체 inference 구조임. target model이 prefill/decode 과정에서 만든 hidden feature(파란색)를 융합해 각 draft layer의 KV cache에 주입하고, draft model은 target이 마지막으로 확정한 토큰(노란색) 뒤에 mask 토큰들(초록색)을 붙여 bidirectional attention으로 한 번에 denoise함. 그 결과 나온 draft block을 target LM head가 있는 target model이 병렬 검증하는 구조임.",
-          "hash": "f714d81adeddad9107f4481402b2fe3b083eb18c472226ee13a888e61af08f98"
-        }
-      },
-      {
-        "id": "vllm-tensor-parallel-troubleshooting",
-        "relation": "related_method",
-        "reason": "NCCL P2P 정지에 NCCL_P2P_DISABLE와 custom all-reduce 비활성화를 적용한 경험을 비교해 다중 GPU vLLM 장애 대응을 배울 수 있습니다.",
-        "sourceEvidence": {
-          "articleId": "inference-server",
-          "blockId": "[\"nccl-초기화에서-무한-대기\",2]",
-          "anchor": "nccl-초기화에서-무한-대기",
-          "quote": "NCCL_P2P_DISABLE=1을 넣으니 통과했고, 나중에 vLLM 이슈 #30682에서 같은 증상을 찾았음. 호스트에서 IOMMU가 꺼져 있으면 PCIe 경유 GPU 간 P2P가 멈춘다는 내용이고, NCCL_P2P_DISABLE=1과 --disable-custom-all-reduce를 같이 쓰라고 돼 있음. 실제로 NCCL만 끄고 올린 27B 슬롯은 custom all-reduce 단계에서 다시 멈췄음.",
-          "hash": "4ce6312b0793801c9ee47f441e156b3d7d06f71fa17f351ee4a92f782cd65c1a"
-        },
-        "targetEvidence": {
-          "articleId": "vllm-tensor-parallel-troubleshooting",
-          "blockId": "[\"what-is-disable-custom-all-reduce\",5]",
-          "anchor": "what-is-disable-custom-all-reduce",
-          "quote": "--disable-custom-all-reduce 플래그의 역할 --disable-custom-all-reduce 플래그는 vLLM이 커스텀 all-reduce 구현을 사용하지 않고, 대신 NCCL의 기본 all-reduce 구현으로 돌아가도록 강제하는 옵션입니다. 이 플래그를 사용하는 주요 이유는 다음과 같습니다: (1) 호환성 문제 해결 NVLink 미지원 환경: 두 개 이상의 GPU가 PCIe로만 연결된 경우, 커스텀 all-reduce가 제대로 동작하지 않거나 성능이 떨어질 수 있습니다. 이 경우 NCCL로 전환하면 안정성이 보장됩니다. P2P 통신 실패: GPU 간 P2P 통신이 하드웨어 또는 드라이버 문제로 지원되지 않을 때, 커스텀 all-reduce가 비활성화되도록 강제할 수 있습니다.",
-          "hash": "fb90432b86a42cdde587ef0918fbe9bd0e3a7f00ed2add1111dd735fa9aca549"
         }
       }
     ]

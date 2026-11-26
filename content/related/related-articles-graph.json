@@ -50,7 +50,7 @@
     "review": []
   },
   "entry": {
-    "inputHash": "3879c84d89f3949c0a08de899bc239403663650078d8a9c55dc60307a58abbb1",
+    "inputHash": "5bac570b326c752dd0955da5470659a5409715030f0ccf6d08483d9b8524c55f",
     "status": "verified",
     "candidates": [
       {
@@ -158,16 +158,16 @@
         ]
       },
       {
-        "id": "agent-latency-harness",
+        "id": "agent-memory-recall",
         "sourceBlocks": [
-          "[\"candidates\",7]",
-          "[\"new-post\",6]",
-          "[\"limitations\",4]"
+          "[\"candidates\",3]",
+          "[\"candidates\",4]",
+          "[\"limitations\",1]"
         ],
         "targetBlocks": [
-          "[\"router-effort\",1]",
-          "[\"limitations\",1]",
-          "[\"effort\",1]"
+          "[null,2]",
+          "[\"limitations\",4]",
+          "[\"cost-gap\",1]"
         ]
       },
       {
@@ -194,6 +194,19 @@
           "[\"memory-efficient-layer-replication-with-lora\",19]",
           "[\"peft-v0100\",1]",
           "[\"ref\",2]"
+        ]
+      },
+      {
+        "id": "agent-latency-harness",
+        "sourceBlocks": [
+          "[\"candidates\",7]",
+          "[\"new-post\",6]",
+          "[\"limitations\",4]"
+        ],
+        "targetBlocks": [
+          "[\"router-effort\",1]",
+          "[\"limitations\",1]",
+          "[\"effort\",1]"
         ]
       },
       {
@@ -234,45 +247,13 @@
           "[\"trajectory-level-failure-patterns\",3]",
           "[\"main-results\",13]"
         ]
-      },
-      {
-        "id": "semantic-search",
-        "sourceBlocks": [
-          "[\"candidates\",4]",
-          "[\"rerank\",5]",
-          "[\"models\",20]"
-        ],
-        "targetBlocks": [
-          "[\"what-is-not-semantic-search\",20]",
-          "[\"using-similarity-to-find-the-best-document\",1]",
-          "[\"how-to-search-using-text-embedding\",13]"
-        ]
       }
     ],
     "recommendations": [
       {
-        "id": "reranking",
-        "relation": "concept_explanation",
-        "reason": "후보마다 관련성 점수를 매겨 상위 결과를 고르는 재정렬 개념을 이해할 수 있습니다.",
-        "sourceEvidence": {
-          "articleId": "related-articles-graph",
-          "blockId": "[\"rerank\",2]",
-          "anchor": "rerank",
-          "quote": "Reranking is one call per post. The request holds all candidates with their blocks (about 20,600 characters on average), and the answer is a list of 0 to 4 picks, best first. Each pick gives the target, a relation type, one Korean sentence and the index of one block on each side. An empty list is a valid answer, and 14 posts got one.",
-          "hash": "ec0644bbca985e8e87693b70711dc77349f07da6ccddbe195f02307fe0c3df9b"
-        },
-        "targetEvidence": {
-          "articleId": "reranking",
-          "blockId": "[\"reranking\",1]",
-          "anchor": "reranking",
-          "quote": "Reranking은 다음과 같이 작동합니다: 각 (쿼리, 응답) 쌍에 대해 관련성 점수를 부여합니다. 이름에서 암시하듯이, 응답이 쿼리와 관련성이 높은 경우 높은 점수를 부여하고, 그렇지 않은 경우 낮은 점수를 부여합니다. 이 장에서는 이 모듈에서 이전에 찾은 위키피디아 검색 결과를 개선하기 위해 재정렬을 사용하는 방법에 대해 배울 것입니다.",
-          "hash": "4f0224bbf25b454693f37397948cea53af80d74aa9aaa9f4de74c1ea7f5cdf1c"
-        }
-      },
-      {
         "id": "dense-retrieval",
         "relation": "concept_explanation",
-        "reason": "블록 임베딩 간 유사도로 문서 쌍을 평가하는 방식의 바탕을 배울 수 있습니다.",
+        "reason": "글 단락마다 임베딩해 유사 블록을 매칭하는 방식과 Dense Retrieval의 임베딩·문서 분할 개념을 연결해 배울 수 있습니다.",
         "sourceEvidence": {
           "articleId": "related-articles-graph",
           "blockId": "[\"candidates\",4]",
@@ -282,16 +263,16 @@
         },
         "targetEvidence": {
           "articleId": "dense-retrieval",
-          "blockId": "[\"querying-the-dataset-using-dense-retrieval\",1]",
-          "anchor": "querying-the-dataset-using-dense-retrieval",
-          "quote": "Dense Retrieval은 query와 유사한 문서를 찾기위해 text embedding을 사용합니다. Embedding은 숫자로 된 긴 리스트 데이터인 vector를 텍스트의 각각(token)에 할당합니다. Embedding에서의 주요 속성 중 하나는 비슷한 텍스트 조각이 비슷한 벡터로 이동한다는 것입니다.",
-          "hash": "f7396af47501ae2109752e37f93113ae64f0e1f15b7a584115a015b911de96bf"
+          "blockId": "[\"chunking-the-articles\",1]",
+          "anchor": "chunking-the-articles",
+          "quote": "이 프로세스는 embedding에서 query에 가장 가까운 문서를 찾는 방식으로 좋은 결과를 얻을 수 있습니다. 하지만, 문서가 매우 길 경우 복잡해질 수 있습니다. 더 세분화된 처리를 위해, 문서를 단락별로 나누겠습니다. 즉, 각 문서의 각 단락에 해당하는 embedding 벡터를 찾는다는 의미입니다. 이렇게 하면, 모델이 답을 검색할 때 query와 가장 유사한 단락과 해당 단락이 속한 문서를 실제로 출력할 수 있습니다.",
+          "hash": "1fc28278da50104de47b6958e9c35627d16beb274ed6d32f4b4af4b3e204544a"
         }
       },
       {
         "id": "keyword-search",
         "relation": "concept_explanation",
-        "reason": "단어를 기준으로 결과를 찾는 키워드 검색이 의미를 반영하지 못하는 이유를 알 수 있습니다.",
+        "reason": "제목·설명·본문의 단어로 후보를 매기는 방식이 키워드 검색의 단어 기반 매칭과 어떻게 이어지는지 알 수 있습니다.",
         "sourceEvidence": {
           "articleId": "related-articles-graph",
           "blockId": "[\"candidates\",3]",
@@ -308,9 +289,9 @@
         }
       },
       {
-        "id": "book-spine",
-        "relation": "related_method",
-        "reason": "BM25로 후보를 찾은 뒤 문자열 유사도로 재채점하는 검색 파이프라인을 비교할 수 있습니다.",
+        "id": "reranking",
+        "relation": "concept_explanation",
+        "reason": "후보 문서의 단어를 바탕으로 순위를 매기는 방식과 키워드 검색 후 재정렬하는 검색 흐름을 함께 이해할 수 있습니다.",
         "sourceEvidence": {
           "articleId": "related-articles-graph",
           "blockId": "[\"candidates\",3]",
@@ -319,11 +300,11 @@
           "hash": "c6650e9dac729d0f112affaf70a26f06693717b65a6a73c2f49ce43668cdb169"
         },
         "targetEvidence": {
-          "articleId": "book-spine",
-          "blockId": "[\"system\",4]",
-          "anchor": "system",
-          "quote": "Matching normalizes the query, retrieves 50 candidates from a 50,000-book dictionary with character 2-gram and 3-gram BM25, and rescores them with string similarity plus a few rules (Section 5). Each spine ends in one of three states: confirmed (the dictionary entry is taken as the answer), review (candidates are shown and the user picks), or unmatched.",
-          "hash": "42e4da97f352cf20759e335c63c692349941e96920844bb8ef223bed57187f05"
+          "articleId": "reranking",
+          "blockId": "[\"결론\",1]",
+          "anchor": "결론",
+          "quote": "Reranking은 특정 쿼리에 가장 관련성이 높은 응답을 찾는 데 매우 유용한 방법입니다. 이는 dense retrieval을 개선하기 위한 키워드 검색의 보완 방식으로도 유용합니다. 이번 포스트에서는 키워드 검색을 통해 답을 포함할 가능성이 있는 20개의 문서를 먼저 검색한 뒤, 재정렬 엔드포인트를 사용하여 그 중 상위 3개를 선택함으로써 키워드 검색 결과를 크게 향상시켰습니다.",
+          "hash": "d03185c1f96687e82a0a21a6b9f63dba6fe3a917452f9793de8fe2ca09b0a0da"
         }
       }
     ]

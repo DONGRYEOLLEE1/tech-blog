@@ -1,0 +1,320 @@
+{
+  "version": 2,
+  "id": "agent-memory-recall",
+  "model": "openai/gpt-6-luna",
+  "settings": {
+    "seed": 7,
+    "reasoning": {
+      "effort": "low"
+    }
+  },
+  "embeddingProfile": "f04e459161521d4b",
+  "facts": {
+    "inputHash": "85b357b2fa61aedf3cbcff90ed08be9b9c985f4896d9841e24d566f13b183369",
+    "status": "verified",
+    "facts": [
+      {
+        "id": "agent-memory",
+        "role": "about",
+        "evidence": {
+          "articleId": "agent-memory-recall",
+          "blockId": "[\"conclusion\",1]",
+          "anchor": "conclusion",
+          "quote": "에이전트의 장기 기억을 관련도와 무관하게 늘 넣던 구조에서, 범위 조건을 먼저 건 뒤 글자와 말뜻을 함께 보는 회상으로 바꾸고, 미리 고정한 규칙으로 판정했다.",
+          "hash": "73250b3a3d0cba1e569ea23d94e528b2619ee2b19e2850186cc765955b38ada1"
+        }
+      },
+      {
+        "id": "semantic-search",
+        "role": "applies",
+        "evidence": {
+          "articleId": "agent-memory-recall",
+          "blockId": "[null,2]",
+          "anchor": null,
+          "quote": "이 글은 같은 에이전트의 장기 기억을 다룬다. 에이전트는 사람이 말한 취향, 사실, 부탁을 기억으로 저장하고 다음 대화에서 꺼내 쓴다. 꺼내는 쪽, 곧 회상이 이번 작업의 대상이다. 이전 회상은 글자가 겹쳐야만 기억을 찾았고, 그 대신 관련도와 무관한 기억 1,200자를 모든 답에 붙였다. 이것을 범위 조건을 먼저 건 뒤 글자와 말뜻(임베딩)을 함께 보는 회상으로 바꿨다.",
+          "hash": "33fcf94a4aa7b2d04191e1fca13677569bd78ffba8e0432a0721ebc6596b4a73"
+        }
+      },
+      {
+        "id": "keyword-search",
+        "role": "applies",
+        "evidence": {
+          "articleId": "agent-memory-recall",
+          "blockId": "[null,2]",
+          "anchor": null,
+          "quote": "이 글은 같은 에이전트의 장기 기억을 다룬다. 에이전트는 사람이 말한 취향, 사실, 부탁을 기억으로 저장하고 다음 대화에서 꺼내 쓴다. 꺼내는 쪽, 곧 회상이 이번 작업의 대상이다. 이전 회상은 글자가 겹쳐야만 기억을 찾았고, 그 대신 관련도와 무관한 기억 1,200자를 모든 답에 붙였다. 이것을 범위 조건을 먼저 건 뒤 글자와 말뜻(임베딩)을 함께 보는 회상으로 바꿨다.",
+          "hash": "33fcf94a4aa7b2d04191e1fca13677569bd78ffba8e0432a0721ebc6596b4a73"
+        }
+      },
+      {
+        "id": "dense-retrieval",
+        "role": "applies",
+        "evidence": {
+          "articleId": "agent-memory-recall",
+          "blockId": "[null,2]",
+          "anchor": null,
+          "quote": "이 글은 같은 에이전트의 장기 기억을 다룬다. 에이전트는 사람이 말한 취향, 사실, 부탁을 기억으로 저장하고 다음 대화에서 꺼내 쓴다. 꺼내는 쪽, 곧 회상이 이번 작업의 대상이다. 이전 회상은 글자가 겹쳐야만 기억을 찾았고, 그 대신 관련도와 무관한 기억 1,200자를 모든 답에 붙였다. 이것을 범위 조건을 먼저 건 뒤 글자와 말뜻(임베딩)을 함께 보는 회상으로 바꿨다.",
+          "hash": "33fcf94a4aa7b2d04191e1fca13677569bd78ffba8e0432a0721ebc6596b4a73"
+        }
+      },
+      {
+        "id": "agent-evaluation",
+        "role": "about",
+        "evidence": {
+          "articleId": "agent-memory-recall",
+          "blockId": "[\"questions\",1]",
+          "anchor": "questions",
+          "quote": "1편의 벤치마크에는 기억 품질 지표가 없었다. 지연, 통과 여부, 누설만 봤다. 이번에는 회상 자체를 재는 벤치마크를 따로 만들었다. 연구 질문은 여덟 개다.",
+          "hash": "067916c2c33dbfdb4048c4c023edde5d62d4b374ef72d8165f5ca61be6a5de90"
+        }
+      }
+    ],
+    "review": [
+      {
+        "id": "agent-evaluation",
+        "proposedRole": "about"
+      }
+    ]
+  },
+  "entry": {
+    "inputHash": "5521030186fb150ad73a7b63c1536f4ef817307fca9aafe28bf29b01fbb08486",
+    "status": "verified",
+    "candidates": [
+      {
+        "id": "agent-latency-harness",
+        "sourceBlocks": [
+          "[null,1]",
+          "[\"questions\",1]",
+          "[\"data\",3]"
+        ],
+        "targetBlocks": [
+          "[null,3]",
+          "[\"data\",3]",
+          "[\"principles\",2]"
+        ]
+      },
+      {
+        "id": "searchswarm",
+        "sourceBlocks": [
+          "[\"questions\",1]",
+          "[\"conclusion\",1]",
+          "[\"tldr\",11]"
+        ],
+        "targetBlocks": [
+          "[\"main-distributes-sub-executes\",2]",
+          "[\"experiments\",1]",
+          "[\"정리\",1]"
+        ]
+      },
+      {
+        "id": "inference-server",
+        "sourceBlocks": [
+          "[null,1]",
+          "[\"pgvector\",4]",
+          "[\"appendix-limitations\",2]"
+        ],
+        "targetBlocks": [
+          "[null,1]",
+          "[\"측정의-한계\",2]",
+          "[\"kv-cache-오프로딩은-안-하기로-함\",4]"
+        ]
+      },
+      {
+        "id": "semantic-search",
+        "sourceBlocks": [
+          "[null,2]",
+          "[\"tldr\",7]",
+          "[\"leaks\",1]"
+        ],
+        "targetBlocks": [
+          "[\"what-is-not-semantic-search\",20]",
+          "[\"are-embeddings-and-similarity-enough-no\",1]",
+          "[\"how-to-search-using-text-embedding\",1]"
+        ]
+      },
+      {
+        "id": "speculative-decoding-paper",
+        "sourceBlocks": [
+          "[\"cost-gap\",1]",
+          "[\"tldr\",11]",
+          "[\"references\",1]"
+        ],
+        "targetBlocks": [
+          "[\"연산량-트레이드오프\",3]",
+          "[\"다양한-모델에서의-empirical-α\",12]",
+          "[\"overview\",5]"
+        ]
+      },
+      {
+        "id": "k-browsecomp",
+        "sourceBlocks": [
+          "[\"questions\",1]",
+          "[\"cost-gap\",1]",
+          "[\"tldr\",9]"
+        ],
+        "targetBlocks": [
+          "[\"정리\",1]",
+          "[\"search-effort과-failure-persistence\",1]",
+          "[\"synthetic-split-100문제--이-논문의-핵심-기여\",8]"
+        ]
+      },
+      {
+        "id": "dense-retrieval",
+        "sourceBlocks": [
+          "[null,2]",
+          "[\"embedding-table\",1]",
+          "[\"tldr\",7]"
+        ],
+        "targetBlocks": [
+          "[\"dense-retrieval\",3]",
+          "[\"querying-the-dataset-using-dense-retrieval\",1]",
+          "[\"chunking-the-articles\",11]"
+        ]
+      },
+      {
+        "id": "dflash",
+        "sourceBlocks": [
+          "[\"tldr\",11]",
+          "[\"budget\",8]",
+          "[\"references\",1]"
+        ],
+        "targetBlocks": [
+          "[\"reasoning-models-thinking-on\",1]",
+          "[\"main-results-qwen3-thinking-off\",9]",
+          "[\"preliminary\",1]"
+        ]
+      },
+      {
+        "id": "rtpurbo",
+        "sourceBlocks": [
+          "[\"references\",1]",
+          "[\"tldr\",11]",
+          "[\"embedding-table\",1]"
+        ],
+        "targetBlocks": [
+          "[\"1-head-specialization--일부-head만-retrieval을-담당\",1]",
+          "[\"효율--ultra-long-robustness\",1]",
+          "[\"정확도--near-lossless\",10]"
+        ]
+      },
+      {
+        "id": "related-articles-graph",
+        "sourceBlocks": [
+          "[null,2]",
+          "[\"limitations\",4]",
+          "[\"cost-gap\",1]"
+        ],
+        "targetBlocks": [
+          "[\"candidates\",3]",
+          "[\"candidates\",4]",
+          "[\"limitations\",1]"
+        ]
+      },
+      {
+        "id": "message-history",
+        "sourceBlocks": [
+          "[\"conclusion\",1]",
+          "[null,5]",
+          "[\"appendix-conditions\",7]"
+        ],
+        "targetBlocks": [
+          "[\"message-history\",3]",
+          "[\"message-history\",1]",
+          "[\"message-history\",4]"
+        ]
+      },
+      {
+        "id": "transformer",
+        "sourceBlocks": [
+          "[\"embedding-table\",3]",
+          "[\"query-embedding\",1]",
+          "[\"references\",1]"
+        ],
+        "targetBlocks": [
+          "[\"input-embedding\",2]",
+          "[\"self-attention-1\",19]",
+          "[\"self-attention\",11]"
+        ]
+      },
+      {
+        "id": "thinkingcap",
+        "sourceBlocks": [
+          "[\"statistics\",1]",
+          "[\"appendix-results\",17]",
+          "[\"result-answers\",2]"
+        ],
+        "targetBlocks": [
+          "[\"setup-eval\",6]",
+          "[\"followups\",5]",
+          "[\"ablation\",1]"
+        ]
+      },
+      {
+        "id": "langgraph-structured-streaming",
+        "sourceBlocks": [
+          "[\"conclusion\",1]",
+          "[null,5]",
+          "[\"tldr\",9]"
+        ],
+        "targetBlocks": [
+          "[\"baseline\",5]",
+          "[\"environment\",1]",
+          "[\"구조-분석\",2]"
+        ]
+      },
+      {
+        "id": "constitutional-ai",
+        "sourceBlocks": [
+          "[\"result-answers\",2]",
+          "[\"next\",7]",
+          "[\"tldr\",3]"
+        ],
+        "targetBlocks": [
+          "[\"supervised-stage-critique--revision\",2]",
+          "[\"rl-stage-rlaif\",3]",
+          "[\"experiments\",3]"
+        ]
+      }
+    ],
+    "recommendations": [
+      {
+        "id": "dense-retrieval",
+        "relation": "concept_explanation",
+        "reason": "회상에서 임베딩으로 말뜻이 비슷한 문서를 찾는 원리를 설명하고, 키워드 검색과의 차이를 배울 수 있습니다.",
+        "sourceEvidence": {
+          "articleId": "agent-memory-recall",
+          "blockId": "[null,2]",
+          "anchor": null,
+          "quote": "이 글은 같은 에이전트의 장기 기억을 다룬다. 에이전트는 사람이 말한 취향, 사실, 부탁을 기억으로 저장하고 다음 대화에서 꺼내 쓴다. 꺼내는 쪽, 곧 회상이 이번 작업의 대상이다. 이전 회상은 글자가 겹쳐야만 기억을 찾았고, 그 대신 관련도와 무관한 기억 1,200자를 모든 답에 붙였다. 이것을 범위 조건을 먼저 건 뒤 글자와 말뜻(임베딩)을 함께 보는 회상으로 바꿨다.",
+          "hash": "33fcf94a4aa7b2d04191e1fca13677569bd78ffba8e0432a0721ebc6596b4a73"
+        },
+        "targetEvidence": {
+          "articleId": "dense-retrieval",
+          "blockId": "[\"querying-the-dataset-using-dense-retrieval\",1]",
+          "anchor": "querying-the-dataset-using-dense-retrieval",
+          "quote": "Dense Retrieval은 query와 유사한 문서를 찾기위해 text embedding을 사용합니다. Embedding은 숫자로 된 긴 리스트 데이터인 vector를 텍스트의 각각(token)에 할당합니다. Embedding에서의 주요 속성 중 하나는 비슷한 텍스트 조각이 비슷한 벡터로 이동한다는 것입니다.",
+          "hash": "f7396af47501ae2109752e37f93113ae64f0e1f15b7a584115a015b911de96bf"
+        }
+      },
+      {
+        "id": "semantic-search",
+        "relation": "concept_explanation",
+        "reason": "회상에 쓰인 임베딩이 텍스트 의미를 벡터로 표현하는 방식과 말 바꾸기에 유용한 이유를 설명합니다.",
+        "sourceEvidence": {
+          "articleId": "agent-memory-recall",
+          "blockId": "[null,2]",
+          "anchor": null,
+          "quote": "이 글은 같은 에이전트의 장기 기억을 다룬다. 에이전트는 사람이 말한 취향, 사실, 부탁을 기억으로 저장하고 다음 대화에서 꺼내 쓴다. 꺼내는 쪽, 곧 회상이 이번 작업의 대상이다. 이전 회상은 글자가 겹쳐야만 기억을 찾았고, 그 대신 관련도와 무관한 기억 1,200자를 모든 답에 붙였다. 이것을 범위 조건을 먼저 건 뒤 글자와 말뜻(임베딩)을 함께 보는 회상으로 바꿨다.",
+          "hash": "33fcf94a4aa7b2d04191e1fca13677569bd78ffba8e0432a0721ebc6596b4a73"
+        },
+        "targetEvidence": {
+          "articleId": "semantic-search",
+          "blockId": "[\"how-to-search-using-text-embedding\",1]",
+          "anchor": "how-to-search-using-text-embedding",
+          "quote": "임베딩은 각 문장에 숫자 목록인 벡터를 할당하는 방식입니다. Embedding의 가장 중요한 요소는 바로 텍스트 조각에 더 비슷한 vetor를 할당하는 것입니다. 예를들어 \"Hello, how are you?\" 문장과 \"Hi, what's up?\" 문장을 매우 유사한 수의 리스트 데이터가 할당될 것인데 반해, \"Tomorrow is Friday\" 문장과는 이전 문장과 다르게 꽤 다른 수의 리스트 데이터가 할당될 것입니다.",
+          "hash": "01d74c7cd003fae5b5348d8f7d0d1c57c1086fbe52d87c425f1661db9de991b8"
+        }
+      }
+    ]
+  }
+}

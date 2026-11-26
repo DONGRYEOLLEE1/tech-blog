@@ -28,8 +28,8 @@
     "review": []
   },
   "entry": {
-    "inputHash": "0572956388617dedd8166b931671bb38714a0a8373a1914b35667721ae721921",
-    "status": "verified",
+    "inputHash": "c32fd3ec240403446c61fc192a351758ced44cb21a96a7f3b271b6ae2dbc1daa",
+    "status": "abstained",
     "candidates": [
       {
         "id": "searchswarm",
@@ -68,6 +68,19 @@
           "[\"to-do-or-not-to-do\",3]",
           "[\"conversation\",2]",
           "[\"the-instruction\",5]"
+        ]
+      },
+      {
+        "id": "agent-memory-recall",
+        "sourceBlocks": [
+          "[\"message-history\",3]",
+          "[\"message-history\",1]",
+          "[\"message-history\",4]"
+        ],
+        "targetBlocks": [
+          "[\"conclusion\",1]",
+          "[null,5]",
+          "[\"appendix-conditions\",7]"
         ]
       },
       {
@@ -162,19 +175,6 @@
         ]
       },
       {
-        "id": "mariadb-connection-troubleshooting",
-        "sourceBlocks": [
-          "[\"message-history\",1]",
-          "[\"message-history\",3]",
-          "[\"message-history\",4]"
-        ],
-        "targetBlocks": [
-          "[\"issue\",2]",
-          "[\"env\",2]",
-          "[\"해결\",2]"
-        ]
-      },
-      {
         "id": "python-args-kwargs",
         "sourceBlocks": [
           "[\"message-history\",1]",
@@ -185,6 +185,19 @@
           "[\"args와-kwargs를-같이-사용하는-방법\",1]",
           "[\"kwargs-사용\",3]",
           "[\"argument를-직접-지정한-함수-사용\",1]"
+        ]
+      },
+      {
+        "id": "mariadb-connection-troubleshooting",
+        "sourceBlocks": [
+          "[\"message-history\",1]",
+          "[\"message-history\",3]",
+          "[\"message-history\",4]"
+        ],
+        "targetBlocks": [
+          "[\"issue\",2]",
+          "[\"env\",2]",
+          "[\"해결\",2]"
         ]
       },
       {
@@ -212,41 +225,8 @@
           "[\"solution\",3]",
           "[\"error\",4]"
         ]
-      },
-      {
-        "id": "keyword-search",
-        "sourceBlocks": [
-          "[\"message-history\",1]",
-          "[\"message-history\",3]",
-          "[\"message-history\",2]"
-        ],
-        "targetBlocks": [
-          "[\"querying-the-wikipedia-dataset-using-keyword-matching\",4]",
-          "[\"conclusion\",3]",
-          "[\"querying-the-wikipedia-dataset-using-keyword-matching\",1]"
-        ]
       }
     ],
-    "recommendations": [
-      {
-        "id": "langgraph-structured-streaming",
-        "relation": "application_example",
-        "reason": "대화 이력을 assistant와 user 메시지로 누적해 후속 요청에 전달하는 방식이 LangGraph의 messages 입력과 memory checkpointer 구성에서 어떻게 쓰이는지 볼 수 있습니다.",
-        "sourceEvidence": {
-          "articleId": "message-history",
-          "blockId": "[\"message-history\",3]",
-          "anchor": "message-history",
-          "quote": "res_message.append({\"role\" : \"assistant\", \"content\" : response1.choices[0].message.content}) res_message.append({\"role\" : \"user\", \"content\" : \"What exactly is the 'perfect storm' feeling you're referring to?\"}) response2 = client.chat.completions.create( model = \"gpt-3.5-turbo\", messages = res_message ) response2.choices[0].message.content",
-          "hash": "abdecd68de14a7f5f4bcbac01f796b30f0665f29e35b8c4cbe53f95cb2395d53"
-        },
-        "targetEvidence": {
-          "articleId": "langgraph-structured-streaming",
-          "blockId": "[\"baseline\",5]",
-          "anchor": "baseline",
-          "quote": "workflow.add_node(\"api_generate\", api_generate) workflow.add_conditional_edges( START, routing, { \"웹검색\": \"web_generate\", \"일반질문\": \"api_generate\" } ) workflow.add_edge(\"web_generate\", END) workflow.add_edge(\"api_generate\", END) graph = workflow.compile(checkpointer = memory) # streaming 함수 def stream_inference(query: str): inputs = [HumanMessage(content = query)] for msg, metadata in graph.stream( {\"messages\": inputs}, stream_mode = \"messages\", config = {\"configurable\":",
-          "hash": "ab2952997d5c0e7cd1c306bbfd83e40d8422af51aa73df8d76d6e84ac29db2e4"
-        }
-      }
-    ]
+    "recommendations": []
   }
 }

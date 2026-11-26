@@ -83,7 +83,7 @@
     "review": []
   },
   "entry": {
-    "inputHash": "1d4c24c9bb43bf810a079801d57924ad029edb73fae50b40e710b8d25941deeb",
+    "inputHash": "50a16e0ef89c274b0e1c1748b0e8d8009c35d635368d1b266e0ee319b27a16ad",
     "status": "verified",
     "candidates": [
       {
@@ -243,16 +243,16 @@
         ]
       },
       {
-        "id": "r-cnn",
+        "id": "agent-memory-recall",
         "sourceBlocks": [
-          "[\"system\",2]",
-          "[\"datasets\",12]",
-          "[\"eval-path\",6]"
+          "[\"system\",4]",
+          "[\"reranker\",13]",
+          "[\"eval-path\",9]"
         ],
         "targetBlocks": [
-          "[\"abstract\",1]",
-          "[\"region-proposal-selective-search\",3]",
-          "[\"nmsnon-maximum-suppression\",17]"
+          "[null,2]",
+          "[\"result-answers\",2]",
+          "[\"result-quality\",14]"
         ]
       },
       {
@@ -286,7 +286,7 @@
       {
         "id": "reranking",
         "relation": "concept_explanation",
-        "reason": "책 제목 후보의 점수를 다시 매기는 과정과 쿼리·응답 관련성에 따라 순위를 조정하는 Reranking 개념을 연결해 배울 수 있습니다.",
+        "reason": "책 제목 후보를 재점수화하는 과정과 쿼리·응답 관련성으로 결과를 재정렬하는 개념을 함께 살펴볼 수 있습니다.",
         "sourceEvidence": {
           "articleId": "book-spine",
           "blockId": "[\"system\",4]",
@@ -303,34 +303,34 @@
         }
       },
       {
-        "id": "r-cnn",
+        "id": "keyword-search",
         "relation": "concept_explanation",
-        "reason": "책등을 OBB로 찾아 상자 점수로 세는 과정과 객체의 위치를 찾고 분류하는 Object Detection의 기본 단계를 연결해 이해할 수 있습니다.",
+        "reason": "문자 n-그램 BM25로 후보를 찾는 책 매칭과 키워드 검색의 한계를 비교해 볼 수 있습니다.",
+        "sourceEvidence": {
+          "articleId": "book-spine",
+          "blockId": "[\"system\",4]",
+          "anchor": "system",
+          "quote": "Matching normalizes the query, retrieves 50 candidates from a 50,000-book dictionary with character 2-gram and 3-gram BM25, and rescores them with string similarity plus a few rules (Section 5). Each spine ends in one of three states: confirmed (the dictionary entry is taken as the answer), review (candidates are shown and the user picks), or unmatched.",
+          "hash": "42e4da97f352cf20759e335c63c692349941e96920844bb8ef223bed57187f05"
+        },
+        "targetEvidence": {
+          "articleId": "keyword-search",
+          "blockId": "[\"conclusion\",2]",
+          "anchor": "conclusion",
+          "quote": "Keyword search는 단어들을 기준으로 결과값을 매칭하기에 문장의 의미를 활용하진 못합니다. 이는 다음과 같은 문장에 대해선 더 어려운 과제로 인식할 수 있습니다.",
+          "hash": "31a5b1df12eb14cccc7716f9f8d89a0275efb6302e89b69ea0aef2210a434ab0"
+        }
+      },
+      {
+        "id": "map-evaluation",
+        "relation": "concept_explanation",
+        "reason": "OBB 탐지기로 책등을 찾는 과정과 객체탐지 평가에 쓰이는 AP·IoU 개념을 연결해 이해할 수 있습니다.",
         "sourceEvidence": {
           "articleId": "book-spine",
           "blockId": "[\"system\",2]",
           "anchor": "system",
           "quote": "A photo is first downscaled so that its long side is at most 1,600 px. A one-class oriented bounding box (OBB) detector finds the spines. Near-duplicate boxes are merged (Section 3.5), and the number of boxes scoring 0.4 or more is the book count. Each box is then cut out with a margin of 8% of its short side, rotated so that its long side is vertical, and upscaled if its short side is below 96 px.",
           "hash": "47a6b7f2df9dece4417da0ca5bd70c47f8e2d281e5d4511a6cf0cf29c50c19b1"
-        },
-        "targetEvidence": {
-          "articleId": "r-cnn",
-          "blockId": "[\"abstract\",1]",
-          "anchor": "abstract",
-          "quote": "Object Detector는 Object의 coordinate를 찾고(Localization), class를 분류(Classification)하는 작업을 진행한다. R-CNN은 이를 순차적으로 진행하는 2 Stage Detector 로, 딥러닝을 적용한 최초의 Object Detector다. R-CNN모델은 Object Detection 혹은 Inference(추론)시, 아래와 같은 순서에 의해 동작한다.",
-          "hash": "4ae1fc1530ef74e24391b17d1338950c656044da3cb13cb70ce563979e1142ad"
-        }
-      },
-      {
-        "id": "map-evaluation",
-        "relation": "concept_explanation",
-        "reason": "객체탐지 상자를 평가하는 mAP의 개념과 IoU 기반 AP 설명을 통해 탐지 평가 지표의 의미를 배울 수 있습니다.",
-        "sourceEvidence": {
-          "articleId": "book-spine",
-          "blockId": "[\"metrics\",3]",
-          "anchor": "metrics",
-          "quote": "mAP50 is box mAP at IoU 0.5 on the 4TU validation set.",
-          "hash": "a86030d0e647713d0b4f52cf50a0c7c07af3667841e2aa02969133adc0e8d8fb"
         },
         "targetEvidence": {
           "articleId": "map-evaluation",

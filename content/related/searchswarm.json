@@ -61,7 +61,7 @@
     "review": []
   },
   "entry": {
-    "inputHash": "e0da7d621692289b69913a7a6ee187f3dec8a7a9106b894953867ad2356a43ba",
+    "inputHash": "106140fc86dc1e97745fdb1121135645b0be7ade65131aabbb19260f7d67c3ed",
     "status": "verified",
     "candidates": [
       {
@@ -104,6 +104,32 @@
         ]
       },
       {
+        "id": "agent-memory-recall",
+        "sourceBlocks": [
+          "[\"main-distributes-sub-executes\",2]",
+          "[\"experiments\",1]",
+          "[\"정리\",1]"
+        ],
+        "targetBlocks": [
+          "[\"questions\",1]",
+          "[\"conclusion\",1]",
+          "[\"tldr\",11]"
+        ]
+      },
+      {
+        "id": "alphallm",
+        "sourceBlocks": [
+          "[\"introduction\",3]",
+          "[\"정리\",1]",
+          "[\"experiments\",1]"
+        ],
+        "targetBlocks": [
+          "[\"introduction\",3]",
+          "[\"related-work\",1]",
+          "[\"problem-formulation\",1]"
+        ]
+      },
+      {
         "id": "message-history",
         "sourceBlocks": [
           "[\"main-distributes-sub-executes\",2]",
@@ -127,19 +153,6 @@
           "[\"1-head-specialization--일부-head만-retrieval을-담당\",1]",
           "[\"introduction\",1]",
           "[\"효율--ultra-long-robustness\",1]"
-        ]
-      },
-      {
-        "id": "alphallm",
-        "sourceBlocks": [
-          "[\"introduction\",3]",
-          "[\"정리\",1]",
-          "[\"experiments\",1]"
-        ],
-        "targetBlocks": [
-          "[\"introduction\",3]",
-          "[\"related-work\",1]",
-          "[\"problem-formulation\",1]"
         ]
       },
       {
@@ -169,19 +182,6 @@
         ]
       },
       {
-        "id": "ziya2",
-        "sourceBlocks": [
-          "[\"experiments\",1]",
-          "[\"introduction\",3]",
-          "[\"정리\",1]"
-        ],
-        "targetBlocks": [
-          "[\"evaluation\",1]",
-          "[\"introduction\",9]",
-          "[\"baselines\",2]"
-        ]
-      },
-      {
         "id": "chain-of-thought",
         "sourceBlocks": [
           "[\"main-distributes-sub-executes\",2]",
@@ -192,6 +192,19 @@
           "[\"chain-of-thought-prompting\",1]",
           "[\"results\",3]",
           "[\"arithmetic-reasoning\",1]"
+        ]
+      },
+      {
+        "id": "ziya2",
+        "sourceBlocks": [
+          "[\"experiments\",1]",
+          "[\"introduction\",3]",
+          "[\"정리\",1]"
+        ],
+        "targetBlocks": [
+          "[\"evaluation\",1]",
+          "[\"introduction\",9]",
+          "[\"baselines\",2]"
         ]
       },
       {
@@ -208,19 +221,6 @@
         ]
       },
       {
-        "id": "loftq",
-        "sourceBlocks": [
-          "[\"experiments\",8]",
-          "[\"정리\",1]",
-          "[\"introduction\",3]"
-        ],
-        "targetBlocks": [
-          "[\"experiments\",10]",
-          "[\"loftq\",1]",
-          "[\"glue-with-4-bit\",5]"
-        ]
-      },
-      {
         "id": "ia3-paper",
         "sourceBlocks": [
           "[\"supervised-fine-tuning\",3]",
@@ -231,6 +231,19 @@
           "[\"combining-the-ingredients\",4]",
           "[\"unlikelihood-training-and-length-normalization\",1]",
           "[\"model-and-datasets\",4]"
+        ]
+      },
+      {
+        "id": "loftq",
+        "sourceBlocks": [
+          "[\"experiments\",8]",
+          "[\"정리\",1]",
+          "[\"introduction\",3]"
+        ],
+        "targetBlocks": [
+          "[\"experiments\",10]",
+          "[\"loftq\",1]",
+          "[\"glue-with-4-bit\",5]"
         ]
       },
       {
@@ -245,45 +258,13 @@
           "[\"overview\",8]",
           "[null,2]"
         ]
-      },
-      {
-        "id": "vit",
-        "sourceBlocks": [
-          "[\"introduction\",3]",
-          "[\"main-distributes-sub-executes\",2]",
-          "[\"supervised-fine-tuning\",2]"
-        ],
-        "targetBlocks": [
-          "[\"fine-tuning과-높은-해상도-이미지-다루기\",1]",
-          "[\"transformer의-계산-효율성과-scalability를-비전에-활용\",2]",
-          "[\"요약\",10]"
-        ]
       }
     ],
     "recommendations": [
       {
-        "id": "k-browsecomp",
-        "relation": "evaluation_comparison",
-        "reason": "두 글은 웹 탐색 에이전트의 평가를 다루지만, 하나는 여러 deep research 벤치마크를, 다른 하나는 한국어 맥락의 browsing 벤치마크를 소개해 평가 범위와 초점의 차이를 알 수 있습니다.",
-        "sourceEvidence": {
-          "articleId": "searchswarm",
-          "blockId": "[\"experiments\",1]",
-          "anchor": "experiments",
-          "quote": "base model은 Tongyi DeepResearch-30B-A3B이며, BrowseComp·BrowseComp-ZH·GAIA·xbench-DeepSearch-2505 네 벤치마크로 평가함. (judge model은 DeepSeek-V4-Flash, 판정은 수기 검증)",
-          "hash": "7814b0ea9aa504324e656a8083505a009feb780fd635ba1c6f27197727784642"
-        },
-        "targetEvidence": {
-          "articleId": "k-browsecomp",
-          "blockId": "[\"정리\",1]",
-          "anchor": "정리",
-          "quote": "K-BrowseComp은 (1) 한국어 맥락에 기반한 첫 web browsing agent 벤치마크를 17명 원어민의 수작업으로 구축하고, (2) browsing의 information asymmetry를 역이용해 failure-mode targeting + hard few-shot으로 적대적 문제를 합성하는 방법론을 제시함. frontier 모델도 45.67%에 그치고 한국어 모델은 10% 안팎에 머무는 큰 난이도와 격차를 드러냈으며, 무엇보다 실패의 본질이 검색 능력이 아니라 multi-turn 상태 관리(candidate·constraint·role·finalization)에 있음을 trajectory 분석으로 짚어낸 점이 인상적임. data·code는 공개됨.",
-          "hash": "ec29ce72231cdc16b9a49ff81224f9db4d3a2c0d9ced6c92467737b89ab0a27c"
-        }
-      },
-      {
         "id": "rtpurbo",
         "relation": "related_method",
-        "reason": "한 글은 모델이 brief와 report로 context를 능동적으로 관리한다고 설명하고, 다른 글은 긴 context에서 관련 내용을 찾는 retrieval head를 다뤄 두 접근의 차이를 살펴볼 수 있습니다.",
+        "reason": "두 연구 모두 긴 문맥의 한계를 다루지만, SearchSwarm은 모델이 brief와 report로 문맥을 능동적으로 압축하고 RTPurbo는 attention을 희소화하므로 문맥 관리 방식의 차이를 배울 수 있습니다.",
         "sourceEvidence": {
           "articleId": "searchswarm",
           "blockId": "[\"main-distributes-sub-executes\",2]",
@@ -293,10 +274,29 @@
         },
         "targetEvidence": {
           "articleId": "rtpurbo",
-          "blockId": "[\"1-head-specialization--일부-head만-retrieval을-담당\",1]",
-          "anchor": "1-head-specialization--일부-head만-retrieval을-담당",
-          "quote": "사전학습된 LLM의 attention head는 동질적이지 않고 기능적으로 분화돼 있음. 멀리 떨어진 관련 내용을 검색하는 소수의 head(retrieval head)가 있고, 나머지는 주로 local 정보를 처리함. retrieval head는 의미적으로 관련된 과거 context에 강한 attention을 두는 information-retrieval 패턴을 보임. 아래 layer-head heatmap을 보면 retrieval score가 높은 head가 전체 중 소수에 집중돼 있음을 확인할 수 있음.",
-          "hash": "f38d892fec30a887eeee6c584dd735260f20ef01091ff96e3e3f9d9214d15e6d"
+          "blockId": "[\"introduction\",1]",
+          "anchor": "introduction",
+          "quote": "Long-context inference는 full attention의 quadratic cost에 발목 잡힘. 이를 줄이기 위한 기존 efficient 대안은 크게 두 갈래 — Kimi Delta Attention·DeepSeek Sparse Attention처럼 native sparse training을 하거나, heuristic하게 token을 eviction하는 방식. 둘 다 efficiency·training cost·accuracy 사이의 바람직하지 않은 trade-off를 만듦.",
+          "hash": "08a35454b93e68384e80f54da504ff0d3245ade67ff732a770140b0399370d0a"
+        }
+      },
+      {
+        "id": "k-browsecomp",
+        "relation": "evaluation_comparison",
+        "reason": "SearchSwarm은 deep research 벤치마크로 평가하고, K-BrowseComp은 한국어 웹 브라우징의 다중 턴 상태 관리 능력을 시험해 에이전트 평가 과제의 차이를 비교할 수 있습니다.",
+        "sourceEvidence": {
+          "articleId": "searchswarm",
+          "blockId": "[\"experiments\",1]",
+          "anchor": "experiments",
+          "quote": "base model은 Tongyi DeepResearch-30B-A3B이며, BrowseComp·BrowseComp-ZH·GAIA·xbench-DeepSearch-2505 네 벤치마크로 평가함. (judge model은 DeepSeek-V4-Flash, 판정은 수기 검증)",
+          "hash": "7814b0ea9aa504324e656a8083505a009feb780fd635ba1c6f27197727784642"
+        },
+        "targetEvidence": {
+          "articleId": "k-browsecomp",
+          "blockId": "[\"introduction\",4]",
+          "anchor": "introduction",
+          "quote": "Browsing agent는 instruction following·tool calling·multi-turn interaction을 동시에 요구하는 compositional task라, 한국어 agentic 능력을 종합적으로 측정하는 testbed가 됨.",
+          "hash": "0d7ba0566800e2c82c330937c0bb67a8a9ad059e072fccb34065468c9c5e7a3f"
         }
       }
     ]
