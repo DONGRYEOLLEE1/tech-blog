@@ -3408,7 +3408,7 @@
       "sourcePath": "_posts/2026-11-25-agent-latency-harness.md",
       "canonicalPath": "/research/agent-latency-harness/",
       "outputPath": "/research/agent-latency-harness/index.html",
-      "sourceDigest": "d3f48f50a10b7131e032d61a1afda8a8eab93ea5dec3a43c663d517c328e19bb",
+      "sourceDigest": "d8e36097634c5246d3713ac4953e49549bf3882c7dde2f3ab964de1b539fbb7f",
       "headingIds": [
         "tldr",
         "principles",
@@ -3526,7 +3526,7 @@
       "sourcePath": "_posts/2026-11-26-agent-memory-recall.md",
       "canonicalPath": "/research/agent-memory-recall/",
       "outputPath": "/research/agent-memory-recall/index.html",
-      "sourceDigest": "680f0c4339c4728151cefc42f580ce319a3e902fba2afeb1bf89f8b5430421e7",
+      "sourceDigest": "bb9b2765548f0b3a601dd78d40811408cfc235fc1574db6d1c48f308536dc19a",
       "headingIds": [
         "tldr",
         "problem",

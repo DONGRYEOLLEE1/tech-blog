@@ -39,7 +39,7 @@
     "review": []
   },
   "entry": {
-    "inputHash": "6313892d7dad4a5ec3c691385292db48d1a611436ae18e250e32acdf081d7981",
+    "inputHash": "78a61918fbd30f03f0f3ff892fef7feaf54b94c207a9b49640c15d09974ea826",
     "status": "verified",
     "candidates": [
       {
@@ -76,8 +76,8 @@
           "[\"how-to-search-using-text-embedding\",1]"
         ],
         "targetBlocks": [
-          "[null,2]",
-          "[\"tldr\",7]",
+          "[\"tldr\",1]",
+          "[\"scoring\",3]",
           "[\"leaks\",1]"
         ]
       },
@@ -242,7 +242,7 @@
       {
         "id": "dense-retrieval",
         "relation": "related_method",
-        "reason": "Dense Retrieval이 text embedding으로 query와 의미가 비슷한 문서를 찾는 과정을 보며 semantic search의 구현 방식을 배울 수 있습니다.",
+        "reason": "Dense Retrieval이 텍스트 임베딩으로 의미가 비슷한 문서를 찾는 방식과, 의미가 가까운 텍스트에 비슷한 벡터를 부여하는 원리를 함께 살펴볼 수 있습니다.",
         "sourceEvidence": {
           "articleId": "semantic-search",
           "blockId": "[\"how-to-search-using-text-embedding\",1]",
@@ -260,21 +260,21 @@
       },
       {
         "id": "agent-memory-recall",
-        "relation": "application_example",
-        "reason": "임베딩으로 비슷한 의미의 문장을 찾는 원리가 에이전트 기억을 회상하는 하이브리드 검색에 적용된 사례를 볼 수 있습니다.",
+        "relation": "related_method",
+        "reason": "임베딩 유사도 검색이 글자 겹침 점수와 결합되어 기억을 선별하는 하이브리드 회상 방식을 배울 수 있습니다.",
         "sourceEvidence": {
           "articleId": "semantic-search",
-          "blockId": "[\"how-to-search-using-text-embedding\",1]",
-          "anchor": "how-to-search-using-text-embedding",
-          "quote": "임베딩은 각 문장에 숫자 목록인 벡터를 할당하는 방식입니다. Embedding의 가장 중요한 요소는 바로 텍스트 조각에 더 비슷한 vetor를 할당하는 것입니다. 예를들어 \"Hello, how are you?\" 문장과 \"Hi, what's up?\" 문장을 매우 유사한 수의 리스트 데이터가 할당될 것인데 반해, \"Tomorrow is Friday\" 문장과는 이전 문장과 다르게 꽤 다른 수의 리스트 데이터가 할당될 것입니다.",
-          "hash": "01d74c7cd003fae5b5348d8f7d0d1c57c1086fbe52d87c425f1661db9de991b8"
+          "blockId": "[\"what-is-not-semantic-search\",20]",
+          "anchor": "what-is-not-semantic-search",
+          "quote": "유사도를 사용하여 vector간에 query와 가장 비슷한 데이터를 찾습니다.",
+          "hash": "8a4cb42e63a9139ad1a43d46f4b9bf55f5875904c7d8e055b6439cda0c245cb1"
         },
         "targetEvidence": {
           "articleId": "agent-memory-recall",
-          "blockId": "[null,2]",
-          "anchor": null,
-          "quote": "이 글은 같은 에이전트의 장기 기억을 다룬다. 에이전트는 사람이 말한 취향, 사실, 부탁을 기억으로 저장하고 다음 대화에서 꺼내 쓴다. 꺼내는 쪽, 곧 회상이 이번 작업의 대상이다. 이전 회상은 글자가 겹쳐야만 기억을 찾았고, 그 대신 관련도와 무관한 기억 1,200자를 모든 답에 붙였다. 이것을 범위 조건을 먼저 건 뒤 글자와 말뜻(임베딩)을 함께 보는 회상으로 바꿨다.",
-          "hash": "33fcf94a4aa7b2d04191e1fca13677569bd78ffba8e0432a0721ebc6596b4a73"
+          "blockId": "[\"scoring\",3]",
+          "anchor": "scoring",
+          "quote": "lex = hits / (hits + 2) # hits: 요청 전문(+힌트)과 기억(+키워드)의 2-gram 겹침 수 vec = cos >= 0.45 ? cos : 0 # 말뜻 채널의 하한 decay = kind == event ? 1 / (1 + age_days / 180) : 1 score = (lex + vec) * decay + 0.2 * importance / 5 + 0.2 * recency keep = (lex > 0 or vec > 0) and score >= 0.35",
+          "hash": "5f9b441ad589c50bd73c7d9432fbab119f054ff2c736b92689e35976842bc474"
         }
       }
     ]

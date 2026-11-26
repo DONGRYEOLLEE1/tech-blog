@@ -39,7 +39,7 @@
     "review": []
   },
   "entry": {
-    "inputHash": "ece28a0eca67737e57474e6c38b02338a9c765921efdd83f3f2f05b413b97d18",
+    "inputHash": "04ed1c1522155d6506260053c86f5cdd50f70fe36aadb7511aaea090358c603e",
     "status": "verified",
     "candidates": [
       {
@@ -181,7 +181,7 @@
         ],
         "targetBlocks": [
           "[\"questions\",1]",
-          "[\"tldr\",13]",
+          "[\"tldr\",11]",
           "[null,5]"
         ]
       },
@@ -229,13 +229,13 @@
       {
         "id": "model-input-length",
         "relation": "related_method",
-        "reason": "BFCL 오류는 지원되지 않는 reasoning.encrypted_content 옵션을 포함해 발생하며, 모델 입력 길이 문서는 모델이 감당할 수 있는 설정을 넘길 때의 오류를 설명합니다.",
+        "reason": "Responses API 요청에서 모델별 reasoning 옵션을 조건부로 설정하는 코드와, 입력 길이에 맞춰 tokenizer 옵션을 조정하는 사례를 함께 살펴봅니다.",
         "sourceEvidence": {
           "articleId": "bfcl-reasoning-option",
-          "blockId": "[\"error\",6]",
-          "anchor": "error",
-          "quote": "\"/usr/lib/python3.10/concurrent/futures/_base.py\", line 403, in __get_result raise self._exception openai.BadRequestError: Error code: 400 - {'error': {'message': 'Encrypted content is not supported with this model.', 'type': 'invalid_request_error', 'param': 'include', 'code': None}}",
-          "hash": "cb1e35af465871af97efd11e5bd9a53fc35110a051c405c3208d6161d068140c"
+          "blockId": "[\"solution\",4]",
+          "anchor": "solution",
+          "quote": "kwargs = { \"input\": message, \"model\": self.model_name.replace(\"-FC\", \"\"), \"store\": False, } # Only add reasoning parameters for OpenAI reasoning models if \"o3\" in self.model_name or \"o4-mini\" in self.model_name: kwargs[\"include\"] = [\"reasoning.encrypted_content\"] kwargs[\"reasoning\"] = {\"summary\": \"auto\"} else: kwargs[\"temperature\"] = self.temperature ...",
+          "hash": "762268e96781ad62cad9d56f53ee9c1af87d7332349d17e112d027d191ac18c7"
         },
         "targetEvidence": {
           "articleId": "model-input-length",
@@ -243,25 +243,6 @@
           "anchor": "model-input-sequence-length",
           "quote": "물론 tokenizer의 padding = \"max_length\", truncation = True, max_length = 2048와 같은 옵션을 줘서 문장 길이를 맞춰줄 수도 있지만 backbone 모델의 input sequence length가 맞추려는 길이보다 짧을 경우 다음과 같은 에러 발생",
           "hash": "5629ab0bfa58ae498e8ac300c4e5f06c74f54d2f72ac258a4ba8a7d58a57f468"
-        }
-      },
-      {
-        "id": "agent-latency-harness",
-        "relation": "related_method",
-        "reason": "BFCL 실행에서 Responses API 요청을 다루는 오류가 발생하며, 이 글은 Responses API를 사용하는 에이전트 요청 경로의 구성과 측정을 다룹니다.",
-        "sourceEvidence": {
-          "articleId": "bfcl-reasoning-option",
-          "blockId": "[\"error\",1]",
-          "anchor": "error",
-          "quote": "Agent performance 측정을 위한 BFCL 벤치마크 실행 도중, api base generation 실행시 아래의 오류 발생",
-          "hash": "7cac1ee12fe3e2be371d1927e1d91c77e1f1b5b600b19a7a6ccf81e3f7bb0885"
-        },
-        "targetEvidence": {
-          "articleId": "agent-latency-harness",
-          "blockId": "[null,3]",
-          "anchor": null,
-          "quote": "이 글은 근거 확인은 그대로 둔 채 요청 경로를 다시 짠 과정과, 그 결과를 합성 데이터 벤치마크로 잰 기록임. 측정은 2026년 9월 23~24일에 했고, 모델은 gpt-6-luna를 Responses API로 불렀음. 에이전트 루프는 OpenAI Agents SDK(JavaScript)로 돌렸고, 아래에서는 SDK라고 줄여 씀.",
-          "hash": "a35f5d7fba74ba47199f055275d368413bb8fb188e812ae291c376209c238d32"
         }
       }
     ]

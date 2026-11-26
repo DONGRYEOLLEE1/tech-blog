@@ -50,8 +50,8 @@
     "review": []
   },
   "entry": {
-    "inputHash": "fd61955f4627f648162d7bd40b809b51ed2ca9c82ce3f39f92ce75bb6f164dda",
-    "status": "verified",
+    "inputHash": "49d25e24ea4e82b0b710bab12ecf157ffd61ddbd7d10660167f49970f206409c",
+    "status": "abstained",
     "candidates": [
       {
         "id": "message-history",
@@ -178,9 +178,9 @@
           "[\"구조-분석\",2]"
         ],
         "targetBlocks": [
-          "[\"conclusion\",1]",
-          "[null,5]",
-          "[\"tldr\",9]"
+          "[null,2]",
+          "[\"tldr\",9]",
+          "[\"cost-gap\",1]"
         ]
       },
       {
@@ -236,26 +236,6 @@
         ]
       }
     ],
-    "recommendations": [
-      {
-        "id": "developing-daily-02",
-        "relation": "related_method",
-        "reason": "LangGraph에서 노드별 메시지 청크를 골라 내보내는 방식과 TextIteratorStreamer로 생성 텍스트를 전달하는 방식을 비교해 볼 수 있습니다.",
-        "sourceEvidence": {
-          "articleId": "langgraph-structured-streaming",
-          "blockId": "[\"baseline\",6]",
-          "anchor": "baseline",
-          "quote": "{\"thread_id\": \"11111\"}}): if metadata.get(\"langgraph_node\") in (\"web_generate\", \"api_generate\"): if msg.content and not isinstance(msg, HumanMessage): yield msg.content # streaming iterator for chunk in stream_inference(\"hi\"): print(chunk)",
-          "hash": "ad99f774585967d58867f581c1e68d9fb3ca11860ccbe7d43f59f74dd9c3b8d8"
-        },
-        "targetEvidence": {
-          "articleId": "developing-daily-02",
-          "blockId": "[\"gradio\",3]",
-          "anchor": "gradio",
-          "quote": "def generate(user_message): prompt = f\"### 질문: {user_message}\\n\\n### 답변:\" model_inputs = tokenizer([prompt], return_tensors = 'pt', return_token_type_ids = False).to('cuda') streamer = TextIteratorStreamer(tokenizer, timeout = 100, skip_prompt = True, skip_special_tokens = True) generate_kwargs = dict( model_inputs, streamer=streamer, temperature= 0.7, top_p=0.95, top_k=50, max_new_tokens=512, do_sample=True, ) t = Thread(target=model.generate, kwargs=generate_kwargs)",
-          "hash": "01502cf246ad6dfb2759c73f0c63e25efde5cb44d20f2422e3085a37ca0844f1"
-        }
-      }
-    ]
+    "recommendations": []
   }
 }

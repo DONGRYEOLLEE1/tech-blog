@@ -83,7 +83,7 @@
     "review": []
   },
   "entry": {
-    "inputHash": "50a16e0ef89c274b0e1c1748b0e8d8009c35d635368d1b266e0ee319b27a16ad",
+    "inputHash": "cabe144653db12b86dfd2723bb41d8107d11d806bfed0867d5b3c62586bc5d43",
     "status": "verified",
     "candidates": [
       {
@@ -250,7 +250,7 @@
           "[\"eval-path\",9]"
         ],
         "targetBlocks": [
-          "[null,2]",
+          "[\"tldr\",1]",
           "[\"result-answers\",2]",
           "[\"result-quality\",14]"
         ]
@@ -286,7 +286,7 @@
       {
         "id": "reranking",
         "relation": "concept_explanation",
-        "reason": "책 제목 후보를 재점수화하는 과정과 쿼리·응답 관련성으로 결과를 재정렬하는 개념을 함께 살펴볼 수 있습니다.",
+        "reason": "책 제목 후보에 문자열 유사도와 규칙을 적용해 재정렬하는 과정을 설명하고, 관련 응답의 점수를 매겨 순서를 바꾸는 기본 개념을 배울 수 있습니다.",
         "sourceEvidence": {
           "articleId": "book-spine",
           "blockId": "[\"system\",4]",
@@ -303,28 +303,9 @@
         }
       },
       {
-        "id": "keyword-search",
-        "relation": "concept_explanation",
-        "reason": "문자 n-그램 BM25로 후보를 찾는 책 매칭과 키워드 검색의 한계를 비교해 볼 수 있습니다.",
-        "sourceEvidence": {
-          "articleId": "book-spine",
-          "blockId": "[\"system\",4]",
-          "anchor": "system",
-          "quote": "Matching normalizes the query, retrieves 50 candidates from a 50,000-book dictionary with character 2-gram and 3-gram BM25, and rescores them with string similarity plus a few rules (Section 5). Each spine ends in one of three states: confirmed (the dictionary entry is taken as the answer), review (candidates are shown and the user picks), or unmatched.",
-          "hash": "42e4da97f352cf20759e335c63c692349941e96920844bb8ef223bed57187f05"
-        },
-        "targetEvidence": {
-          "articleId": "keyword-search",
-          "blockId": "[\"conclusion\",2]",
-          "anchor": "conclusion",
-          "quote": "Keyword search는 단어들을 기준으로 결과값을 매칭하기에 문장의 의미를 활용하진 못합니다. 이는 다음과 같은 문장에 대해선 더 어려운 과제로 인식할 수 있습니다.",
-          "hash": "31a5b1df12eb14cccc7716f9f8d89a0275efb6302e89b69ea0aef2210a434ab0"
-        }
-      },
-      {
         "id": "map-evaluation",
         "relation": "concept_explanation",
-        "reason": "OBB 탐지기로 책등을 찾는 과정과 객체탐지 평가에 쓰이는 AP·IoU 개념을 연결해 이해할 수 있습니다.",
+        "reason": "책등을 OBB로 탐지하는 시스템에서 쓰는 객체 탐지 평가 지표 mAP의 의미와 계산에 필요한 precision, recall, IoU를 배울 수 있습니다.",
         "sourceEvidence": {
           "articleId": "book-spine",
           "blockId": "[\"system\",2]",

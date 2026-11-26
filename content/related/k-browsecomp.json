@@ -39,7 +39,7 @@
     "review": []
   },
   "entry": {
-    "inputHash": "bf8ff77b2c74293bc7466bac4ae84428f2e8697b43415fca3ee193d0d447fa9b",
+    "inputHash": "325f861c7810158d0adf68125d232d603c9650fb7bb25d56af9184043e414552",
     "status": "verified",
     "candidates": [
       {
@@ -169,7 +169,7 @@
         "targetBlocks": [
           "[\"questions\",1]",
           "[\"cost-gap\",1]",
-          "[\"tldr\",9]"
+          "[\"tldr\",3]"
         ]
       },
       {
@@ -229,13 +229,13 @@
       {
         "id": "searchswarm",
         "relation": "evaluation_comparison",
-        "reason": "두 연구 모두 BrowseComp 계열을 사용해 browsing agent를 평가하지만, 한국어 맥락의 벤치마크와 deep research 벤치마크라는 평가 목적의 차이를 살펴볼 수 있습니다.",
+        "reason": "두 연구 모두 BrowseComp를 포함한 browsing 평가를 다루므로, 한국어 agent 벤치마크와 deep research 평가의 범위를 비교해 볼 수 있습니다.",
         "sourceEvidence": {
           "articleId": "k-browsecomp",
-          "blockId": "[\"introduction\",4]",
-          "anchor": "introduction",
-          "quote": "Browsing agent는 instruction following·tool calling·multi-turn interaction을 동시에 요구하는 compositional task라, 한국어 agentic 능력을 종합적으로 측정하는 testbed가 됨.",
-          "hash": "0d7ba0566800e2c82c330937c0bb67a8a9ad059e072fccb34065468c9c5e7a3f"
+          "blockId": "[\"정리\",1]",
+          "anchor": "정리",
+          "quote": "K-BrowseComp은 (1) 한국어 맥락에 기반한 첫 web browsing agent 벤치마크를 17명 원어민의 수작업으로 구축하고, (2) browsing의 information asymmetry를 역이용해 failure-mode targeting + hard few-shot으로 적대적 문제를 합성하는 방법론을 제시함. frontier 모델도 45.67%에 그치고 한국어 모델은 10% 안팎에 머무는 큰 난이도와 격차를 드러냈으며, 무엇보다 실패의 본질이 검색 능력이 아니라 multi-turn 상태 관리(candidate·constraint·role·finalization)에 있음을 trajectory 분석으로 짚어낸 점이 인상적임. data·code는 공개됨.",
+          "hash": "ec29ce72231cdc16b9a49ff81224f9db4d3a2c0d9ced6c92467737b89ab0a27c"
         },
         "targetEvidence": {
           "articleId": "searchswarm",
@@ -243,25 +243,6 @@
           "anchor": "experiments",
           "quote": "base model은 Tongyi DeepResearch-30B-A3B이며, BrowseComp·BrowseComp-ZH·GAIA·xbench-DeepSearch-2505 네 벤치마크로 평가함. (judge model은 DeepSeek-V4-Flash, 판정은 수기 검증)",
           "hash": "7814b0ea9aa504324e656a8083505a009feb780fd635ba1c6f27197727784642"
-        }
-      },
-      {
-        "id": "agent-memory-recall",
-        "relation": "related_method",
-        "reason": "두 글은 에이전트 실패를 분석하는 데 초점을 두며, 한쪽은 제약 병합과 후보 검증 실패를, 다른 쪽은 무관한 기억의 회상을 주요 문제로 다룹니다.",
-        "sourceEvidence": {
-          "articleId": "k-browsecomp",
-          "blockId": "[\"search-effort과-failure-persistence\",1]",
-          "anchor": "search-effort과-failure-persistence",
-          "quote": "낮은 성능이 단순히 search 예산 부족 때문인지 확인하기 위해, 정답·오답 trial의 search call 사용량을 비교함(Table 3). 대부분 모델에서 오답 trial이 정답 trial보다 search call을 더 많이 쓰며 10회 예산에 근접함 — 예: GPT-5.5(7.08 vs 9.30), DeepSeek-V4-Pro(7.47 vs 9.80), Gemma-4-31B-it(5.20 vs 8.10). 즉 오류는 retrieval 부족이 아니라, 증거를 찾고도 제약을 병합하지 못하거나 entity role을 보존하지 못하거나 답을 commit하기 전에 후보를 검증하지 못한 데서 옴(예외적으로 A.X-4.0은 양쪽 모두 search가 적어 shallow search·조기 종료가 의심됨).",
-          "hash": "6c3bb676c9a70dfc9627bdb9c494c77f54cc3fb1049c2c46f9caebdd4ce51d0b"
-        },
-        "targetEvidence": {
-          "articleId": "agent-memory-recall",
-          "blockId": "[\"questions\",1]",
-          "anchor": "questions",
-          "quote": "1편의 벤치마크에는 기억 품질 지표가 없었다. 지연, 통과 여부, 누설만 봤다. 이번에는 회상 자체를 재는 벤치마크를 따로 만들었다. 연구 질문은 여덟 개다.",
-          "hash": "067916c2c33dbfdb4048c4c023edde5d62d4b374ef72d8165f5ca61be6a5de90"
         }
       }
     ]

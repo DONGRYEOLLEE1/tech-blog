@@ -39,7 +39,7 @@
     "review": []
   },
   "entry": {
-    "inputHash": "cce6c10b176333306487684b5659bf3faac3bf71d89128072f586d77ebf65398",
+    "inputHash": "e635c7884383b4a1a5497ff0a329b23654e708d121e6bbad52252063c1323a15",
     "status": "verified",
     "candidates": [
       {
@@ -128,7 +128,7 @@
           "[\"conclusion\",5]"
         ],
         "targetBlocks": [
-          "[null,2]",
+          "[\"tldr\",1]",
           "[\"conclusion\",1]",
           "[\"leaks\",1]"
         ]
@@ -242,13 +242,13 @@
       {
         "id": "reranking",
         "relation": "application_example",
-        "reason": "키워드 검색이 놓치는 의미상의 관련성을 보완하기 위해 후보 문서를 먼저 찾고 재정렬하는 방법을 배울 수 있습니다.",
+        "reason": "키워드 검색의 한계를 짚은 뒤, 키워드로 후보 문서를 찾고 관련성 점수로 다시 골라 검색을 개선하는 방법을 배울 수 있습니다.",
         "sourceEvidence": {
           "articleId": "keyword-search",
-          "blockId": "[\"conclusion\",5]",
+          "blockId": "[\"conclusion\",2]",
           "anchor": "conclusion",
-          "quote": "문장과 문장사이의 실제 의미에 대해 이해하고 단어가 아닌 그 의미에 따라 일치시킬 수 있는 semantic search, 서로 가장 관련성이 높은 문장과 문서 쌍을 표시할 수 있는 re-ranker와 같은 알고리즘을 통해 가장 적합한 문서를 도출할 수 있습니다.",
-          "hash": "d4dcdd114033613c51647915386b7b00322b4605e0790febe9fb7c5fbda99099"
+          "quote": "Keyword search는 단어들을 기준으로 결과값을 매칭하기에 문장의 의미를 활용하진 못합니다. 이는 다음과 같은 문장에 대해선 더 어려운 과제로 인식할 수 있습니다.",
+          "hash": "31a5b1df12eb14cccc7716f9f8d89a0275efb6302e89b69ea0aef2210a434ab0"
         },
         "targetEvidence": {
           "articleId": "reranking",
@@ -259,28 +259,9 @@
         }
       },
       {
-        "id": "related-articles-graph",
-        "relation": "application_example",
-        "reason": "단어 기반 후보 검색과 점수화를 활용해 관련 콘텐츠를 연결하는 실제 검색 파이프라인을 살펴볼 수 있습니다.",
-        "sourceEvidence": {
-          "articleId": "keyword-search",
-          "blockId": "[\"querying-the-wikipedia-dataset-using-keyword-matching\",1]",
-          "anchor": "querying-the-wikipedia-dataset-using-keyword-matching",
-          "quote": "Weaviate vector database와 cohere api를 사용하여 keyword search 알고리즘을 구현한 결과는 아래와 같습니다.",
-          "hash": "df5722429818f1aed1a9b4cdac6ca7117e21e4ed8e8a45932b09e4cb81082957"
-        },
-        "targetEvidence": {
-          "articleId": "related-articles-graph",
-          "blockId": "[\"candidates\",3]",
-          "anchor": "candidates",
-          "quote": "a lexical ranker, IDF-weighted Jaccard similarity over the words of the title, description and body;",
-          "hash": "c6650e9dac729d0f112affaf70a26f06693717b65a6a73c2f49ce43668cdb169"
-        }
-      },
-      {
         "id": "agent-memory-recall",
         "relation": "application_example",
-        "reason": "글자 일치만으로 기억을 찾는 한계를 범위 조건과 임베딩을 결합한 회상으로 보완하는 사례를 확인할 수 있습니다.",
+        "reason": "단어가 다르면 키워드 검색이 놓칠 수 있음을 짚은 글과, 글자·임베딩 점수를 결합해 관련 기억을 찾는 회상 사례를 함께 볼 수 있습니다.",
         "sourceEvidence": {
           "articleId": "keyword-search",
           "blockId": "[\"conclusion\",2]",
@@ -290,29 +271,10 @@
         },
         "targetEvidence": {
           "articleId": "agent-memory-recall",
-          "blockId": "[null,2]",
-          "anchor": null,
-          "quote": "이 글은 같은 에이전트의 장기 기억을 다룬다. 에이전트는 사람이 말한 취향, 사실, 부탁을 기억으로 저장하고 다음 대화에서 꺼내 쓴다. 꺼내는 쪽, 곧 회상이 이번 작업의 대상이다. 이전 회상은 글자가 겹쳐야만 기억을 찾았고, 그 대신 관련도와 무관한 기억 1,200자를 모든 답에 붙였다. 이것을 범위 조건을 먼저 건 뒤 글자와 말뜻(임베딩)을 함께 보는 회상으로 바꿨다.",
-          "hash": "33fcf94a4aa7b2d04191e1fca13677569bd78ffba8e0432a0721ebc6596b4a73"
-        }
-      },
-      {
-        "id": "book-spine",
-        "relation": "application_example",
-        "reason": "문자 n-gram으로 후보를 찾고 재점수화하는 책 제목 검색에서 단어 일치가 오답 확정으로 이어지는 문제를 살펴볼 수 있습니다.",
-        "sourceEvidence": {
-          "articleId": "keyword-search",
-          "blockId": "[\"conclusion\",2]",
-          "anchor": "conclusion",
-          "quote": "Keyword search는 단어들을 기준으로 결과값을 매칭하기에 문장의 의미를 활용하진 못합니다. 이는 다음과 같은 문장에 대해선 더 어려운 과제로 인식할 수 있습니다.",
-          "hash": "31a5b1df12eb14cccc7716f9f8d89a0275efb6302e89b69ea0aef2210a434ab0"
-        },
-        "targetEvidence": {
-          "articleId": "book-spine",
-          "blockId": "[\"system\",4]",
-          "anchor": "system",
-          "quote": "Matching normalizes the query, retrieves 50 candidates from a 50,000-book dictionary with character 2-gram and 3-gram BM25, and rescores them with string similarity plus a few rules (Section 5). Each spine ends in one of three states: confirmed (the dictionary entry is taken as the answer), review (candidates are shown and the user picks), or unmatched.",
-          "hash": "42e4da97f352cf20759e335c63c692349941e96920844bb8ef223bed57187f05"
+          "blockId": "[\"tldr\",1]",
+          "anchor": "tldr",
+          "quote": "회상을 바꿨다. 이전에는 라우터가 회상이라고 판단할 때만 글자 2-gram으로 찾고 기억 1,200자를 관련도와 상관없이 모든 답에 붙였다. 지금은 SQL 범위 조건을 먼저 건 뒤 웹 조사나 쓰기가 섞이지 않은 답 요청마다 글자와 임베딩 점수를 합쳐 하한을 넘는 기억만 넣고, 늘 붙는 기억은 사람이 직접 말한 부탁과 오늘 새로 기억한 것(400자)만 남겼다.",
+          "hash": "b3727f87b20c4d10c2c703d7eef2b600368fdc1ab0f54d6cc6c3d05216f8f15a"
         }
       }
     ]

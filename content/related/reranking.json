@@ -50,7 +50,7 @@
     "review": []
   },
   "entry": {
-    "inputHash": "7a4db91758676ee313c4ef9c79da86b1ac389e4eb3f5b7f4fdc09b75546fd2de",
+    "inputHash": "53e21441ca6edf0d33c0e22ffe95833bcd0a738ecf89132690559caf32710c2b",
     "status": "verified",
     "candidates": [
       {
@@ -126,9 +126,9 @@
           "[\"reranking\",1]"
         ],
         "targetBlocks": [
-          "[null,2]",
+          "[\"tldr\",1]",
           "[\"references\",2]",
-          "[\"tldr\",8]"
+          "[\"always-recall\",3]"
         ]
       },
       {
@@ -251,28 +251,9 @@
     ],
     "recommendations": [
       {
-        "id": "dense-retrieval",
-        "relation": "related_method",
-        "reason": "키워드 검색으로 후보 문서를 찾은 뒤 재정렬하는 흐름과, 의미 기반 검색의 한 방법인 Dense Retrieval을 함께 살펴봅니다.",
-        "sourceEvidence": {
-          "articleId": "reranking",
-          "blockId": "[\"결론\",1]",
-          "anchor": "결론",
-          "quote": "Reranking은 특정 쿼리에 가장 관련성이 높은 응답을 찾는 데 매우 유용한 방법입니다. 이는 dense retrieval을 개선하기 위한 키워드 검색의 보완 방식으로도 유용합니다. 이번 포스트에서는 키워드 검색을 통해 답을 포함할 가능성이 있는 20개의 문서를 먼저 검색한 뒤, 재정렬 엔드포인트를 사용하여 그 중 상위 3개를 선택함으로써 키워드 검색 결과를 크게 향상시켰습니다.",
-          "hash": "d03185c1f96687e82a0a21a6b9f63dba6fe3a917452f9793de8fe2ca09b0a0da"
-        },
-        "targetEvidence": {
-          "articleId": "dense-retrieval",
-          "blockId": "[\"dense-retrieval\",3]",
-          "anchor": "dense-retrieval",
-          "quote": "Keyword search를 통해 첫번째 query는 잘 작동했지만 두번째 query는 그렇지 못했습니다. 두번째 query에는 실제로 많은 document에 query에 있는 단어들이 불필요하게 많이 포함되어 있기 때문입니다. 좋은 결과를 얻어내는 방법으론 모델이 '잘 이해할 수 있는' 질문을 하는 것입니다. 바로 이 부분에서 Semantic Search가 기인합니다. Semantic Search는 단순한 키워드 매칭이 아닌 의미를 파악하여 검색합니다. 언어 모델들은 두 가지 주된 semantic search 방법론(Dense Retrieval & Re-ranking)을 활용합니다. 그 중 Dense Retrieval을 살펴봅시다.",
-          "hash": "a3ec66ba0c3617c61a34c9ad411b2c0e30abaa76308bc4087a61ee2d087e3624"
-        }
-      },
-      {
         "id": "book-spine",
-        "relation": "related_method",
-        "reason": "검색 후보를 만든 뒤 재점수화하는 재정렬 흐름을 실제 도서 제목 매칭에서 어떻게 구현하고 보완했는지 배울 수 있습니다.",
+        "relation": "application_example",
+        "reason": "쿼리와 후보의 관련도를 다시 매기는 방식이 책 제목 식별에서는 문자열 유사도와 규칙을 이용한 후보 재채점으로 적용되는 사례를 볼 수 있습니다.",
         "sourceEvidence": {
           "articleId": "reranking",
           "blockId": "[\"reranking\",1]",
@@ -282,29 +263,10 @@
         },
         "targetEvidence": {
           "articleId": "book-spine",
-          "blockId": "[\"system\",4]",
-          "anchor": "system",
-          "quote": "Matching normalizes the query, retrieves 50 candidates from a 50,000-book dictionary with character 2-gram and 3-gram BM25, and rescores them with string similarity plus a few rules (Section 5). Each spine ends in one of three states: confirmed (the dictionary entry is taken as the answer), review (candidates are shown and the user picks), or unmatched.",
-          "hash": "42e4da97f352cf20759e335c63c692349941e96920844bb8ef223bed57187f05"
-        }
-      },
-      {
-        "id": "keyword-search",
-        "relation": "concept_explanation",
-        "reason": "키워드 검색 결과를 재정렬로 개선하는 사례를 읽고, 단어 일치 방식의 한계와 재랭커의 역할을 이해할 수 있습니다.",
-        "sourceEvidence": {
-          "articleId": "reranking",
-          "blockId": "[\"결론\",1]",
-          "anchor": "결론",
-          "quote": "Reranking은 특정 쿼리에 가장 관련성이 높은 응답을 찾는 데 매우 유용한 방법입니다. 이는 dense retrieval을 개선하기 위한 키워드 검색의 보완 방식으로도 유용합니다. 이번 포스트에서는 키워드 검색을 통해 답을 포함할 가능성이 있는 20개의 문서를 먼저 검색한 뒤, 재정렬 엔드포인트를 사용하여 그 중 상위 3개를 선택함으로써 키워드 검색 결과를 크게 향상시켰습니다.",
-          "hash": "d03185c1f96687e82a0a21a6b9f63dba6fe3a917452f9793de8fe2ca09b0a0da"
-        },
-        "targetEvidence": {
-          "articleId": "keyword-search",
-          "blockId": "[\"conclusion\",5]",
-          "anchor": "conclusion",
-          "quote": "문장과 문장사이의 실제 의미에 대해 이해하고 단어가 아닌 그 의미에 따라 일치시킬 수 있는 semantic search, 서로 가장 관련성이 높은 문장과 문서 쌍을 표시할 수 있는 re-ranker와 같은 알고리즘을 통해 가장 적합한 문서를 도출할 수 있습니다.",
-          "hash": "d4dcdd114033613c51647915386b7b00322b4605e0790febe9fb7c5fbda99099"
+          "blockId": "[\"open-set\",1]",
+          "anchor": "open-set",
+          "quote": "The first reranker scored each candidate with the maximum of three RapidFuzz similarities: token_set_ratio, ratio on space-free strings, and partial_ratio. It had been evaluated only against the closed list of 90 titles used in Section 4, where the answer is always among the candidates.",
+          "hash": "36a824df433cfa957b73cc1d19e9bb1bf55d080cac83cfe8143310dc28e28ca5"
         }
       }
     ]

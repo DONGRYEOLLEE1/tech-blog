@@ -61,7 +61,7 @@
     "review": []
   },
   "entry": {
-    "inputHash": "106140fc86dc1e97745fdb1121135645b0be7ade65131aabbb19260f7d67c3ed",
+    "inputHash": "c116adf7fc08d8002142c74ba4e4beb27245e1003ac300780170d258200bcf10",
     "status": "verified",
     "candidates": [
       {
@@ -72,8 +72,8 @@
           "[\"harness의-효과\",1]"
         ],
         "targetBlocks": [
+          "[null,1]",
           "[null,3]",
-          "[\"draft\",1]",
           "[\"references\",3]"
         ]
       },
@@ -111,8 +111,8 @@
           "[\"정리\",1]"
         ],
         "targetBlocks": [
+          "[null,2]",
           "[\"questions\",1]",
-          "[\"conclusion\",1]",
           "[\"tldr\",11]"
         ]
       },
@@ -262,9 +262,9 @@
     ],
     "recommendations": [
       {
-        "id": "rtpurbo",
+        "id": "agent-memory-recall",
         "relation": "related_method",
-        "reason": "두 연구 모두 긴 문맥의 한계를 다루지만, SearchSwarm은 모델이 brief와 report로 문맥을 능동적으로 압축하고 RTPurbo는 attention을 희소화하므로 문맥 관리 방식의 차이를 배울 수 있습니다.",
+        "reason": "둘 다 긴 대화에서 정보를 다루지만, 한쪽은 brief와 report로 context를 압축하고 다른 쪽은 범위 조건과 임베딩으로 기억을 회상하는 방식을 설명합니다.",
         "sourceEvidence": {
           "articleId": "searchswarm",
           "blockId": "[\"main-distributes-sub-executes\",2]",
@@ -273,17 +273,17 @@
           "hash": "5e3ce7553c22a1489d9e82acccab91065d9b6e9600134e5aa33ad8d6a19fc2ba"
         },
         "targetEvidence": {
-          "articleId": "rtpurbo",
-          "blockId": "[\"introduction\",1]",
-          "anchor": "introduction",
-          "quote": "Long-context inference는 full attention의 quadratic cost에 발목 잡힘. 이를 줄이기 위한 기존 efficient 대안은 크게 두 갈래 — Kimi Delta Attention·DeepSeek Sparse Attention처럼 native sparse training을 하거나, heuristic하게 token을 eviction하는 방식. 둘 다 efficiency·training cost·accuracy 사이의 바람직하지 않은 trade-off를 만듦.",
-          "hash": "08a35454b93e68384e80f54da504ff0d3245ade67ff732a770140b0399370d0a"
+          "articleId": "agent-memory-recall",
+          "blockId": "[null,2]",
+          "anchor": null,
+          "quote": "이 글은 같은 에이전트의 장기 기억을 다룬다. 에이전트는 사람이 말한 취향, 사실, 부탁을 기억으로 저장하고 다음 대화에서 꺼내 쓴다. Anthropic은 최근 에이전트 기억의 구성 요소를 정리한 글(참고 4)에서 무언가를 기억으로 적어 두는 일 자체를 하나의 예측으로 본다. 규칙이나 확인한 사실을 남기는 것은 다음 세션에서 그 내용이 다시 필요하리라고 예측하는 일이고, 그렇다면 회상은 그 예측이 맞는 순간을 골라 기억을 꺼내는 일이다. 이 꺼내는 쪽, 곧 회상이 이번 작업의 대상이다. 이전 회상은 글자가 겹쳐야만 기억을 찾았고, 그 대신 관련도와 무관한 기억 1,200자를 모든 답에 붙였다. 이것을 범위 조건을 먼저 건 뒤 글자와 말뜻(임베딩)을 함께 보는 회상으로 바꿨다.",
+          "hash": "3d15866286a9803dacc13c3a00328de5b68c71e9649cc0b51d7b8d3dc2f5e7c5"
         }
       },
       {
         "id": "k-browsecomp",
         "relation": "evaluation_comparison",
-        "reason": "SearchSwarm은 deep research 벤치마크로 평가하고, K-BrowseComp은 한국어 웹 브라우징의 다중 턴 상태 관리 능력을 시험해 에이전트 평가 과제의 차이를 비교할 수 있습니다.",
+        "reason": "deep research는 BrowseComp 등으로 평가하고, 한국어 웹 브라우징 벤치마크는 다중 턴 상태 관리 능력을 측정해 browsing agent 평가 관점을 비교할 수 있습니다.",
         "sourceEvidence": {
           "articleId": "searchswarm",
           "blockId": "[\"experiments\",1]",

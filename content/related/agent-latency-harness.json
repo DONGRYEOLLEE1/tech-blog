@@ -10,7 +10,7 @@
   },
   "embeddingProfile": "f04e459161521d4b",
   "facts": {
-    "inputHash": "d50c95d73bff55c1cad89a7daa5cee95b73533ff49b8d330bd1a759d8870a6a5",
+    "inputHash": "a287f87bb81570b0b05393904c92fce4cb20ac8f5021fd46fb1522bb5c1cbdc5",
     "status": "verified",
     "facts": [
       {
@@ -20,8 +20,8 @@
           "articleId": "agent-latency-harness",
           "blockId": "[null,3]",
           "anchor": null,
-          "quote": "이 글은 근거 확인은 그대로 둔 채 요청 경로를 다시 짠 과정과, 그 결과를 합성 데이터 벤치마크로 잰 기록임. 측정은 2026년 9월 23~24일에 했고, 모델은 gpt-6-luna를 Responses API로 불렀음. 에이전트 루프는 OpenAI Agents SDK(JavaScript)로 돌렸고, 아래에서는 SDK라고 줄여 씀.",
-          "hash": "a35f5d7fba74ba47199f055275d368413bb8fb188e812ae291c376209c238d32"
+          "quote": "이 글은 근거 확인은 그대로 둔 채 요청 경로를 다시 짠 과정과, 그 결과를 합성 데이터 벤치마크로 잰 기록임. 측정은 2026년 9월 23–24일에 했고, 모델은 gpt-6-luna를 Responses API로 불렀음. 에이전트 루프는 OpenAI Agents SDK(JavaScript)로 돌렸고, 아래에서는 SDK라고 줄여 씀.",
+          "hash": "aa9c8c1c67900fab5a75db1b9f987e7ebec301352aa35cab4cb84848f984be02"
         }
       },
       {
@@ -40,10 +40,10 @@
         "role": "applies",
         "evidence": {
           "articleId": "agent-latency-harness",
-          "blockId": "[\"draft\",1]",
-          "anchor": "draft",
-          "quote": "자료를 읽고 쓴 답은 최종 검증을 거침. 검증 에이전트는 답과 이번 실행에서 실제로 읽은 근거를 받아, 답이 근거로 뒷받침되는지와 어느 근거의 몇 번째 줄을 인용했는지를 구조화 출력으로 냄. 서버는 이 판정을 그대로 믿지 않고, 인용한 근거와 줄이 실제로 있는지, 읽어야 할 기록을 읽었는지를 코드로 다시 확인함. 문서 편집 제안은 저장하기 전에 따로 검증하고, 떨어지면 사유가 도구 결과로 본 에이전트에게 돌아감.",
-          "hash": "8d376722cf7ded7ca01ea101d248c75c6e7c06b875d43dd440cb5c8e347fdc10"
+          "blockId": "[null,1]",
+          "anchor": null,
+          "quote": "두 사람이 같이 쓰는 셀프호스팅 워크스페이스를 만들어서 쓰고 있음. 문서, 일정, 가계부가 한 앱 안에 있고, 여기에 도구 호출로 워크스페이스를 직접 읽고 쓰는 AI 에이전트를 붙였음. 이 에이전트는 읽은 근거로만 답해야 해서, 답을 내보내기 전에 별도의 검증 에이전트가 답과 근거를 대조함.",
+          "hash": "d3b85dac455e44749400e0ae16eabf85272a9e1548866fa2cbf1c266dcf5b69c"
         }
       },
       {
@@ -51,17 +51,17 @@
         "role": "applies",
         "evidence": {
           "articleId": "agent-latency-harness",
-          "blockId": "[\"pipeline\",5]",
+          "blockId": "[\"pipeline\",2]",
           "anchor": "pipeline",
-          "quote": "| 본 에이전트 | | xhigh | | 사용자가 고름. 기본 medium |",
-          "hash": "3ea7e8151cf77bd660a11f8ce9b2253c01a4e0766ba07028f47adb8b7b14911d"
+          "quote": "모델을 부르는 곳은 요청 분류, 본 에이전트, 검증 세 군데임. 추론 수준(effort)은 단계마다 따로 정함.",
+          "hash": "121fbed27393ddc2b96ca9db5397c524447ef9859fd3206de5177b7865a1d8c8"
         }
       }
     ],
     "review": []
   },
   "entry": {
-    "inputHash": "7f2b5e36db5c1ad858aa9c752c10b061a465f4f1673cf666d3f0a6f23d846c81",
+    "inputHash": "4bb837fa9d857e4cc5a126f9b8782408d1bac58bf76e625c707ea4e0a2b46302",
     "status": "verified",
     "candidates": [
       {
@@ -106,8 +106,8 @@
       {
         "id": "searchswarm",
         "sourceBlocks": [
+          "[null,1]",
           "[null,3]",
-          "[\"draft\",1]",
           "[\"references\",3]"
         ],
         "targetBlocks": [
@@ -145,7 +145,7 @@
       {
         "id": "thinkingcap",
         "sourceBlocks": [
-          "[\"pipeline\",5]",
+          "[\"pipeline\",2]",
           "[\"router-effort\",1]",
           "[\"scoring\",9]"
         ],
@@ -251,13 +251,13 @@
       {
         "id": "agent-memory-recall",
         "relation": "evaluation_comparison",
-        "reason": "두 글의 합성 기억 과제에서 누설 여부를 살피지만, 회상 품질을 직접 재는 지표가 요청 경로 벤치마크에 없다는 차이를 배울 수 있습니다.",
+        "reason": "두 글 모두 에이전트 과제를 합성 데이터로 평가하지만, 한쪽은 지연·통과·누설을 보고 다른 쪽은 회상 품질을 따로 측정합니다.",
         "sourceEvidence": {
           "articleId": "agent-latency-harness",
-          "blockId": "[\"data\",3]",
-          "anchor": "data",
-          "quote": "기억을 쓰는 과제에는 기억 8개를 심음. 그 가운데 하나는 한 사람만 볼 수 있는 기억이고, 다른 사람이 받은 답에 이 내용이 나오면 누설로 판정함",
-          "hash": "d468ade76df3b89526f66e81f6ad204a2b82357522ede37517d72e0741d6f51b"
+          "blockId": "[null,3]",
+          "anchor": null,
+          "quote": "이 글은 근거 확인은 그대로 둔 채 요청 경로를 다시 짠 과정과, 그 결과를 합성 데이터 벤치마크로 잰 기록임. 측정은 2026년 9월 23–24일에 했고, 모델은 gpt-6-luna를 Responses API로 불렀음. 에이전트 루프는 OpenAI Agents SDK(JavaScript)로 돌렸고, 아래에서는 SDK라고 줄여 씀.",
+          "hash": "aa9c8c1c67900fab5a75db1b9f987e7ebec301352aa35cab4cb84848f984be02"
         },
         "targetEvidence": {
           "articleId": "agent-memory-recall",
@@ -265,44 +265,6 @@
           "anchor": "questions",
           "quote": "1편의 벤치마크에는 기억 품질 지표가 없었다. 지연, 통과 여부, 누설만 봤다. 이번에는 회상 자체를 재는 벤치마크를 따로 만들었다. 연구 질문은 여덟 개다.",
           "hash": "067916c2c33dbfdb4048c4c023edde5d62d4b374ef72d8165f5ca61be6a5de90"
-        }
-      },
-      {
-        "id": "k-browsecomp",
-        "relation": "related_method",
-        "reason": "요청 경로의 서버 선조회와 웹 탐색 에이전트의 도구 사용을 비교해, 에이전트 작업에서 검색·도구 처리가 맡는 역할을 살펴볼 수 있습니다.",
-        "sourceEvidence": {
-          "articleId": "agent-latency-harness",
-          "blockId": "[\"prefetch\",1]",
-          "anchor": "prefetch",
-          "quote": "분류 결과에 기간이나 검색어가 있으면 서버가 모델을 부르지 않고 일정과 가계부를 미리 읽고 페이지 검색도 미리 돌려 둠. 조회끼리는 병렬로 돌고, 하나가 실패하면 본 에이전트가 직접 읽게 둠.",
-          "hash": "23de7ae411c19330eeb33afb7d77e3efa131d5e999b21569e5bd8419b0f5aad0"
-        },
-        "targetEvidence": {
-          "articleId": "k-browsecomp",
-          "blockId": "[\"introduction\",4]",
-          "anchor": "introduction",
-          "quote": "Browsing agent는 instruction following·tool calling·multi-turn interaction을 동시에 요구하는 compositional task라, 한국어 agentic 능력을 종합적으로 측정하는 testbed가 됨.",
-          "hash": "0d7ba0566800e2c82c330937c0bb67a8a9ad059e072fccb34065468c9c5e7a3f"
-        }
-      },
-      {
-        "id": "searchswarm",
-        "relation": "related_method",
-        "reason": "한쪽은 요청 경로에서 조회를 병렬화하고 다른 쪽은 하위 에이전트에 작업을 위임해, 에이전트 파이프라인의 작업 분배 방식을 비교합니다.",
-        "sourceEvidence": {
-          "articleId": "agent-latency-harness",
-          "blockId": "[\"draft\",1]",
-          "anchor": "draft",
-          "quote": "자료를 읽고 쓴 답은 최종 검증을 거침. 검증 에이전트는 답과 이번 실행에서 실제로 읽은 근거를 받아, 답이 근거로 뒷받침되는지와 어느 근거의 몇 번째 줄을 인용했는지를 구조화 출력으로 냄. 서버는 이 판정을 그대로 믿지 않고, 인용한 근거와 줄이 실제로 있는지, 읽어야 할 기록을 읽었는지를 코드로 다시 확인함. 문서 편집 제안은 저장하기 전에 따로 검증하고, 떨어지면 사유가 도구 결과로 본 에이전트에게 돌아감.",
-          "hash": "8d376722cf7ded7ca01ea101d248c75c6e7c06b875d43dd440cb5c8e347fdc10"
-        },
-        "targetEvidence": {
-          "articleId": "searchswarm",
-          "blockId": "[\"introduction\",2]",
-          "anchor": "introduction",
-          "quote": "이에 대한 더 active한 대안이 main-distributes, sub-executes 패러다임. main agent가 task를 미리 분해하고 bounded subtask를 subagent에 위임한 뒤, subagent의 요약된 실행 결과만 회수함. 이를 잘 수행하려면 delegation intelligence가 필요함: (1) 복잡한 task를 분해하고, (2) 언제 무엇을 위임할지 판단하며, (3) 돌아온 결과를 진행 중인 workflow에 통합하는 능력. 문제는 이런 능력을 학습할 데이터가 자연 텍스트에 거의 없고, 오픈소스 진영에서 이런 데이터를 어떻게 합성하고 학습시킬지가 거의 탐구되지 않았다는 점.",
-          "hash": "a0ce85141510b2bee166d955dd9bd7dc28828be7debeab1f555463275df2e449"
         }
       }
     ]
